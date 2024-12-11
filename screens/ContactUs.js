@@ -1,19 +1,33 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
 import React from 'react'
 import ReusableButton from '../components/ReusableButton'
+import { useNavigation } from '@react-navigation/native'
 
 const ContactUs = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             <Text style={styles.label1}>Contact Us</Text>
-            <Image source={require('../assets/images/frame5.png')} style={styles.frame5} />
-            <Image source={require('../assets/images/frame51.png')} />
+            <Text style={styles.label2}>Email</Text>
+            <TextInput
+                style={styles.input}
+                placeholder='example@example.com'
+                placeholderTextColor="lightgray"
+            />
+            <Text style={styles.label3}>Message</Text>
+            <TextInput
+                style={styles.input1}
+                placeholder='Tell to us here...'
+                placeholderTextColor="lightgray"
+
+            />
+
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.btntext}>Attach file</Text>
             </TouchableOpacity>
-            <ReusableButton text= "Submit"/>
-            <Image source={require('../assets/images/frame52.png')} style={styles.frame52}/>
+            <ReusableButton text="Submit" onPress={() => navigation.navigate('SelectCoach')} />
+            <Image source={require('../assets/images/frame52.png')} style={styles.frame52} />
         </View>
     )
 }
@@ -36,9 +50,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: '10%',
     },
-    frame5: {
-        marginTop: 35,
-    },
     button: {
         borderWidth: 2,
         borderColor: '#D11A38',
@@ -51,7 +62,33 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '600',
     },
-    frame52:{
+    frame52: {
         alignSelf: 'center',
+        
+    },
+    label2: {
+        marginTop: '12%',
+        left: 12,
+        fontSize: 16,
+    },
+    label3: {
+        left: 12,
+        fontSize: 16,
+        
+    },
+    input:{
+        borderWidth: 1,
+        margin: 15,
+        padding:15,
+        borderRadius: 12,
+        borderColor: 'lightgray',
+    },
+    input1:{
+        borderWidth: 1,
+        margin: 15,
+        height: '20%',
+        borderRadius: 12,
+        borderColor: 'lightgray',
+        textAlignVertical: 'top',
     },
 })

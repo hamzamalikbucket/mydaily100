@@ -51,7 +51,6 @@ const SignIn = () => {
                 keyboardType="email-address"
             />
             <Text style={styles.label1}>Password</Text>
-
             <TextInput
                 style={styles.input}
                 placeholder="password123"

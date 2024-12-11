@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import ReusableButton from '../components/ReusableButton';
 
 export default function SignUp() {
     const navigation = useNavigation();
@@ -29,14 +30,13 @@ export default function SignUp() {
                 placeholder="password123"
             // value={password}
             />
-            <TouchableOpacity onPress={()=> navigation.navigate('TermsConditions')}>
+            <TouchableOpacity onPress={() => navigation.navigate('TermsConditions')}>
                 <Image source={require("../assets/images/frame18.png")} style={styles.frame18} />
             </TouchableOpacity>
-
-            <Image source={require("../assets/images/frame19.png")} />
-            <TouchableOpacity onPress={()=>navigation.navigate('ProfilePage')}>
-            <Image source={require("../assets/images/frame20.png")} style={styles.frame20} />
+            <TouchableOpacity onPress={() => navigation.navigate('PrivacyPolicy')}>
+                <Image source={require("../assets/images/frame19.png")} />
             </TouchableOpacity>
+            <ReusableButton text="Create New Account" onPress={() => navigation.navigate('ProfilePage')} />
             <Text style={styles.ortext}>or</Text>
             <Image source={require("../assets/images/frame22.png")} />
 

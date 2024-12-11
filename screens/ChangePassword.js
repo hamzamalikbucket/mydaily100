@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native'
 import React from 'react'
 import ReusableButton from '../components/ReusableButton'
 import { useNavigation } from '@react-navigation/native'
@@ -10,13 +10,26 @@ const ChangePassword = () => {
         <View style={styles.container}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             <Text style={styles.textpassword}>Change Password</Text>
-            <Image source={require('../assets/images/frame50.png')} style={styles.frame50} />
-            <Image source={require('../assets/images/frame32.png')} />
-            <Image source={require('../assets/images/frame33.png')} />
+            <Text style={styles.label1}>current password</Text>
+            <TextInput
+                style={styles.input}
+                placeholder='current password'
+            />
+            <Text style={styles.label2}>New password</Text>
+            <TextInput
+                style={styles.input}
+                placeholder='New password'
+            />
+            <Text style={styles.label3}>Confirm New password</Text>
+            <TextInput
+                style={styles.input}
+                placeholder='Confirm New password'
+            />
+
             <ReusableButton text='Save New Password' onPress={() => navigation.navigate('Setting')} />
-                <TouchableOpacity onPress={()=>navigation.navigate('ForgetPassword')}>
+            <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Text style={styles.label}>Forget Password</Text>
-                </TouchableOpacity>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -39,12 +52,29 @@ const styles = StyleSheet.create({
         marginTop: 45,
         left: 15,
     },
-    frame50: {
-        marginTop: '12%',
-    },
-    label:{
+    label: {
         textAlign: 'center',
         color: '#D11A38',
         fontSize: 16,
+    },
+    label1: {
+        marginTop: '12%',
+        left: 12,
+        fontSize: 16,
+    },
+    label2: {
+        left: 12,
+        fontSize: 16,
+    },
+    label3: {
+        left: 12,
+        fontSize: 16,
+    },
+    input:{
+        borderWidth: 1,
+        margin: 15,
+        padding:15,
+        borderRadius: 12,
+        borderColor: 'lightgray',
     },
 })

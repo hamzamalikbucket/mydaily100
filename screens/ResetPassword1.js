@@ -1,23 +1,27 @@
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import ReusableButton from '../components/ReusableButton';
 
 const ResetPassword1 = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.navigate('ForgetPassword')}>
+            <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
-
-            <Image source={require('../assets/images/frame31.png')} style={styles.frame31} />
-            <Image source={require('../assets/images/frame32.png')} style={styles.frame32} />
-            <Image source={require('../assets/images/frame33.png')} style={styles.frame33} />
-
-            <TouchableOpacity onPress={() => navigation.navigate('ResetPassword2')}>
-                <Image source={require('../assets/images/frame34.png')} style={styles.frame34} />
-            </TouchableOpacity>
-
+            <Text style={styles.label1}>Reset Password</Text>
+            <Text style={styles.inputlabel}>Password</Text>
+            <TextInput
+                style={styles.input}
+                placeholder='New Password'
+            />
+            <Text style={styles.inputlabel}>Confirm New Password</Text>
+            <TextInput
+                style={styles.input}
+                placeholder='New Password'
+            />
+            <ReusableButton text="Save New Password" onPress={() => navigation.navigate('ResetPassword2')} />
         </View>
     )
 }
@@ -27,15 +31,29 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     frame30: {
-        marginTop: 20,
+        marginTop: 35,
+        left: 10,
     },
-    frame31: {
+    label1: {
         marginTop: '15%',
         left: 15,
+        color: '#D11A38',
+        fontSize: 36,
+        fontWeight: '600',
     },
-    frame32: {
-        marginTop: '10%',
-        left: 10,
+    input: {
+        padding: 15,
+        borderWidth: 1,
+        borderColor: 'lightgray',
+        marginLeft: 15,
+        marginRight: 15,
+        borderRadius: 12,
+    },
+    inputlabel: {
+        marginTop: 35,
+        padding: 12,
+        fontSize: 16,
+        color: "#000",
     },
     frame33: {
         left: 10,
