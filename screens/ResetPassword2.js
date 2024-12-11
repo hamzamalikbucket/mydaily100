@@ -23,7 +23,7 @@ const ResetPassword2 = () => {
                 placeholder='New Password'
             />
             <Text style={{marginLeft: 20, marginTop: 10,}}>*Please make sure the Password match </Text>
-            <ReusableButton text="Save New Password" onPress={() => navigation.navigate('ResetPassword2')} />
+            <ReusableButton text="Save New Password" onPress={() => navigation.navigate('ContactUs')} />
 
         </View>
     )

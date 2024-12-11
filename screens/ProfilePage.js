@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation, useState } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
@@ -8,7 +8,9 @@ const ProfilePage = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
+            </TouchableOpacity>
             <Image source={require('../assets/images/frame37.png')} style={styles.frame37} />
             <Image source={require('../assets/images/frame38.png')} style={styles.frame38} />
             <Image source={require('../assets/images/frame39.png')} style={styles.frame39} />

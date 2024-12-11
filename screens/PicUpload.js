@@ -8,7 +8,7 @@ const PicUpload = () => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.navigate('Motivation')}>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
             <Image source={require('../assets/images/frame45.png')} style={styles.frame45} />

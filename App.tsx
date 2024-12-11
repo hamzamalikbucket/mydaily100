@@ -120,15 +120,15 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-// import YourGoals from './screens/YourGoals';
+import YourGoals from './screens/YourGoals';
 // import YourGoals2 from './screens/YourGoals2';
-import Contact from './screens/Personalinfo';
-// import PaymentDetails from './screens/PaymentDetails';
-// import PaymentDetails2 from './screens/PaymentDetails2';
-// import PaymentSuccessfull from './screens/PaymentSuccessfull';
+// import Contact from './screens/Personalinfo';
+import PaymentDetails from './screens/PaymentDetails';
+import PaymentDetails2 from './screens/PaymentDetails2';
+import PaymentSuccessfull from './screens/PaymentSuccessfull';
 
 
-// import DateTime from './screens/DateTime';
+import DateTime from './screens/DateTime';
 // import SelectCoach from './screens/SelectCoach';
 // import ContactUs from './screens/ContactUs';
 // import ChangePassword from './screens/ChangePassword';
@@ -165,11 +165,11 @@ const App = () => {
         <Stack.Screen name="Goals" component={Goals} />
         <Stack.Screen name="OtpPage" component={OtpPage} />
         <Stack.Screen name="ConfirmOtp" component={ConfirmOtp} />
-        <Stack.Screen name="VerifiedOtp" component={VerifiedOtp} /> */}
-        {/* <Stack.Screen name="SignUp" component={SignUp} /> */}
-        {/* <Stack.Screen name="TermsConditions" component={TermsConditions} />/ */}
-        {/* <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />/ */}
-        {/* <Stack.Screen name="ForgetPassword" component={ForgetPassword} />/ */}
+        <Stack.Screen name="VerifiedOtp" component={VerifiedOtp} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="TermsConditions" component={TermsConditions} />
+        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+        <Stack.Screen name="ForgetPassword" component={ForgetPassword} /> */}
         {/* <Stack.Screen name="ResetPassword1" component={ResetPassword1} /> */}
         {/* <Stack.Screen name="ResetPassword2" component={ResetPassword2} /> */}
         {/* <Stack.Screen name="SignIn" component={SignIn} /> */}
@@ -181,13 +181,13 @@ const App = () => {
         {/* <Stack.Screen name="ChangePassword" component={ChangePassword} /> */}
         {/* <Stack.Screen name="ContactUs" component={ContactUs} /> */}
         {/* <Stack.Screen name="SelectCoach" component={SelectCoach} /> */}
-        {/* <Stack.Screen name="DateTime" component={DateTime} /> */}
-        {/* <Stack.Screen name="PaymentDetails" component={PaymentDetails} /> */}
-        {/* <Stack.Screen name="PaymentDetails2" component={PaymentDetails2} /> */}
-        {/* <Stack.Screen name="PaymentSuccessfull" component={PaymentSuccessfull} /> */}
-        {/* <Stack.Screen name="YourGoals" component={YourGoals} /> */}
+        <Stack.Screen name="DateTime" component={DateTime} />
+        <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
+        <Stack.Screen name="PaymentDetails2" component={PaymentDetails2} />
+        <Stack.Screen name="PaymentSuccessfull" component={PaymentSuccessfull} />
+        <Stack.Screen name="YourGoals" component={YourGoals} />
         {/* <Stack.Screen name="YourGoals2" component={YourGoals2} /> */}
-        <Stack.Screen name="Contact" component={Contact} />
+        {/* <Stack.Screen name="Contact" component={Contact} /> */}
 
 
       </Stack.Navigator>

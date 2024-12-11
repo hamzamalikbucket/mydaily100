@@ -6,7 +6,7 @@ const PaymentDetails = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.navigate('PaymentDetails')}>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
             <Text style={styles.line1}>Enter Payment Details </Text>
@@ -31,7 +31,7 @@ const PaymentDetails = () => {
                 />
             </View>
             <Image source={require('../assets/images/frame54.png')} style={styles.frame54} />
-            <TouchableOpacity onPress={()=>navigation.navigate('PaymentSuccessfull')}>
+            <TouchableOpacity onPress={()=>navigation.navigate('YourGoals')}>
             <Image source={require('../assets/images/frame55.png')} style={styles.frame55} />
             </TouchableOpacity>
 

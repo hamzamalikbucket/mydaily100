@@ -5,7 +5,7 @@ const PaymentDetails = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.navigate('DateTime')}>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
             <Text style={styles.line1}>Enter Payment Details</Text>
@@ -34,7 +34,7 @@ const PaymentDetails = () => {
             <Image source={require('../assets/images/frame55.png')} style={styles.frame55} />
             </TouchableOpacity>
 
-            <Image source={require('../assets/images/frame15.png')} style={styles.frame15} />
+            {/* <Image source={require('../assets/images/frame15.png')} style={styles.frame15} /> */}
 
         </View>
     )

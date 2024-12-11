@@ -7,7 +7,7 @@ const Motivation = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('ProfilePage')}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
             <Image source={require('../assets/images/frame42.png')} style={styles.frame42} />

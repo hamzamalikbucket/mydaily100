@@ -6,7 +6,7 @@ const Setup = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.navigate('ProfilePage')}>
+            <TouchableOpacity onPress={()=>navigation.navigate('Setting')}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
             <Image source={require('../assets/images/frame48.png')} style={styles.frame48} />

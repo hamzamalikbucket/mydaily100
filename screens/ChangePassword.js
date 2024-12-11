@@ -26,7 +26,7 @@ const ChangePassword = () => {
                 placeholder='Confirm New password'
             />
 
-            <ReusableButton text='Save New Password' onPress={() => navigation.navigate('Setting')} />
+            <ReusableButton text='Save New Password' onPress={() => navigation.navigate('ForgetPassword')} />
             <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Text style={styles.label}>Forget Password</Text>
             </TouchableOpacity>

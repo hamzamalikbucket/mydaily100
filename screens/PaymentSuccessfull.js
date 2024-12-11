@@ -6,7 +6,7 @@ const PaymentSuccessfull = () => {
     const navigation = useNavigation();
     return (
         <View styles={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.navigate('PaymentDetails2')}>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
 

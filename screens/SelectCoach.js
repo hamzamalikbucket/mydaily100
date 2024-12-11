@@ -10,7 +10,10 @@ const SelectCoach = () => {
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             <Text style={styles.line1}>Select Available</Text>
             <Text style={styles.line2}>Coach or Manager</Text>
-            <Image source={require('../assets/images/frame53.png')} style={styles.frame53}/>
+            <TouchableOpacity onPress={()=>navigation.navigate('DateTime')}>
+                <Image source={require('../assets/images/frame53.png')} style={styles.frame53} />
+            </TouchableOpacity>
+
         </View>
     )
 }
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
         fontSize: 36,
         fontWeight: '600',
     },
-    frame53:{
+    frame53: {
         alignSelf: 'center',
         marginTop: 25,
     }
