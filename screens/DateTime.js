@@ -42,6 +42,8 @@ const DateTime = () => {
           }}
         />
       </View>
+            <TouchableOpacity onPress={()=> navigation.navigate('PaymentDetails')}>
+
       <Text style={styles.line4}>Select Time:</Text>
       <View style={styles.rowContainer}>
         {times.map((time, index) => (
@@ -50,6 +52,8 @@ const DateTime = () => {
           </TouchableOpacity>
         ))}
       </View>
+      </TouchableOpacity>
+
     </ScrollView>
   )
 }

@@ -34,7 +34,6 @@ const PaymentDetails = () => {
             <TouchableOpacity onPress={()=>navigation.navigate('YourGoals')}>
             <Image source={require('../assets/images/frame55.png')} style={styles.frame55} />
             </TouchableOpacity>
-
         </ScrollView>
     )
 }

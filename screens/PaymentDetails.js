@@ -5,43 +5,47 @@ import { useNavigation } from '@react-navigation/native';
 const PaymentDetails = () => {
     const navigation = useNavigation();
     return (
-        <ScrollView style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
-            </TouchableOpacity>
-            <Text style={styles.line1}>Enter Payment Details</Text>
-            <Text style={styles.label1}>Card Number</Text>
-            <TextInput
-                style={styles.input}
-                placeholder='1234-5678-9101-1121'
-                placeholderTextColor="lightgray"
-            />
-            <View style={styles.group}>
-                <View style={styles.inputContainer}>
-                    <Text>Expire Date</Text>
-                    <TextInput
-                        style={styles.input1}
-                        placeholder="12/34"
-                        placeholderTextColor="lightgray"
-                    />
+        <View style={styles.container}>
+            <ScrollView contentContainerStyle={styles.scrollViewContent}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
+                </TouchableOpacity>
+                <Text style={styles.line1}>Enter Payment Details</Text>
+                <Text style={styles.label1}>Card Number</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="1234-5678-9101-1121"
+                    placeholderTextColor="lightgray"
+                />
+                <View style={styles.group}>
+                    <View style={styles.inputContainer}>
+                        <Text>Expire Date</Text>
+                        <TextInput
+                            style={styles.input1}
+                            placeholder="12/34"
+                            placeholderTextColor="lightgray"
+                        />
+                    </View>
+                    <View style={styles.inputContainer}>
+                        <Text>CVV</Text>
+                        <TextInput
+                            style={styles.input1}
+                            placeholder="123"
+                            placeholderTextColor="#aaa"
+                        />
+                    </View>
                 </View>
-                <View style={styles.inputContainer}>
-                    <Text>CVV</Text>
-                    <TextInput
-                        style={styles.input1}
-                        placeholder="123"
-                        placeholderTextColor="#aaa"
-                    />
-                </View>
+                <Text style={styles.text}>Save card details</Text>
+            </ScrollView>
+            <View style={styles.footer}>
+                <Text style={styles.text2}>$26</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('YourGoals')} style={styles.button}>
+                    <Text style={styles.textbtn}>Pay & confirm</Text>
+                </TouchableOpacity>
             </View>
-            <Text style={styles.text}>Save card details</Text>
-            <Text style={styles.text2}>$26</Text>
-            <TouchableOpacity onPress={()=>navigation.navigate('PaymentDetails2')}>
-            <Text style={styles.textbtn}>Pay & confirm</Text>
-            </TouchableOpacity>
-        </ScrollView>
-    )
-}
+        </View>
+    );
+};
 
 export default PaymentDetails;
 
@@ -49,6 +53,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+    },
+    scrollViewContent: {
+        flexGrow: 1,
+        paddingBottom: 20,
     },
     frame30: {
         marginTop: 35,
@@ -80,23 +88,29 @@ const styles = StyleSheet.create({
     },
     text2: {
         fontSize: 30,
-        width: 56,
-        height: 38,
         marginLeft: 20,
         fontWeight: '700',
     },
     textbtn: {
-        fontSize: 14,
+        color: '#fff',
+        fontWeight: '700',
+        textAlign: 'center',
+    },
+    button: {
         backgroundColor: '#D11A38',
+        textAlign: 'center',
+        padding: 15,
+        borderRadius: 12,
+        // marginLeft: 10,
         width: 145,
         height: 52,
-        left: 228,
-        marginTop: 17,
-        textAlign: 'center',
-        padding: 13,
-        color: '#fff',
-        borderRadius: 12,
-        fontWeight: '700',
+    },
+    footer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: 20,
+       
     },
     group: {
         flexDirection: 'row',
@@ -116,4 +130,4 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         marginTop: 5,
     },
-})
+});

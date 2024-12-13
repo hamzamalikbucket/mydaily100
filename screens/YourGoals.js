@@ -101,7 +101,9 @@ const YourGoals = () => {
         <ScrollView style={styles.container}>
             <Image source={require('../assets/images/frame57.png')} style={styles.frame57} />
             <Text style={styles.text}>Your Goals</Text>
+            
             <Image source={require('../assets/images/frame58.png')} style={styles.frame58} />
+
             <View style={styles.group}>
                 <Text style={styles.line1}>Your Assessment</Text>
                 <Text style={styles.line2}>View all</Text>
