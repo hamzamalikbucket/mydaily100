@@ -2,30 +2,30 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
-import Swiper from 'react-native-swiper';
-
+useNavigation
 
 const DailyTarget = () => {
     const navigation = useNavigation();
     return (
-        <Swiper loop={false} showsPagination={false}>
-            <View style={styles.container}>
+        <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Goals')}>
                 <Text style={styles.text}>Skip</Text>
-                <Image source={require('../assets/images/img3.png')} style={styles.image3} />
-                <Text style={styles.line1}>Stay on</Text>
-                <Text style={styles.line2}>Target Daily</Text>
-                <Text style={styles.discription}>Maintain focus, adapt, and conquer
-                    daily challenges. My Daily 100: Your
-                    guide to <Text style={styles.progress}>Unstoppable Progress</Text></Text>
-                <TouchableOpacity onPress={()=> navigation.navigate('Goals')}>
-                    <Image source={require('../assets/images/frame2.png')} style={styles.frame2} />
-                </TouchableOpacity>
+            </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('SuccessChart')}>
-                    <Image source={require('../assets/images/frame3.png')} style={styles.frame3} />
-                </TouchableOpacity>
-            </View>
-        </Swiper>
+            <Image source={require('../assets/images/img3.png')} style={styles.image3} />
+            <Text style={styles.line1}>Stay on</Text>
+            <Text style={styles.line2}>Target Daily</Text>
+            <Text style={styles.discription}>Maintain focus, adapt, and conquer
+                daily challenges. My Daily 100: Your
+                guide to <Text style={styles.progress}>Unstoppable Progress</Text>
+            </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Goals')}>
+                <Image source={require('../assets/images/frame2.png')} style={styles.frame2} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image source={require('../assets/images/frame3.png')} style={styles.frame3} />
+            </TouchableOpacity>
+        </View>
     );
 }
 
@@ -41,19 +41,18 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '500',
         textAlign: 'center',
-        marginTop: 50,
-        justifyContent: 'flex-start',
+        marginTop: '15%',
     },
     image3: {
         alignSelf: 'center',
-        marginTop: 100,
+        marginTop: '20%',
     },
     line1: {
         fontSize: 34,
         color: '#000',
         fontWeight: '400',
         textAlign: 'center',
-        marginTop: 50,
+        marginTop: '10%',
     },
     line2: {
         fontSize: 34,
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
         fontSize: 17,
         fontWeight: '400',
         textAlign: 'center',
-        marginTop: 5,
+        marginTop: '5%',
         marginLeft: 10,
         marginRight: 10,
     },
@@ -73,14 +72,14 @@ const styles = StyleSheet.create({
         color: '#D11A38',
     },
     frame2: {
-        marginTop: 100,
-        marginRight: 10,
+        marginTop: '25%',
+        marginRight: 15,
         alignSelf: 'flex-end',
     },
     frame3: {
-        position: 'absolute',
-        left: 10,
-        bottom: 5,
+            position: 'absolute',
+            left: 10,
+            bottom: 5,
     },
 });
 

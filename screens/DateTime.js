@@ -4,7 +4,6 @@ import { Calendar } from 'react-native-calendars';
 import { useNavigation } from '@react-navigation/native';
 
 const DateTime = () => {
-
   const navigation = useNavigation();
   const [SelectedDate, setSelectedDate] = useState('');
   const times = [
@@ -51,7 +50,6 @@ const DateTime = () => {
           </TouchableOpacity>
         ))}
       </View>
-
     </View>
   )
 }

@@ -1,19 +1,33 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
 
 const PicUpload = () => {
     const navigation = useNavigation();
+    const data = [
+        { id: 1},
+    ];
 
+    const renderItem = ({ item }) => (
+        <TouchableOpacity>
+        <View style={styles.list}>
+        <Image source={item.Image} style={styles.image}/>
+        </View>
+        </TouchableOpacity>
+    );
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.goBack()}>
-            <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
-            <Image source={require('../assets/images/frame45.png')} style={styles.frame45} />
-            <Image source={require('../assets/images/frame46.png')} style={styles.frame46} />
-            <ReusableButton text = 'save' onPress={()=>navigation.navigate('Setup')}/>
+            <Text style={styles.title}>Upload a Picture{"\n"} of your Dreams</Text>
+            <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(item)=>item.id}
+            />
+            <ReusableButton text='save' onPress={() => navigation.navigate('Setup')} />
         </View>
     )
 }
@@ -25,13 +39,21 @@ const styles = StyleSheet.create({
     frame30: {
         marginTop: 20,
     },
-    frame45: {
+    title: {
         alignSelf: 'center',
-        marginTop: 20,
+        color: '#D11A38',
+        fontSize: 36,
+        fontWeight: '600',
     },
-    frame46: {
-        alignSelf: 'center',
-        marginTop: 15,
+    list:{
+        height: 60,
+        marginBottom: 15,
+        borderRadius: 12,
+        width:353,
+        height: 220,
+        marginTop: '10%',
+        backgroundColor: '#FFC0BC',
+        margin:30,
     },
 
 })

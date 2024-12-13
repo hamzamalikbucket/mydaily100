@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Button } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import ReusableButton from '../components/ReusableButton';
 const PaymentDetails = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.goBack()}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
             <Text style={styles.line1}>Enter Payment Details</Text>
@@ -15,27 +16,29 @@ const PaymentDetails = () => {
                 placeholder='1234-5678-9101-1121'
                 placeholderTextColor="lightgray"
             />
-            <Text style={styles.label2}>Expire Date</Text>
-            <TextInput
-                style={styles.input1}
-                placeholder='12/34'
-                placeholderTextColor="lightgray"
-            />
             <View style={styles.group}>
-                <Text style={styles.label3}>CVV</Text>
-                <TextInput
-                    style={styles.input2}
-                    placeholder="123"
-                    placeholderTextColor="#aaa"
-                />
+                <View style={styles.inputContainer}>
+                    <Text>Expire Date</Text>
+                    <TextInput
+                        style={styles.input1}
+                        placeholder="12/34"
+                        placeholderTextColor="lightgray"
+                    />
+                </View>
+                <View style={styles.inputContainer}>
+                    <Text>CVV</Text>
+                    <TextInput
+                        style={styles.input1}
+                        placeholder="123"
+                        placeholderTextColor="#aaa"
+                    />
+                </View>
             </View>
-            <Image source={require('../assets/images/frame54.png')} style={styles.frame54} />
-            <TouchableOpacity onPress={()=>navigation.navigate('PaymentDetails2')}>
-            <Image source={require('../assets/images/frame55.png')} style={styles.frame55} />
-            </TouchableOpacity>
-
-            {/* <Image source={require('../assets/images/frame15.png')} style={styles.frame15} /> */}
-
+            <Text style={styles.text}>Save card details</Text>
+            <View style={styles.amountcontainer}>
+            <Text >$26</Text>
+            <Text style={styles.textbtn}>Pay & confirm</Text>
+            </View>
         </View>
     )
 }
@@ -70,48 +73,48 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         margin: 12,
     },
-    label2: {
-        left: 15,
+    text: {
+        marginTop: '10%',
+        marginLeft: 15,
         fontSize: 16,
-        marginTop: 5,
     },
-    input1: {
-        padding: 15,
-        borderWidth: 1,
-        borderColor: 'lightgray',
+    text2: {
+        fontSize: 28,
+        marginLeft: 15,
+        fontWeight: 'bold',
+    },
+    textbtn: {
+        fontSize: 28,
+        backgroundColor: '#D11A38',
+        width: '50%',
+        height: '25%',
+        textAlign: 'center',
+        padding: 13,
+        color: '#fff',
         borderRadius: 12,
-        margin: 12,
-        width: '30%',
+        fontWeight: '400',
     },
-    label3: {
-        right: '25%',
-        fontSize: 16,
-        textAlign: 'right',
-    },
-    input2: {
-        padding: 15,
-        borderWidth: 1,
-        borderColor: 'lightgray',
-        borderRadius: 12,
-        margin: 12,
-        width: '30%',
+    amountcontainer:{
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        alignSelf: 'flex-end',
+        marginTop: '20%',
     },
     group: {
-        marginTop: '-25%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center', 
     },
-    frame54: {
-        marginTop: 10,
+    inputContainer: {
+        flex: 1, 
+        marginLeft: 15,
+        marginRight: 10,
+        marginTop: 25,
     },
-    frame55: {
-        marginTop: '15%',
-        left: 10,
-        width: '100%',
-
-    },
-    frame15: {
-        alignSelf: 'center',
-        width: '100%',
+    input1: {
+        borderWidth: 1, 
+        borderColor: 'lightgray', 
+        padding: 8,
+        borderRadius: 12,
+        marginTop: 5, 
     },
 })

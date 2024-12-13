@@ -12,8 +12,6 @@ const YourGoals2 = () => {
             </View>
             <Text style={styles.text}>You Have 20 Completed</Text>
             <Image source={require('../assets/images/frame62.png')} style={styles.frame62} />
-
-
         </View>
     )
 }

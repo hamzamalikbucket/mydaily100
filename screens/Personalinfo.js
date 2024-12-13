@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const Contact = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <Image source={require('../assets/images/frame30.png')} style={{ marginTop: 25, left: 15, }} />

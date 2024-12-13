@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { useNavigation, useState } from '@react-navigation/native';
+import {useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
 
 
@@ -11,7 +11,7 @@ const ProfilePage = () => {
             <TouchableOpacity onPress={()=>navigation.goBack()}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
-            <Image source={require('../assets/images/frame37.png')} style={styles.frame37} />
+            <Text style={styles.title}>Profile Information</Text>
             <Image source={require('../assets/images/frame38.png')} style={styles.frame38} />
             <Image source={require('../assets/images/frame39.png')} style={styles.frame39} />
             <Text style={styles.label1}>Full Name</Text>
@@ -48,13 +48,16 @@ const styles = StyleSheet.create({
         marginTop: 15,
         left: 10,
     },
-    frame37: {
+    title: {
         alignSelf: 'center',
         marginTop: 30,
+        color: '#D11A38',
+        fontSize: 36,
+        fontWeight: '600',
     },
     frame38: {
         alignSelf: 'center',
-        marginTop: '25%',
+        marginTop: '30%',
         position: 'absolute',
     },
     frame39: {

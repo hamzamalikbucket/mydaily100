@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
 
 export default function SignUp() {
@@ -8,8 +8,8 @@ export default function SignUp() {
     return (
         <View style={styles.container}>
             <Image source={require('../assets/images/logo.png')} style={styles.logo} />
-            <Image source={require("../assets/images/frame17.png")} style={styles.frame17} />
-
+            <Text style={styles.title}>Sign Up</Text>
+            <Text style={styles.subtitle}>Create your new account</Text>
             <Text style={styles.label1}>Email</Text>
             <TextInput
                 style={styles.input}
@@ -30,22 +30,25 @@ export default function SignUp() {
                 placeholder="password123"
             // value={password}
             />
-            <TouchableOpacity onPress={() => navigation.navigate('TermsConditions')}>
-                <Image source={require("../assets/images/frame18.png")} style={styles.frame18} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('PrivacyPolicy')}>
-                <Image source={require("../assets/images/frame19.png")} />
-            </TouchableOpacity>
+            <Text style={styles.option1}>
+                By sign up I agree with{' '}
+                <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('TermsConditions')}>Terms and Conditions</Text>
+            </Text>
+            <Text style={styles.option2}>
+                By sign up I agree with{' '}
+                <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('PrivacyPolicy')}>Privacy and Policy</Text>
+            </Text>
+
             <ReusableButton text="Create New Account" onPress={() => navigation.navigate('ProfilePage')} />
             <Text style={styles.ortext}>or</Text>
-            <Image source={require("../assets/images/frame22.png")} />
-
-            <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-                <Image source={require("../assets/images/frame21.png")} style={styles.frame21} />
+            <TouchableOpacity>
+                <Text style={styles.btn1}>Google</Text>
             </TouchableOpacity>
-
-
-
+            <View style={styles.footertext}>
+                <Text>Already have an account?{' '}
+                    <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('SignIn')}>Sign In</Text>
+                </Text>
+            </View>
         </View>
     )
 }
@@ -59,9 +62,17 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: '8%',
     },
-    frame17: {
+    title: {
         alignSelf: 'center',
         marginTop: "5%",
+        fontSize: 36,
+        color: '#D11A38',
+        fontWeight: '600',
+    },
+    subtitle: {
+        alignSelf: 'center',
+        fontSize: 16,
+        fontWeight: '400',
     },
     label1: {
         marginTop: 25,
@@ -76,17 +87,30 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         marginRight: 15,
     },
-    frame18: {
-        marginTop: 8,
+    option1: {
+        marginTop: '8%',
+        marginLeft: 20,
     },
-    frame20: {
-        alignSelf: "center",
-    },
-    frame21: {
-        alignSelf: 'center',
+    option2: {
+        marginTop: '5%',
+        marginLeft: 20,
     },
     ortext: {
         textAlign: 'center',
         fontSize: 20,
-    }
+    },
+    btn1: {
+        textAlign: 'center',
+        fontSize: 20,
+        borderColor: 'lightgray',
+        borderWidth: 1,
+        padding: 12,
+        borderRadius: 12,
+        margin: 15,
+        marginBottom: '1%',
+    },
+    footertext: {
+        marginTop: "15%",
+        alignSelf: 'center',
+    },
 })

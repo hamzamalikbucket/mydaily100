@@ -126,8 +126,6 @@ import Contact from './screens/Personalinfo';
 import PaymentDetails from './screens/PaymentDetails';
 import PaymentDetails2 from './screens/PaymentDetails2';
 import PaymentSuccessfull from './screens/PaymentSuccessfull';
-
-
 import DateTime from './screens/DateTime';
 import SelectCoach from './screens/SelectCoach';
 import ContactUs from './screens/ContactUs';
@@ -139,10 +137,6 @@ import Motivation from './screens/Motivation';
 import ProfilePage from './screens/ProfilePage';
 import TermsConditions from './screens/TermsConditions';
 import PrivacyPolicy from './screens/PrivacyPolicy';
-import MainPage from './screens/MainPage';
-import SuccessChart from './screens/SuccessChart';
-import DailyTarget from './screens/DailyTarget';
-import Goals from './screens/Goals';
 import SignIn from './screens/SignIn';
 import OtpPage from './screens/OtpPage';
 import ConfirmOtp from './screens/ConfirmOtp';
@@ -151,14 +145,22 @@ import SignUp from './screens/SignUp';
 import ForgetPassword from './screens/ForgetPassword';
 import ResetPassword1 from './screens/ResetPassword1';
 import ResetPassword2 from './screens/ResetPassword2';
+// import Swiper from 'react-native-swiper';
+import MainPage from './screens/MainPage';
+import SuccessChart from './screens/SuccessChart';
+import DailyTarget from './screens/DailyTarget';
+import Goals from './screens/Goals';
+// import SwiperScreen from './screens/SwiperScreen';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainPage" screenOptions={{ headerShown: false }}>
       {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
+
+      <Stack.Navigator initialRouteName="MainPage" screenOptions={{ headerShown: false }}>
+        {/* <Stack.Screen name="SwiperScreen" component={SwiperScreen} /> */}
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="SuccessChart" component={SuccessChart} />
         <Stack.Screen name="DailyTarget" component={DailyTarget} />
@@ -188,10 +190,9 @@ const App = () => {
         <Stack.Screen name="YourGoals" component={YourGoals} />
         <Stack.Screen name="YourGoals2" component={YourGoals2} />
         <Stack.Screen name="Contact" component={Contact} />
-
-
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer >
+
   );
 }
 

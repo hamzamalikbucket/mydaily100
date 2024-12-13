@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity, TextInput } from 'react-native';
+import ReusableButton from "../components/ReusableButton";
 
 const SignIn = () => {
     // const navigation = useNavigation();
@@ -38,44 +39,59 @@ const SignIn = () => {
     //         loadCredentials();
     //     }, []);
     // };
-  const navigation = useNavigation();
+    const navigation = useNavigation();
+    // const [isLoading, setisLoading] = useState(false);
+
+    // const handleLogin = () => {
+    //     if(isLoading) return;
+    //     setisLoading(true);
+    //     setTimeout(() => {
+    //         setisLoading(false);
+    //         // navigation.navigate('OtpPage')
+    //     }, 2000);
+    // };
+
     return (
         <View style={styles.container}>
-            <Image source={require('../assets/images/frame4.png')} style={styles.frame4} />
+            <Text style={styles.line1}>Welcome Back</Text>
+            <Text style={styles.line2}>Sign in to continue</Text>
             <Text style={styles.label1}>Email</Text>
             <TextInput
                 style={styles.input}
                 placeholder="example@email.com"
-                // value={email}
-                // onChangeText={setEmail}
                 keyboardType="email-address"
             />
             <Text style={styles.label1}>Password</Text>
             <TextInput
                 style={styles.input}
                 placeholder="password123"
-            // value={password}
             />
-            <TouchableOpacity onPress={()=>navigation.navigate('ForgetPassword')}>
-                <View style={styles.field7}>
-                    <Image source={require('../assets/images/frame7.png')} />
-                </View>
+            <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
+                <Text style={styles.forgetpassword}>Forget Password</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=> navigation.navigate('OtpPage')}>
-                <View style={styles.field8}>
-                    <Image source={require('../assets/images/frame8.png')} />
-                </View>
-            </TouchableOpacity>
+            <ReusableButton text="Login" onPress={() => navigation.navigate('OtpPage')} />
             <Text style={styles.ortext}>or</Text>
-            <View style={styles.fields9}>
-                <Image source={require('../assets/images/frame9.png')} />
+            <TouchableOpacity>
+                <Text style={styles.btn1}>Google</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Text style={styles.btn2}>Apple</Text>
+            </TouchableOpacity>
+            <View style={styles.footertext}>
+                <Text>Don't have an account?{' '}
+                    <Text style={{color: '#D11A38'}} onPress={()=> navigation.navigate('SignUp')}>Sign Up</Text>
+                </Text>
             </View>
 
-            <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}>
-            <View style={styles.footertext}>
-                <Image source={require('../assets/images/frame1.png')} />
-            </View>
-            </TouchableOpacity>
+            {/* <Modal visible={isLoading}  transparent ={true}>
+                <View style={styles.modaloverlay}>
+                    <View style={styles.modalcontent}>
+                        <ActivityIndicator size="large" color="#fff" />
+                        <Text style={styles.loadertext}>logging in</Text>
+                    </View>
+                </View>
+
+            </Modal> */}
         </View>
     );
 }
@@ -85,13 +101,20 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-    frame4: {
-        alignSelf: 'center',
-        marginTop: '20%',
+    line1: {
+        textAlign: 'center',
+        color: '#D11A38',
+        fontSize: 36,
+        fontWeight: '600',
+        marginTop: '17%',
     },
-
+    line2: {
+        textAlign: 'center',
+        fontWeight: '400',
+        fontSize: 16,
+    },
     footertext: {
-        marginTop: "12%",
+        marginTop: "15%",
         alignSelf: 'center',
     },
     input: {
@@ -107,22 +130,49 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#000",
     },
-    field7: {
-        alignSelf: "flex-end",
+    forgetpassword: {
+        textAlign: 'right',
         padding: 12,
     },
-    field8: {
-        marginTop: 25,
-        alignSelf: 'center',
-    },
-    fields9: {
-        marginTop: 15,
-        alignSelf: 'center',
-    },
-    ortext:{
+
+    ortext: {
         textAlign: 'center',
         fontSize: 20,
     },
+    btn1: {
+        textAlign: 'center',
+        fontSize: 20,
+        borderColor: 'lightgray',
+        borderWidth: 1,
+        padding: 12,
+        borderRadius: 12,
+        margin: 15,
+        marginBottom: '1%',
+    },
+    btn2: {
+        textAlign: 'center',
+        fontSize: 20,
+        borderColor: 'lightgray',
+        borderWidth: 1,
+        padding: 12,
+        borderRadius: 12,
+        margin: 15,
+    },
+    // modaloverlay: {
+    //     flex: 1,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     backgroundColor:' rgba(0, 0, 0, 0.7)',
+    // },
+    // modalcontent: {
+    //     padding: 20,
+    //     alignItems: 'center',
+    // },
+    // loadertext: {
+    //     marginTop: 10,
+    //     fontSize: 16,
+    //     color: '#fff',
+    // },
 })
 
 export default SignIn;

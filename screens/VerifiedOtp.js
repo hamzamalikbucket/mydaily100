@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const VerifiedOtp = () => {
     const navigation = useNavigation();
@@ -8,8 +8,7 @@ const VerifiedOtp = () => {
         <View style={styles.container}>
             <Image source={require('../assets/images/frame16.png')} style={styles.frame16} />
             <Text style={styles.Text1}>Successfully Verified</Text>
-            <Text style={styles.Text2}>Your account is set now, we will redirect you to
-                profile information</Text>
+            <Text style={styles.Text2}>Your account is set now, we will redirect you to profile information</Text>
             <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
                 <Image source={require('../assets/images/frame3.png')} style={styles.frame3} />
             </TouchableOpacity>

@@ -7,7 +7,7 @@ const ResetPassword1 = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
             <Text style={styles.label1}>Reset Password</Text>

@@ -1,7 +1,7 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native'
-import React from 'react'
-import ReusableButton from '../components/ReusableButton'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import React from 'react';
+import ReusableButton from '../components/ReusableButton';
+import { useNavigation } from '@react-navigation/native';
 
 const ContactUs = () => {
     const navigation = useNavigation();

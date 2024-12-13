@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native'
-import React from 'react'
-import ReusableButton from '../components/ReusableButton'
-import { useNavigation } from '@react-navigation/native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import React from 'react';
+import ReusableButton from '../components/ReusableButton';
+import { useNavigation } from '@react-navigation/native';
 
 
 const ChangePassword = () => {
