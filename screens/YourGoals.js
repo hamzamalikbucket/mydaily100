@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import frame66 from '../assets/images/frame66.png';
@@ -98,7 +98,7 @@ const YourGoals = () => {
         );
     };
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Image source={require('../assets/images/frame57.png')} style={styles.frame57} />
             <Text style={styles.text}>Your Goals</Text>
             <Image source={require('../assets/images/frame58.png')} style={styles.frame58} />
@@ -122,7 +122,7 @@ const YourGoals = () => {
                 renderItem={renderItem}
                 contentContainerStyle={styles.listContainer}
             />
-        </View>
+        </ScrollView>
     )
 }
 

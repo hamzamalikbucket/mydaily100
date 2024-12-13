@@ -6,7 +6,6 @@ const Setup = () => {
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
-
             <View style={styles.group}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { ScrollView, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -6,15 +6,14 @@ import { useNavigation } from '@react-navigation/native';
 const SelectCoach = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             <Text style={styles.line1}>Select Available</Text>
             <Text style={styles.line2}>Coach or Manager</Text>
             <TouchableOpacity onPress={()=>navigation.navigate('DateTime')}>
                 <Image source={require('../assets/images/frame53.png')} style={styles.frame53} />
             </TouchableOpacity>
-
-        </View>
+        </ScrollView>
     )
 }
 const styles = StyleSheet.create({

@@ -1,11 +1,11 @@
-import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View,ScrollView, Image, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 const Setting = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity onPress={()=>navigation.navigate('Setup')}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
@@ -17,7 +17,7 @@ const Setting = () => {
             </TouchableOpacity>
             <Image source={require('../assets/images/frame47.png')} style={styles.frame47} />
             <Image source={require('../assets/images/frame49.png')} style={styles.frame49} />
-        </View>
+        </ScrollView>
     )
 }
 

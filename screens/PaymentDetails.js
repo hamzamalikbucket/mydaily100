@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import ReusableButton from '../components/ReusableButton';
+
 const PaymentDetails = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
@@ -35,11 +35,11 @@ const PaymentDetails = () => {
                 </View>
             </View>
             <Text style={styles.text}>Save card details</Text>
-            <View style={styles.amountcontainer}>
-            <Text >$26</Text>
+            <Text style={styles.text2}>$26</Text>
+            <TouchableOpacity onPress={()=>navigation.navigate('PaymentDetails2')}>
             <Text style={styles.textbtn}>Pay & confirm</Text>
-            </View>
-        </View>
+            </TouchableOpacity>
+        </ScrollView>
     )
 }
 
@@ -79,42 +79,41 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     text2: {
-        fontSize: 28,
-        marginLeft: 15,
-        fontWeight: 'bold',
+        fontSize: 30,
+        width: 56,
+        height: 38,
+        marginLeft: 20,
+        fontWeight: '700',
     },
     textbtn: {
-        fontSize: 28,
+        fontSize: 14,
         backgroundColor: '#D11A38',
-        width: '50%',
-        height: '25%',
+        width: 145,
+        height: 52,
+        left: 228,
+        marginTop: 17,
         textAlign: 'center',
         padding: 13,
         color: '#fff',
         borderRadius: 12,
-        fontWeight: '400',
-    },
-    amountcontainer:{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: '20%',
+        fontWeight: '700',
     },
     group: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center', 
+        alignItems: 'center',
     },
     inputContainer: {
-        flex: 1, 
+        flex: 1,
         marginLeft: 15,
         marginRight: 10,
         marginTop: 25,
     },
     input1: {
-        borderWidth: 1, 
-        borderColor: 'lightgray', 
+        borderWidth: 1,
+        borderColor: 'lightgray',
         padding: 8,
         borderRadius: 12,
-        marginTop: 5, 
+        marginTop: 5,
     },
 })

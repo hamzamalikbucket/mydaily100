@@ -1,23 +1,27 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
+// import { Icon } from 'react-native-vector-icons';
 
 const PicUpload = () => {
     const navigation = useNavigation();
     const data = [
         { id: 1},
+        { id: 2},
+        { id: 3},
+        { id: 4},
+        { id: 5},
     ];
-
     const renderItem = ({ item }) => (
         <TouchableOpacity>
         <View style={styles.list}>
-        <Image source={item.Image} style={styles.image}/>
+
         </View>
         </TouchableOpacity>
     );
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
@@ -28,7 +32,7 @@ const PicUpload = () => {
                 keyExtractor={(item)=>item.id}
             />
             <ReusableButton text='save' onPress={() => navigation.navigate('Setup')} />
-        </View>
+        </ScrollView>
     )
 }
 const styles = StyleSheet.create({

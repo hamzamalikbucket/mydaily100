@@ -1,12 +1,12 @@
 
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, Image, View, TouchableOpacity, ScrollView } from 'react-native';
 
 const Goals = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
                 <Text style={styles.text}>Skip</Text>
             </TouchableOpacity>
@@ -24,7 +24,7 @@ const Goals = () => {
                 <Image source={require('../assets/images/frame3.png')} style={styles.frame3} />
             </TouchableOpacity>
 
-        </View>
+        </ScrollView>
 
     );
 }

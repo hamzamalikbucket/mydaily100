@@ -1,12 +1,12 @@
 
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, Image, View, TouchableOpacity,ScrollView  } from 'react-native';
 
 const MainPage = () => {
 const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity onPress={()=>navigation.navigate('SuccessChart')}>
             <Text style={styles.text}>Skip</Text>
             </TouchableOpacity>
@@ -20,7 +20,7 @@ const navigation = useNavigation();
             <TouchableOpacity onPress={()=>navigation.navigate('SuccessChart')}>
             <Image source={require('../assets/images/frame2.png')}style={styles.frame2} />
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     );
 }
 

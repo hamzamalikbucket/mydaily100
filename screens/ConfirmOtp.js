@@ -1,12 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
 import ReusableButton from "../components/ReusableButton";
 
 const ConfirmOtp = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView  style={styles.container}>
             <Text style={styles.title}>Verify your Email </Text>
             <Text style={styles.subtitle}>
                 We already sent a code to your email{"\n"}
@@ -22,7 +22,7 @@ const ConfirmOtp = () => {
                 <Text style={styles.text1}>Expire in 00.59</Text>
                 <Text style={styles.text2}>Resend code</Text>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 

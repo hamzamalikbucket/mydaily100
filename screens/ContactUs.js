@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import {Text,ScrollView, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import React from 'react';
 import ReusableButton from '../components/ReusableButton';
 import { useNavigation } from '@react-navigation/native';
@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 const ContactUs = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             <Text style={styles.label1}>Contact Us</Text>
             <Text style={styles.label2}>Email</Text>
@@ -20,6 +20,7 @@ const ContactUs = () => {
                 style={styles.input1}
                 placeholder='Tell to us here...'
                 placeholderTextColor="lightgray"
+                multiline= {true}
 
             />
 
@@ -28,7 +29,7 @@ const ContactUs = () => {
             </TouchableOpacity>
             <ReusableButton text="Submit" onPress={() => navigation.navigate('SelectCoach')} />
             <Image source={require('../assets/images/frame52.png')} style={styles.frame52} />
-        </View>
+        </ScrollView>
     )
 }
 
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     frame30: {
-        marginTop: 35,
+        marginTop: 30,
         left: 10,
     },
     label1: {
@@ -64,10 +65,9 @@ const styles = StyleSheet.create({
     },
     frame52: {
         alignSelf: 'center',
-        
     },
     label2: {
-        marginTop: '12%',
+        // marginTop: '12%',
         left: 12,
         fontSize: 16,
     },
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     input1:{
         borderWidth: 1,
         margin: 15,
-        height: '20%',
+        // height: '20%',
         borderRadius: 12,
         borderColor: 'lightgray',
         textAlignVertical: 'top',

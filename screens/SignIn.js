@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity, TextInput } from 'react-native';
+import { View, StyleSheet, Image, Text, TouchableOpacity, TextInput,ScrollView } from 'react-native';
 import ReusableButton from "../components/ReusableButton";
+
 
 const SignIn = () => {
     // const navigation = useNavigation();
@@ -52,7 +53,7 @@ const SignIn = () => {
     // };
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Text style={styles.line1}>Welcome Back</Text>
             <Text style={styles.line2}>Sign in to continue</Text>
             <Text style={styles.label1}>Email</Text>
@@ -92,7 +93,7 @@ const SignIn = () => {
                 </View>
 
             </Modal> */}
-        </View>
+        </ScrollView>
     );
 }
 

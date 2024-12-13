@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View,ScrollView, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 import {useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
@@ -7,7 +7,7 @@ import ReusableButton from '../components/ReusableButton';
 const ProfilePage = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity onPress={()=>navigation.goBack()}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
@@ -35,7 +35,7 @@ const ProfilePage = () => {
                 placeholder='great street 01'
             />
             <ReusableButton text='Add Motivation' onPress={() => navigation.navigate('Motivation')} />
-        </View>
+        </ScrollView>
     )
 }
 

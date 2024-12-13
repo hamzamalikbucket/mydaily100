@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { Calendar } from 'react-native-calendars';
 import { useNavigation } from '@react-navigation/native';
@@ -18,7 +18,7 @@ const DateTime = () => {
     '2:00 pm',
   ];
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <TouchableOpacity onPress={()=>navigation.navigate('PaymentDetails')}>
         <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
       </TouchableOpacity>
@@ -50,7 +50,7 @@ const DateTime = () => {
           </TouchableOpacity>
         ))}
       </View>
-    </View>
+    </ScrollView>
   )
 }
 

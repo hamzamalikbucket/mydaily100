@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { View,ScrollView, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import React from 'react';
 import ReusableButton from '../components/ReusableButton';
 import { useNavigation } from '@react-navigation/native';
@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 const ChangePassword = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             <Text style={styles.textpassword}>Change Password</Text>
             <Text style={styles.label1}>current password</Text>
@@ -30,7 +30,7 @@ const ChangePassword = () => {
             <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Text style={styles.label}>Forget Password</Text>
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     )
 }
 

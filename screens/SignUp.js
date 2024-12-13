@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { ScrollView,View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
@@ -6,7 +6,7 @@ import ReusableButton from '../components/ReusableButton';
 export default function SignUp() {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Image source={require('../assets/images/logo.png')} style={styles.logo} />
             <Text style={styles.title}>Sign Up</Text>
             <Text style={styles.subtitle}>Create your new account</Text>
@@ -49,7 +49,7 @@ export default function SignUp() {
                     <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('SignIn')}>Sign In</Text>
                 </Text>
             </View>
-        </View>
+        </ScrollView>
     )
 }
 

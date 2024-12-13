@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity , ScrollView} from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 const PaymentDetails = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity onPress={()=>navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
@@ -35,7 +35,7 @@ const PaymentDetails = () => {
             <Image source={require('../assets/images/frame55.png')} style={styles.frame55} />
             </TouchableOpacity>
 
-        </View>
+        </ScrollView>
     )
 }
 

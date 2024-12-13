@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     frame27: {
         alignSelf: 'center',
-        marginTop: '70%',
+        marginTop: 289,
     },
     frame29: {
         alignSelf: 'center',
