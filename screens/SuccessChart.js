@@ -1,12 +1,12 @@
 
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, Image, View, TouchableOpacity, ScrollView } from 'react-native';
 
 const SuccessChart = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <TouchableOpacity onPress={() => navigation.navigate('DailyTarget')}>
                 <Text style={styles.text}>Skip</Text>
             </TouchableOpacity>
@@ -23,7 +23,7 @@ const SuccessChart = () => {
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Image source={require('../assets/images/frame3.png')} style={styles.frame3} />
             </TouchableOpacity>
-        </View>
+        </ScrollView>
     );
 }
 
@@ -42,7 +42,9 @@ const styles = StyleSheet.create({
     },
     image2: {
         alignSelf: 'center',
-        marginTop: '25%',
+        width:298,
+        height:293,
+        marginTop:50
     },
     line1: {
         fontSize: 34,
