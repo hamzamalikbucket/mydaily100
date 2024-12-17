@@ -1,31 +1,34 @@
 
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, Image, View, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Goals = () => {
     const navigation = useNavigation();
     return (
-        <ScrollView style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-                <Text style={styles.text}>Skip</Text>
-            </TouchableOpacity>
-
-            <Image source={require('../assets/images/img4.png')} style={styles.image4} />
-            <Text style={styles.line1}>Achieve Your Goals</Text>
-            <Text style={styles.line2}>Reach your Dreams</Text>
-            <Text style={styles.discription}>Turn aspirations into reality,
-                one daily goal at a time. My Daily 100:
-                <Text style={styles.Companion}>Your Success Companion</Text></Text>
-            <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-                <Image source={require('../assets/images/frame2.png')} style={styles.frame2} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Image source={require('../assets/images/frame3.png')} style={styles.frame3} />
-            </TouchableOpacity>
-
-        </ScrollView>
-
+        <SafeAreaView style={styles.container}>
+            {/* <ScrollView > */}
+                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                    <Text style={styles.text}>Skip</Text>
+                </TouchableOpacity>
+                <Image source={require('../assets/images/img4.png')} style={styles.image4} />
+                <Text style={styles.line1}>Achieve Your Goals</Text>
+                <Text style={styles.line2}>Reach your Dreams</Text>
+                <Text style={styles.discription}>Turn aspirations into reality,
+                    one daily goal at a time. My Daily 100:
+                    <Text style={styles.Companion}>Your Success Companion</Text></Text>
+                <View style={styles.icons}>
+                    <TouchableOpacity onPress={() => navigation.navigate('DailyTarget')}>
+                        <Icon name="arrow-back" size={32} color="#D11A38" />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                        <Icon name="arrow-forward" size={32} color="#fff"
+                            style={styles.iconStyle} />
+                    </TouchableOpacity>
+                </View>
+            {/* </ScrollView> */}
+        </SafeAreaView>
     );
 }
 
@@ -40,11 +43,13 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '500',
         textAlign: 'center',
-        marginTop: '10%',
+        marginTop: 30,
     },
     image4: {
         alignSelf: 'center',
-        marginTop: '25%',
+        width: 298,
+        height: 293,
+        marginTop: 50,
     },
     line1: {
         fontSize: 34,
@@ -60,25 +65,26 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     discription: {
-        fontSize: 17,
+        fontSize: 15,
         fontWeight: '400',
         textAlign: 'center',
         marginTop: '5%',
-        marginLeft: 10,
-        marginRight: 10,
     },
     Companion: {
         color: '#D11A38',
     },
-    frame2: {
-        marginTop: '25%',
-        marginRight: 15,
-        alignSelf: 'flex-end',
+    icons: {
+        margin: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 160,
     },
-    frame3: {
-        position: 'absolute',
-        left: 10,
-        bottom: 5,
+    iconStyle: {
+        backgroundColor: "#D11A38",
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        padding: 8,
     },
 });
 

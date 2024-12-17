@@ -1,7 +1,10 @@
-import { Image, ScrollView, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View, FlatList,SafeAreaView, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import frame66 from '../assets/images/frame66.png';
+// import Icon from 'react-native-vector-icons/FontAwesome';
+
+
 
 const YourGoals = () => {
     const navigation = useNavigation();
@@ -25,24 +28,7 @@ const YourGoals = () => {
             todoCount: '8 To-Do',
             image: frame66,
         },
-        {
-            id: 4,
-            name: 'Assessment Name',
-            todoCount: '8 To-Do',
-            image: frame66,
-        },
-        {
-            id: 5,
-            name: 'Assessment Name',
-            todoCount: '8 To-Do',
-            image: frame66,
-        },
-        {
-            id: 6,
-            name: 'Assessment Name',
-            todoCount: '8 To-Do',
-            image: frame66,
-        },
+
     ];
 
     const data2 = [
@@ -64,24 +50,7 @@ const YourGoals = () => {
             todoCount: 'Finished',
             image: frame66,
         },
-        {
-            id: 4,
-            name: 'My Completed 100',
-            todoCount: 'Finished',
-            image: frame66,
-        },
-        {
-            id: 5,
-            name: 'My Completed 100',
-            todoCount: 'Finished',
-            image: frame66,
-        },
-        {
-            id: 6,
-            name: 'My Completed 100',
-            todoCount: 'Finished',
-            image: frame66,
-        },
+
     ];
     const renderItem = ({ item }) => {
         return (
@@ -98,12 +67,12 @@ const YourGoals = () => {
         );
     };
     return (
-        <ScrollView style={styles.container}>
+        <SafeAreaView  style={styles.container}>
+        {/* <ScrollView> */}
             <Image source={require('../assets/images/frame57.png')} style={styles.frame57} />
             <Text style={styles.text}>Your Goals</Text>
             
             <Image source={require('../assets/images/frame58.png')} style={styles.frame58} />
-
             <View style={styles.group}>
                 <Text style={styles.line1}>Your Assessment</Text>
                 <Text style={styles.line2}>View all</Text>
@@ -124,7 +93,8 @@ const YourGoals = () => {
                 renderItem={renderItem}
                 contentContainerStyle={styles.listContainer}
             />
-        </ScrollView>
+        {/* </ScrollView> */}
+        </SafeAreaView>
     )
 }
 

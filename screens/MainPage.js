@@ -1,12 +1,14 @@
 
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, Image, View, TouchableOpacity,ScrollView  } from 'react-native';
+import { StyleSheet, Text, Image,TouchableOpacity,ScrollView, SafeAreaView  } from 'react-native';
+// import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const MainPage = () => {
 const navigation = useNavigation();
     return (
-        <ScrollView style={styles.container}>
+        <SafeAreaView style={styles.container}>
+        {/* <ScrollView > */}
             <TouchableOpacity onPress={()=>navigation.navigate('SuccessChart')}>
             <Text style={styles.text}>Skip</Text>
             </TouchableOpacity>
@@ -20,7 +22,8 @@ const navigation = useNavigation();
             <TouchableOpacity onPress={()=>navigation.navigate('SuccessChart')}>
             <Image source={require('../assets/images/frame2.png')}style={styles.frame2} />
             </TouchableOpacity>
-        </ScrollView>
+        {/* </ScrollView> */}
+        </SafeAreaView>
     );
 }
 
@@ -35,11 +38,11 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '500',
         textAlign: 'center',
-        marginTop: '10%',
+        marginTop: 30,
     },
     image1: {
         alignSelf: 'center',
-        marginTop: '20%',
+        marginTop: 50,
     },
     line1: {
         fontSize: 34,
@@ -59,8 +62,6 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         textAlign: 'center',
         marginTop: '5%',
-        marginLeft: 10,
-        marginRight: 10,
     },
     logo: {
         alignSelf: 'center',

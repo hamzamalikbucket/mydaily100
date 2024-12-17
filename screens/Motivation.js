@@ -1,4 +1,4 @@
-import { View,ScrollView, Image, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { View,SafeAreaView, Image, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
@@ -11,8 +11,7 @@ const Motivation = () => {
         { id: 2, title: 'Wealth' },
         { id: 3, title: 'Travel' },
         { id: 4, title: 'Excersie' },
-        { id: 5, title: 'Games' },
-        { id: 6, title: 'Swimming' },
+       
     ];
     const renderItem = ({ item }) => (
         <TouchableOpacity>
@@ -22,7 +21,7 @@ const Motivation = () => {
         </TouchableOpacity>
     );
     return (
-        <ScrollView style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
@@ -33,7 +32,7 @@ const Motivation = () => {
                 keyExtractor={(item) => item.id}
             />
             <ReusableButton text='upload your dreams' onPress={() => navigation.navigate('PicUpload')} />
-        </ScrollView>
+        </SafeAreaView>
     )
 }
 

@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity, TextInput,ScrollView } from 'react-native';
+import { View, StyleSheet, Image, SafeAreaView, Text, TouchableOpacity, TextInput } from 'react-native';
 import ReusableButton from "../components/ReusableButton";
 
 
@@ -53,7 +53,7 @@ const SignIn = () => {
     // };
 
     return (
-        <ScrollView style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Text style={styles.line1}>Welcome Back</Text>
             <Text style={styles.line2}>Sign in to continue</Text>
             <Text style={styles.label1}>Email</Text>
@@ -80,7 +80,7 @@ const SignIn = () => {
             </TouchableOpacity>
             <View style={styles.footertext}>
                 <Text>Don't have an account?{' '}
-                    <Text style={{color: '#D11A38'}} onPress={()=> navigation.navigate('SignUp')}>Sign Up</Text>
+                    <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
                 </Text>
             </View>
 
@@ -93,7 +93,7 @@ const SignIn = () => {
                 </View>
 
             </Modal> */}
-        </ScrollView>
+        </SafeAreaView>
     );
 }
 
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         color: '#D11A38',
         fontSize: 36,
         fontWeight: '600',
-        marginTop: '17%',
+        marginTop: 35,
     },
     line2: {
         textAlign: 'center',
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     footertext: {
-        marginTop: "15%",
+        marginTop: 20,
         alignSelf: 'center',
     },
     input: {
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         marginRight: 15,
     },
     label1: {
-        marginTop: 35,
+        marginTop: 20,
         padding: 12,
         fontSize: 16,
         color: "#000",

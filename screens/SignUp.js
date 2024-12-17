@@ -1,4 +1,4 @@
-import { ScrollView,View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView,View, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
@@ -6,7 +6,7 @@ import ReusableButton from '../components/ReusableButton';
 export default function SignUp() {
     const navigation = useNavigation();
     return (
-        <ScrollView style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Image source={require('../assets/images/logo.png')} style={styles.logo} />
             <Text style={styles.title}>Sign Up</Text>
             <Text style={styles.subtitle}>Create your new account</Text>
@@ -49,7 +49,7 @@ export default function SignUp() {
                     <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('SignIn')}>Sign In</Text>
                 </Text>
             </View>
-        </ScrollView>
+        </SafeAreaView>
     )
 }
 
@@ -60,11 +60,11 @@ const styles = StyleSheet.create({
     },
     logo: {
         alignSelf: 'center',
-        marginTop: '8%',
+        marginTop: 10,
     },
     title: {
         alignSelf: 'center',
-        marginTop: "5%",
+        marginTop: 10,
         fontSize: 36,
         color: '#D11A38',
         fontWeight: '600',
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         fontWeight: '400',
     },
     label1: {
-        marginTop: 25,
+        marginTop: 15,
         fontSize: 16,
         color: "#000",
         marginLeft: 12,
@@ -88,11 +88,11 @@ const styles = StyleSheet.create({
         marginRight: 15,
     },
     option1: {
-        marginTop: '8%',
+        marginTop: 12,
         marginLeft: 20,
     },
     option2: {
-        marginTop: '5%',
+        marginTop: 12,
         marginLeft: 20,
     },
     ortext: {
@@ -107,10 +107,9 @@ const styles = StyleSheet.create({
         padding: 12,
         borderRadius: 12,
         margin: 15,
-        marginBottom: '1%',
     },
     footertext: {
-        marginTop: "15%",
+        marginTop: 30,
         alignSelf: 'center',
     },
 })

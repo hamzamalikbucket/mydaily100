@@ -9,11 +9,12 @@ import Goals from './Goals';
 const SwiperScreen = () => {
     return (
         <View style={styles.container}>
-            <Swiper loop= {false}>
+            <Swiper loop={false} showsPagination={true} 
+            activeDotColor='#D11A38'>
                 <MainPage />
                 <SuccessChart />
-                <DailyTarget/>
-                <Goals/>
+                <DailyTarget />
+                <Goals />
             </Swiper>
         </View>
     )
@@ -25,4 +26,5 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
+   
 })

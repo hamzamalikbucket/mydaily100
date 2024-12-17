@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-// import Icon from 'react-native-vector-icons';
+// import Icon from 'react-native-vector-icons/MaterialIcons';
 const VerifiedOtp = () => {
     const navigation = useNavigation();
     return (
@@ -9,7 +9,7 @@ const VerifiedOtp = () => {
             <Image source={require('../assets/images/frame16.png')} style={styles.frame16} />
             <Text style={styles.Text1}>Successfully Verified</Text>
             <Text style={styles.Text2}>Your account is set now, we will redirect you to profile information</Text>
-            {/* <Icon name='cross' size={24} color='gray' /> */}
+            {/* <Icon name='arrow-back' size={24} color='gray' /> */}
         </View>
     )
 }
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     frame16: {
         alignSelf: 'center',
-        marginTop: 21,
+        marginTop: 150,
     },
     Text1: {
         color: '#D11A38',

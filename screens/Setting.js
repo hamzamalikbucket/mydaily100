@@ -1,23 +1,54 @@
-import { StyleSheet, View,ScrollView, Image, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Image, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Setting = () => {
+
+    const item = [
+
+        { id: 1, icon: 'subscriptions', title: 'Subscriptions' },
+        { id: 2, icon: 'notifications', title: 'Notification Setting' },
+        { id: 3, icon: 'shield', title: 'Change Password' },
+    ];
+
     const navigation = useNavigation();
     return (
-        <ScrollView style={styles.container}>
-            <TouchableOpacity onPress={()=>navigation.navigate('Setup')}>
+        <SafeAreaView style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Setup')}>
                 <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
             </TouchableOpacity>
             <Text style={styles.label}>Settings</Text>
             <Image source={require('../assets/images/frame41.png')} style={styles.frame41} />
-            <Text style={styles.label2}>Edit profile</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('ChangePassword')}>
-                <Image source={require('../assets/images/frame44.png')} style={styles.frame44} />
+            <TouchableOpacity>
+                <Text style={styles.label2}>Edit profile</Text>
             </TouchableOpacity>
-            <Image source={require('../assets/images/frame47.png')} style={styles.frame47} />
-            <Image source={require('../assets/images/frame49.png')} style={styles.frame49} />
-        </ScrollView>
+            
+                <TouchableOpacity  style={styles.item}>
+                    <View style={styles.section}>
+                        <Icon name={'subscriptions'} size={24} />
+                        <Text style={styles.text}>{'subscriptions'}</Text>
+                    </View>
+                    <Icon name="chevron-right" size={36} />
+                </TouchableOpacity>
+
+                <TouchableOpacity  style={styles.item}>
+                    <View style={styles.section}>
+                        <Icon name={'notifications'} size={24} />
+                        <Text style={styles.text}>{'Notification Setting'}</Text>
+                    </View>
+                    <Icon name="chevron-right" size={36} />
+                </TouchableOpacity>
+
+                <TouchableOpacity  style={styles.item} onPress={()=>navigation.navigate('ChangePassword')}>
+                    <View style={styles.section}>
+                        <Icon name={'shield'} size={24} />
+                        <Text style={styles.text}>{'Change Password'}</Text>
+                    </View>
+                    <Icon name="chevron-right" size={36} />
+                </TouchableOpacity>
+         
+        </SafeAreaView>
     )
 }
 
@@ -50,17 +81,24 @@ const styles = StyleSheet.create({
         marginTop: '33%',
         fontWeight: '600',
     },
-    frame44: {
-        margin: 20,
-        alignSelf: 'center',
+    item: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: 15,
     },
-    frame47: {
-        margin: 20,
-        alignSelf: 'center',
-
+    section: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderRadius: 12,
+        width: 353,
+        height: 44,
+        left: 15,
     },
-    frame49: {
-        margin: 20,
-        alignSelf: 'center',
+    text: {
+        padding: 10,
+        fontSize: 16,
+        color: 'grey',
+        fontWeight: '600',
     },
 })

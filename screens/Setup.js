@@ -7,7 +7,7 @@ const Setup = () => {
     return (
         <View style={styles.container}>
             <View style={styles.group}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
+                <TouchableOpacity onPress={() => navigation.navigate('PicUpload')}>
                     <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Setting')}>

@@ -1,12 +1,13 @@
-import { StyleSheet, ScrollView, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 const PaymentDetails = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <SafeAreaView style={styles.container}>
+        <View >
+            {/* <ScrollView contentContainerStyle={styles.scrollViewContent}> */}
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
                 </TouchableOpacity>
@@ -36,7 +37,7 @@ const PaymentDetails = () => {
                     </View>
                 </View>
                 <Text style={styles.text}>Save card details</Text>
-            </ScrollView>
+            {/* </ScrollView> */}
             <View style={styles.footer}>
                 <Text style={styles.text2}>$26</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('YourGoals')} style={styles.button}>
@@ -44,6 +45,7 @@ const PaymentDetails = () => {
                 </TouchableOpacity>
             </View>
         </View>
+        </SafeAreaView>
     );
 };
 
@@ -54,10 +56,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-    scrollViewContent: {
-        flexGrow: 1,
-        paddingBottom: 20,
-    },
+    // scrollViewContent: {
+    //     flexGrow: 1,
+    //     paddingBottom: 20,
+    // },
     frame30: {
         marginTop: 35,
         left: 15,
@@ -101,7 +103,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 15,
         borderRadius: 12,
-        // marginLeft: 10,
         width: 145,
         height: 52,
     },
@@ -110,6 +111,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 20,
+        marginTop: 350,
        
     },
     group: {

@@ -1,4 +1,4 @@
-import { StyleSheet, ScrollView, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { Calendar } from 'react-native-calendars';
 import { useNavigation } from '@react-navigation/native';
@@ -18,7 +18,7 @@ const DateTime = () => {
     '2:00 pm',
   ];
   return (
-    <ScrollView style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={()=>navigation.navigate('PaymentDetails')}>
         <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
       </TouchableOpacity>
@@ -42,19 +42,16 @@ const DateTime = () => {
           }}
         />
       </View>
-            <TouchableOpacity onPress={()=> navigation.navigate('PaymentDetails')}>
 
       <Text style={styles.line4}>Select Time:</Text>
       <View style={styles.rowContainer}>
         {times.map((time, index) => (
-          <TouchableOpacity key={index} style={styles.timeBox}>
+          <TouchableOpacity key={index} style={styles.timeBox} onPress={()=> navigation.navigate('PaymentDetails')}>
             <Text style={styles.timeText}>{time}</Text>
           </TouchableOpacity>
         ))}
       </View>
-      </TouchableOpacity>
-
-    </ScrollView>
+    </SafeAreaView>
   )
 }
 
@@ -66,7 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   frame30: {
-    marginTop: 35,
+    marginTop: 30,
     left: 15,
   },
   line1: {
@@ -74,7 +71,6 @@ const styles = StyleSheet.create({
     color: '#D11A38',
     fontSize: 36,
     fontWeight: '600',
-    marginTop: 25,
   },
   line2: {
     textAlign: 'center',
@@ -83,13 +79,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   line3: {
-    marginTop: '15%',
+    marginTop: 30,
     left: 15,
     fontWeight: '600',
     fontSize: 20,
   },
   line4: {
-    marginTop: '18%',
+    marginTop: 30,
     marginBottom: 15,
     left: 15,
     fontWeight: '600',

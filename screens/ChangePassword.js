@@ -1,4 +1,4 @@
-import { View,ScrollView, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { View, SafeAreaView, Text, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
 import React from 'react';
 import ReusableButton from '../components/ReusableButton';
 import { useNavigation } from '@react-navigation/native';
@@ -7,8 +7,10 @@ import { useNavigation } from '@react-navigation/native';
 const ChangePassword = () => {
     const navigation = useNavigation();
     return (
-        <ScrollView style={styles.container}>
-            <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
+        <SafeAreaView style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
+            </TouchableOpacity>
             <Text style={styles.textpassword}>Change Password</Text>
             <Text style={styles.label1}>current password</Text>
             <TextInput
@@ -26,11 +28,12 @@ const ChangePassword = () => {
                 placeholder='Confirm New password'
             />
 
-            <ReusableButton text='Save New Password' onPress={() => navigation.navigate('ForgetPassword')} />
+            <ReusableButton text='Save New Password' onPress={()=>navigation.navigate('ContactUs')}/>
             <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Text style={styles.label}>Forget Password</Text>
             </TouchableOpacity>
-        </ScrollView>
+           
+        </SafeAreaView>
     )
 }
 
@@ -70,11 +73,12 @@ const styles = StyleSheet.create({
         left: 12,
         fontSize: 16,
     },
-    input:{
+    input: {
         borderWidth: 1,
         margin: 15,
-        padding:15,
+        padding: 15,
         borderRadius: 12,
         borderColor: 'lightgray',
     },
+    
 })
