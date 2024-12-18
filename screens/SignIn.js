@@ -1,11 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
-import { View, StyleSheet, Image, SafeAreaView, Text, TouchableOpacity, TextInput } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, Image, SafeAreaView, Text, TouchableOpacity,Modal, TextInput, ActivityIndicator } from 'react-native';
 import ReusableButton from "../components/ReusableButton";
 
 
 const SignIn = () => {
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
 
     // const [email, setEmail] = useState('');
     // const [password, setPassword] = useState('');
@@ -16,7 +16,6 @@ const SignIn = () => {
     //             Alert.alert(`Feilds can not be empty.`)
     //             return;
     //         }
-
     //         await AsyncStorage.setItem(`useremail`, email);
     //         await AsyncStorage.setItem(`userpassword`, password);
     //         Alert.alert(`Credentials saved succefully.`);
@@ -35,20 +34,18 @@ const SignIn = () => {
     //     } catch (error) {
     //         Alert.alert(`Failed to load data`);
     //     }
-
-    //     useEffect(() => {
-    //         loadCredentials();
-    //     }, []);
     // };
-    const navigation = useNavigation();
-    // const [isLoading, setisLoading] = useState(false);
+    // useEffect(() => {
+    //     loadCredentials();
+    // }, []);
 
+    // const [isLoading, setisLoading] = useState(false);
     // const handleLogin = () => {
     //     if(isLoading) return;
     //     setisLoading(true);
     //     setTimeout(() => {
     //         setisLoading(false);
-    //         // navigation.navigate('OtpPage')
+    //         navigation.navigate('OtpPage')
     //     }, 2000);
     // };
 
@@ -61,11 +58,15 @@ const SignIn = () => {
                 style={styles.input}
                 placeholder="example@email.com"
                 keyboardType="email-address"
+                // value={email}
+                // onChangeText={setEmail}
             />
             <Text style={styles.label1}>Password</Text>
             <TextInput
                 style={styles.input}
                 placeholder="password123"
+                // value={password}
+                // onChangeText={setPassword}
             />
             <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Text style={styles.forgetpassword}>Forget Password</Text>
@@ -83,7 +84,6 @@ const SignIn = () => {
                     <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
                 </Text>
             </View>
-
             {/* <Modal visible={isLoading}  transparent ={true}>
                 <View style={styles.modaloverlay}>
                     <View style={styles.modalcontent}>
@@ -91,7 +91,6 @@ const SignIn = () => {
                         <Text style={styles.loadertext}>logging in</Text>
                     </View>
                 </View>
-
             </Modal> */}
         </SafeAreaView>
     );
