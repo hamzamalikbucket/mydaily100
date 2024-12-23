@@ -18,7 +18,7 @@ const SelectCoach = () => {
         { id: 2, name: 'James Jhon', image: frame69 },
         { id: 3, name: 'Kely jeans', image: frame70 },
         { id: 4, name: 'Bane Smith', image: frame71 },
-        { id: 5, name: 'Robert Patson', image: frame72},
+        { id: 5, name: 'Robert Patson', image: frame72 },
         { id: 6, name: 'Carl Bowman', image: frame73 },
         { id: 7, name: 'Carl Bowman', image: frame73 },
         { id: 8, name: 'Carl Bowman', image: frame73 },
@@ -45,7 +45,7 @@ const SelectCoach = () => {
                 keyExtractor={(item) => item.id}
                 numColumns={2}
             />
-            <ReusableButton text= "Next" onPress={()=> navigation.navigate('DateTime')}/>
+            <ReusableButton text="Next" onPress={() => navigation.navigate('DateTime')} />
         </SafeAreaView>
     )
 }

@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text,TouchableOpacity } from 'react-native';
+import React from 'react';
 
 const ReusableButton = ({ onPress, text }) => {
     return (
@@ -24,5 +24,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 15,
         fontSize: 17,
+        fontWeight: '700',
     },
 })

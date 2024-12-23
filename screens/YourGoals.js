@@ -1,10 +1,8 @@
-import { Image, ScrollView, StyleSheet, Text, View, FlatList,SafeAreaView, TouchableOpacity } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import frame66 from '../assets/images/frame66.png';
-// import Icon from 'react-native-vector-icons/FontAwesome';
-
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const YourGoals = () => {
     const navigation = useNavigation();
@@ -24,6 +22,24 @@ const YourGoals = () => {
         },
         {
             id: 3,
+            name: 'Assessment Name',
+            todoCount: '8 To-Do',
+            image: frame66,
+        },
+        {
+            id: 4,
+            name: 'Assessment Name',
+            todoCount: '8 To-Do',
+            image: frame66,
+        },
+        {
+            id: 5,
+            name: 'Assessment Name',
+            todoCount: '8 To-Do',
+            image: frame66,
+        },
+        {
+            id: 6,
             name: 'Assessment Name',
             todoCount: '8 To-Do',
             image: frame66,
@@ -50,9 +66,21 @@ const YourGoals = () => {
             todoCount: 'Finished',
             image: frame66,
         },
+        {
+            id: 4,
+            name: 'My Completed 100',
+            todoCount: 'Finished',
+            image: frame66,
+        },
+        {
+            id: 5,
+            name: 'My Completed 100',
+            todoCount: 'Finished',
+            image: frame66,
+        },
 
     ];
-    const renderItem = ({ item }) => {
+    const renderItem = ({ item, section }) => {
         return (
             <View style={styles.itemContainer}>
                 <Image source={item.image} style={styles.image} />
@@ -61,17 +89,25 @@ const YourGoals = () => {
                     <Text style={styles.todoCount}>{item.todoCount}</Text>
                 </View>
                 <TouchableOpacity>
-                    <Text style={styles.viewButton}>View</Text>
-                </TouchableOpacity>
+                <Text style={styles.viewButton}>
+                    {section === 'completed' ? 'Download' : 'View'}
+                </Text>
+            </TouchableOpacity>
             </View>
         );
     };
     return (
-        <SafeAreaView  style={styles.container}>
-        {/* <ScrollView> */}
-            <Image source={require('../assets/images/frame57.png')} style={styles.frame57} />
+        <SafeAreaView style={styles.container}>
+            {/* <ScrollView> */}
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', top: 15 }}>
+                <TouchableOpacity>
+                    <Icon name="menu" size={30} color="grey" style={{ left: 12 }} />
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <Icon name="notifications" size={30} color="#D11A38" style={{ right: 12 }} />
+                </TouchableOpacity>
+            </View>
             <Text style={styles.text}>Your Goals</Text>
-            
             <Image source={require('../assets/images/frame58.png')} style={styles.frame58} />
             <View style={styles.group}>
                 <Text style={styles.line1}>Your Assessment</Text>
@@ -79,21 +115,23 @@ const YourGoals = () => {
             </View>
             <FlatList
                 data={data}
-                keyExtractor={(item) => item.id}
-                renderItem={renderItem}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={(props) => renderItem({ ...props, section: 'assessment' })}
                 contentContainerStyle={styles.listContainer}
             />
             <View style={styles.group1}>
+                <TouchableOpacity onPress={()=>navigation.navigate('YourGoals2')}>
                 <Text style={styles.line1}>My Completed 100</Text>
+                </TouchableOpacity>
                 <Text style={styles.line2}>View all</Text>
             </View>
             <FlatList
                 data={data2}
-                keyExtractor={(item) => item.id}
-                renderItem={renderItem}
+                keyExtractor={(item) => item.id.toString()}
+                renderItem={(props) => renderItem({ ...props, section: 'completed' })}
                 contentContainerStyle={styles.listContainer}
             />
-        {/* </ScrollView> */}
+            {/* </ScrollView> */}
         </SafeAreaView>
     )
 }
@@ -131,9 +169,9 @@ const styles = StyleSheet.create({
         color: '#D11A38',
     },
     viewButton: {
-        color: 'red',
+        color: '#D11A38',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '400',
     },
     itemContainer: {
         flexDirection: 'row',
@@ -141,7 +179,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 12,
         padding: 8,
-        elevation: 2,
     },
     textContainer: {
         flex: 1,
@@ -169,8 +206,9 @@ const styles = StyleSheet.create({
     listContainer: {
         marginTop: 15,
     },
-    group1:{
+    group1: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginTop: 25,
     },
 })

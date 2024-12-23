@@ -7,7 +7,7 @@ const SuccessChart = () => {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
-            {/* <ScrollView > */}
+
                 <TouchableOpacity onPress={() => navigation.navigate('DailyTarget')}>
                     <Text style={styles.text}>Skip</Text>
                 </TouchableOpacity>
@@ -27,7 +27,6 @@ const SuccessChart = () => {
                             style={styles.iconStyle} />
                     </TouchableOpacity>
                 </View>
-            {/* </ScrollView> */}
         </SafeAreaView>
     );
 }

@@ -1,16 +1,15 @@
 
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, Image,TouchableOpacity,ScrollView, SafeAreaView  } from 'react-native';
-// import Icon from 'react-native-vector-icons/MaterialIcons';
+import { StyleSheet, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const MainPage = () => {
-const navigation = useNavigation();
+    const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
-        {/* <ScrollView > */}
-            <TouchableOpacity onPress={()=>navigation.navigate('SuccessChart')}>
-            <Text style={styles.text}>Skip</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('SuccessChart')}>
+                <Text style={styles.text}>Skip</Text>
             </TouchableOpacity>
             <Image source={require('../assets/images/img1.png')}
                 style={styles.image1} />
@@ -19,10 +18,10 @@ const navigation = useNavigation();
             <Text style={styles.discription}>Visualize and track daily progress,
                 turning obstacles into stepping stones with</Text>
             <Image source={require('../assets/images/logo.png')} style={styles.logo} />
-            <TouchableOpacity onPress={()=>navigation.navigate('SuccessChart')}>
-            <Image source={require('../assets/images/frame2.png')}style={styles.frame2} />
+            <TouchableOpacity onPress={() => navigation.navigate('SuccessChart')}>
+                <Icon name="arrow-forward" size={32} color="#fff"
+                    style={styles.iconStyle} />
             </TouchableOpacity>
-        {/* </ScrollView> */}
         </SafeAreaView>
     );
 }
@@ -67,10 +66,15 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: '5%',
     },
-    frame2:{
-        marginTop: '20%',
-        marginRight: 15,
+    iconStyle: {
+        backgroundColor: "#D11A38",
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        padding: 8,
         alignSelf: 'flex-end',
+        marginTop: 100,
+        right: 15,
     },
 });
 

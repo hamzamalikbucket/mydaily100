@@ -71,7 +71,7 @@ const SignIn = () => {
             <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Text style={styles.forgetpassword}>Forget Password</Text>
             </TouchableOpacity>
-            <ReusableButton text="Login" onPress={() => navigation.navigate('OtpPage')} />
+            <ReusableButton text="Login" onPress={() => navigation.navigate('YourGoals')} />
             <Text style={styles.ortext}>or</Text>
             <TouchableOpacity>
                 <Text style={styles.btn1}>Google</Text>
