@@ -121,7 +121,12 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 // import Journal from './screens/Journal';
-import Journal1 from './screens/Journal1';
+// import Journal1 from './screens/Journal1';
+// import Journal2 from './screens/Journal2';
+// import Journal3 from './screens/Journal3';
+import Editjournal from './screens/Editjournal';
+
+// import { Provider } from 'react-native-paper';
 // import YourGoals from './screens/YourGoals';
 // import YourGoals2 from './screens/YourGoals2';
 // import DrawerNavigator from './screens/drawer';
@@ -190,13 +195,14 @@ const App = () => {
         {/* <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} /> */}
         {/* <Stack.Screen name="Setting" component={Setting} /> */}
         {/* <Stack.Screen name="Journal" component={Journal} /> */}
-        <Stack.Screen name="Journal1" component={Journal1} />
-
+        {/* <Stack.Screen name="Journal1" component={Journal1} /> */}
+        {/* <Stack.Screen name="Journal2" component={Journal2} /> */}
+          {/* <Stack.Screen name="Journal3" component={Journal3} /> */}
         {/* <Stack.Screen name="Contact" component={Contact} /> */}
-
+        <Stack.Screen name="Editjournal" component={Editjournal} />
       </Stack.Navigator>
     </NavigationContainer >
-
+   
   );
 }
 
