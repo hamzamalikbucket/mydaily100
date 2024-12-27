@@ -1,11 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Image, SafeAreaView, Text, TouchableOpacity,Modal, TextInput, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, Image, SafeAreaView, Text, TouchableOpacity, Modal, TextInput, ActivityIndicator } from 'react-native';
 import ReusableButton from "../components/ReusableButton";
 
 
 const SignIn = () => {
     const navigation = useNavigation();
+    const [isLoading, setisLoading] = useState(false);
 
     // const [email, setEmail] = useState('');
     // const [password, setPassword] = useState('');
@@ -58,20 +59,26 @@ const SignIn = () => {
                 style={styles.input}
                 placeholder="example@email.com"
                 keyboardType="email-address"
-                // value={email}
-                // onChangeText={setEmail}
+            // value={email}
+            // onChangeText={setEmail}
             />
             <Text style={styles.label1}>Password</Text>
             <TextInput
                 style={styles.input}
                 placeholder="password123"
-                // value={password}
-                // onChangeText={setPassword}
+            // value={password}
+            // onChangeText={setPassword}
             />
             <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Text style={styles.forgetpassword}>Forget Password</Text>
             </TouchableOpacity>
-            <ReusableButton text="Login" onPress={() => navigation.navigate('YourGoals')} />
+
+            <ReusableButton text="Login" onPress={() => { setisLoading(true)
+                setTimeout(() => { setisLoading(false);
+                navigation.navigate('OtpPage')
+                }, 2000);
+            }} />
+
             <Text style={styles.ortext}>or</Text>
             <TouchableOpacity>
                 <Text style={styles.btn1}>Google</Text>
@@ -84,14 +91,18 @@ const SignIn = () => {
                     <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
                 </Text>
             </View>
-            {/* <Modal visible={isLoading}  transparent ={true}>
+            <Modal
+                visible={isLoading}
+                transparent={true}
+                animationType="fade">
+
                 <View style={styles.modaloverlay}>
                     <View style={styles.modalcontent}>
-                        <ActivityIndicator size="large" color="#fff" />
+                        <ActivityIndicator size="x-Large" color="#fff" />
                         <Text style={styles.loadertext}>logging in</Text>
                     </View>
                 </View>
-            </Modal> */}
+            </Modal>
         </SafeAreaView>
     );
 }
@@ -158,21 +169,21 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         margin: 15,
     },
-    // modaloverlay: {
-    //     flex: 1,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     backgroundColor:' rgba(0, 0, 0, 0.7)',
-    // },
-    // modalcontent: {
-    //     padding: 20,
-    //     alignItems: 'center',
-    // },
-    // loadertext: {
-    //     marginTop: 10,
-    //     fontSize: 16,
-    //     color: '#fff',
-    // },
+    modaloverlay: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
+    },
+    modalcontent: {
+        padding: 20,
+        alignItems: 'center',
+    },
+    loadertext: {
+        marginTop: 10,
+        fontSize: 16,
+        color: '#fff',
+    },
 })
 
 export default SignIn;

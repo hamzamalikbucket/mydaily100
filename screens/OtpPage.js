@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { View, StyleSheet, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, Image, SafeAreaView, Alert, Modal } from 'react-native';
 import ReusableButton from "../components/ReusableButton";
 import { OtpInput } from "react-native-otp-entry";
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -8,19 +8,19 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const OtpPage = () => {
     const navigation = useNavigation();
     const [otp, setOtp] = useState('');
+    const [OpenModal, setOpenModal] = useState(false);
 
     const handleOTP = () => {
-        console.log('otp', otp);
         if (otp == '12345') {
-            navigation.navigate('VerifiedOtp')
+            setOpenModal(true);
         } else {
-            console.log('Invalid OTP. Please try again.');
+            Alert.alert('Invalid OTP. Please try again.');
         }
     };
 
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
                 <View style={styles.icon}>
                     <Icon name='chevron-left' size={26} color='gray' />
                     <Text style={styles.icontext}>Back</Text>
@@ -31,7 +31,7 @@ const OtpPage = () => {
             <Text style={styles.subtitle}>
                 We already sent a code to your email{"\n"}
                 jhon@*****.com.please input below to{"\n"}
-                confirm your email address{"\n"}
+                confirm your email address.
             </Text>
             <Text style={styles.text}>Enter Code here:</Text>
             <View>
@@ -41,7 +41,6 @@ const OtpPage = () => {
                     otp={otp}
                     onTextChange={setOtp}
                     codeInputFieldStyle={styles.inputField}
-                    onFilled={(text) => console.log(`OTP is ${text}`)}
                 />
             </View>
             <ReusableButton text="Confirm" onPress={() => handleOTP(otp)} />
@@ -49,6 +48,30 @@ const OtpPage = () => {
                 <Text style={styles.text1}>Expire in 00.59</Text>
                 <Text style={styles.text2}>Resend code</Text>
             </View>
+
+            <Modal
+                visible={OpenModal}
+                animationType="slide"
+                transparent={true}>
+                <View style={styles.modalcontainer}>
+                    <View style={styles.modalicon}>
+                        <View style={styles.modalContent}>
+                            <Image source={require('../assets/images/frame16.png')} />
+                            <Text style={styles.maintext1}>Successfully Verified</Text>
+                            <Text style={styles.maintext2}>Your account is set now,we will redirect you to </Text>
+                            <Text> profile information</Text>
+                            <TouchableOpacity
+                                style={styles.button}
+                                onPress={() => { setOpenModal(false);
+                                navigation.navigate("ProfilePage");
+                                }}>
+                                <Text style={styles.buttonText}>Okay</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+
         </SafeAreaView>
     )
 }
@@ -73,8 +96,8 @@ const styles = StyleSheet.create({
     text: {
         textAlign: 'center',
         color: '#D11A38',
-        marginTop: '10%',
-        fontSize: 16,
+        marginTop: 20,
+        fontSize: 18,
     },
     grouptext: {
         justifyContent: 'space-between',
@@ -96,7 +119,7 @@ const styles = StyleSheet.create({
         height: 60,
         borderWidth: 1,
         borderColor: 'lightgrey',
-        fontSize: 24,
+        fontSize: 14,
         borderRadius: 12,
     },
     icon: {
@@ -106,7 +129,42 @@ const styles = StyleSheet.create({
     },
     icontext: {
         fontSize: 20,
-
+    },
+    modalcontainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    modalicon: {
+        backgroundColor: "white",
+        borderRadius: 12,
+        width: "100%",
+        height: "100%",
+    },
+    modalContent: {
+        alignItems: "center",
+        marginTop: 250,
+    },
+    maintext1: {
+        fontSize: 34,
+        fontWeight: '600',
+        color: "#D11A38",
+    },
+    maintext2: {
+        fontSize: 15,
+        fontWeight: '400',
+    },
+    button: {
+        backgroundColor: "#D11A38",
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 20,
+    },
+    buttonText: {
+        color: "white",
+        fontSize: 16,
+        fontWeight: '500',
     },
 })
 
