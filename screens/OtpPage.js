@@ -49,11 +49,8 @@ const OtpPage = () => {
                 <Text style={styles.text2}>Resend code</Text>
             </View>
 
-            <Modal
-                visible={OpenModal}
-                animationType="slide"
+            <Modal visible={OpenModal} animationType="slide"
                 transparent={true}>
-                <View style={styles.modalcontainer}>
                     <View style={styles.modalicon}>
                         <View style={styles.modalContent}>
                             <Image source={require('../assets/images/frame16.png')} />
@@ -69,7 +66,6 @@ const OtpPage = () => {
                             </TouchableOpacity>
                         </View>
                     </View>
-                </View>
             </Modal>
 
         </SafeAreaView>
@@ -130,12 +126,7 @@ const styles = StyleSheet.create({
     icontext: {
         fontSize: 20,
     },
-    modalcontainer: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-    },
+   
     modalicon: {
         backgroundColor: "white",
         borderRadius: 12,

@@ -128,6 +128,8 @@ import Editjournal from './screens/Editjournal';
 import PersonalGoals from './screens/PersonalGoals';
 import Library from './screens/Library';
 import YourGoals from './screens/YourGoals';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import YourGoals2 from './screens/YourGoals2';
 import Contact from './screens/Personalinfo';
 import PaymentDetails from './screens/PaymentDetails';
@@ -145,11 +147,9 @@ import TermsConditions from './screens/TermsConditions';
 import PrivacyPolicy from './screens/PrivacyPolicy';
 import SignIn from './screens/SignIn';
 import OtpPage from './screens/OtpPage';
-// import VerifiedOtp from './screens/VerifiedOtp'; non - useable
 import SignUp from './screens/SignUp';
 import ForgetPassword from './screens/ForgetPassword';
 import ResetPassword1 from './screens/ResetPassword1';
-import ResetPassword2 from './screens/ResetPassword2';
 import MainPage from './screens/MainPage';
 import SuccessChart from './screens/SuccessChart';
 import DailyTarget from './screens/DailyTarget';
@@ -157,24 +157,36 @@ import Goals from './screens/Goals';
 import SwiperScreen from './screens/SwiperScreen';
 
 const Stack = createStackNavigator();
+
+const MyDrawer = () => {
+  const Drawer = createDrawerNavigator();
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Setting" component={Setting} />
+      <Drawer.Screen name="Journal" component={Journal} />
+      <Drawer.Screen name="Library" component={Library} />
+      <Drawer.Screen name="TermsConditions" component={TermsConditions} />
+      <Drawer.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+      <Drawer.Screen name="ContactUs" component={ContactUs} />
+    </Drawer.Navigator>
+  );
+}
+
 const App = () => {
   return (
     <NavigationContainer>
       {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
-      <Stack.Navigator initialRouteName="SwiperScreen" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="SwiperScreen" component={SwiperScreen} />
+        <Stack.Screen name="MyDrawer" component={MyDrawer}/>
+       <Stack.Navigator initialRouteName="SwiperScreen" screenOptions={{ headerShown: false }}>
+         <Stack.Screen name="SwiperScreen" component={SwiperScreen} />
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="SuccessChart" component={SuccessChart} />
         <Stack.Screen name="DailyTarget" component={DailyTarget} />
         <Stack.Screen name="Goals" component={Goals} />
-        <Stack.Screen name="OtpPage" component={OtpPage} />
-        {/* <Stack.Screen name="VerifiedOtp" component={VerifiedOtp} /> non-useable*/}
+       <Stack.Screen name="OtpPage" component={OtpPage} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="TermsConditions" component={TermsConditions} />
-        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
         <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
         <Stack.Screen name="ResetPassword1" component={ResetPassword1} />
-        <Stack.Screen name="ResetPassword2" component={ResetPassword2} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
         <Stack.Screen name="Motivation" component={Motivation} />
@@ -187,19 +199,21 @@ const App = () => {
         <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
         <Stack.Screen name="PaymentSuccessfull" component={PaymentSuccessfull} />
         <Stack.Screen name="YourGoals" component={YourGoals} />
-        <Stack.Screen name="YourGoals2" component={YourGoals2} />
-        <Stack.Screen name="Setting" component={Setting} />
         <Stack.Screen name="Journal" component={Journal} />
+        <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="YourGoals2" component={YourGoals2} />
         <Stack.Screen name="Journal1" component={Journal1} />
         <Stack.Screen name="Journal2" component={Journal2} />
         <Stack.Screen name="Journal3" component={Journal3} />
+        <Stack.Screen name="TermsConditions" component={TermsConditions} />
+        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Editjournal" component={Editjournal} />
         <Stack.Screen name="PersonalGoals" component={PersonalGoals} />
-        <Stack.Screen name="Library" component={Library} />
+        <Stack.Screen name="Library" component={Library} /> 
       </Stack.Navigator>
     </NavigationContainer >
   );
-}
+};
 
 export default App;

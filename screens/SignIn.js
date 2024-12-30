@@ -75,7 +75,7 @@ const SignIn = () => {
 
             <ReusableButton text="Login" onPress={() => { setisLoading(true)
                 setTimeout(() => { setisLoading(false);
-                navigation.navigate('OtpPage')
+                navigation.navigate('YourGoals')
                 }, 2000);
             }} />
 

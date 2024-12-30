@@ -14,9 +14,12 @@ const ContactUs = () => {
     ];
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
+                <Icon name="chevron-left" size={26} color="gray" />
+                <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
+                    <Text style={{ fontSize: 18 }}>Back</Text>
+                </TouchableOpacity>
+            </View>
 
             <Text style={styles.label1}>Contact Us</Text>
             <Text style={styles.label2}>Email</Text>
@@ -66,10 +69,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-    },
-    frame30: {
-        marginTop: 30,
-        left: 10,
     },
     label1: {
         color: '#D11A38',

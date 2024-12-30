@@ -3,7 +3,6 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import frame66 from '../assets/images/frame66.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
 const YourGoals = () => {
     const navigation = useNavigation();
 
@@ -89,16 +88,17 @@ const YourGoals = () => {
                     <Text style={styles.todoCount}>{item.todoCount}</Text>
                 </View>
                 <TouchableOpacity>
-                <Text style={styles.viewButton}>
-                    {section === 'completed' ? 'Download' : 'View'}
-                </Text>
-            </TouchableOpacity>
+                    <Text style={styles.viewButton}>
+                        {section === 'completed' ? 'Download' : 'View'}
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     };
+    
     return (
         <SafeAreaView style={styles.container}>
-            {/* <ScrollView> */}
+            <ScrollView>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', top: 15 }}>
                 <TouchableOpacity>
                     <Icon name="menu" size={30} color="grey" style={{ left: 12 }} />
@@ -120,8 +120,8 @@ const YourGoals = () => {
                 contentContainerStyle={styles.listContainer}
             />
             <View style={styles.group1}>
-                <TouchableOpacity onPress={()=>navigation.navigate('YourGoals2')}>
-                <Text style={styles.line1}>My Completed 100</Text>
+                <TouchableOpacity onPress={() => navigation.navigate('YourGoals2')}>
+                    <Text style={styles.line1}>My Completed 100</Text>
                 </TouchableOpacity>
                 <Text style={styles.line2}>View all</Text>
             </View>
@@ -131,7 +131,7 @@ const YourGoals = () => {
                 renderItem={(props) => renderItem({ ...props, section: 'completed' })}
                 contentContainerStyle={styles.listContainer}
             />
-            {/* </ScrollView> */}
+            </ScrollView>
         </SafeAreaView>
     )
 }

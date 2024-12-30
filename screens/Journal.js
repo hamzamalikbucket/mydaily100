@@ -1,8 +1,10 @@
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 
 const Journal = () => {
+    const navigation= useNavigation();
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
@@ -13,7 +15,7 @@ const Journal = () => {
             </View>
             <Text style={styles.text}>Journal</Text>
             <Text style={styles.subtext}>You have 0 journal</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>navigation . navigate('Journal1')}>
             <Text style={styles.btntext}>Add journal</Text>
             </TouchableOpacity>
         </SafeAreaView>
