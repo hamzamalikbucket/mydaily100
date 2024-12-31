@@ -20,24 +20,29 @@ export default function SignUp() {
             <TextInput
                 style={styles.input}
                 placeholder="example@email.com"
+                placeholderTextColor="lightgray"
                 keyboardType="email-address"
             />
-            <Text style={styles.label1}>Password</Text>
+            <Text style={styles.label2}>Password</Text>
             <TextInput
                 style={styles.input}
                 placeholder="password123"
+                placeholderTextColor="lightgray"
+
             />
-            <Text style={styles.label1}>Confirm Password</Text>
+            <Text style={styles.label3}>Confirm Password</Text>
             <TextInput
                 style={styles.input}
                 placeholder="password123"
+                placeholderTextColor="lightgray"
+
             />
             <View style={styles.checkboxContainer}>
                 <CheckBox
                     value={isChecked}
                     onValueChange={setIsChecked}
                 />
-                <Text style={{ top: 5 }}>
+                <Text style={{ top: 5, color: "#878787", fontWeight: '500' }}>
                     By sign up I agree with{' '}
                     <Text style={{ color: '#D11A38' }} onPress={() => {
                         setIsChecked((prevState) => !prevState);
@@ -50,7 +55,7 @@ export default function SignUp() {
                     value={isPrivcyChecked}
                     onValueChange={setIsPrivcyChecked}
                 />
-                <Text style={{ top: 5 }}>
+                <Text style={{ top: 5, color: '#878787',fontWeight: '500' }}>
                     By sign up I agree with{' '}
                     <Text style={{ color: '#D11A38' }} onPress={() => {
                         setIsPrivcyChecked((prevState) => !prevState);
@@ -70,8 +75,8 @@ export default function SignUp() {
                 <Text style={styles.btn1}>Google</Text>
             </TouchableOpacity>
             <View style={styles.footertext}>
-                <Text>Already have an account?{' '}
-                    <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('SignIn')}>Sign In</Text>
+                <Text style={{ color: '#878787', fontWeight: '400' }}>Already have an account?{' '}
+                    <Text style={{ color: '#D11A38', fontSize: 16 }} onPress={() => navigation.navigate('SignIn')}>Sign In</Text>
                 </Text>
             </View>
             <Modal
@@ -97,33 +102,49 @@ const styles = StyleSheet.create({
     },
     logo: {
         alignSelf: 'center',
-        marginTop: 10,
+        marginTop: 20,
     },
     title: {
         alignSelf: 'center',
         marginTop: 10,
-        fontSize: 36,
+        fontSize: 34,
         color: '#D11A38',
-        fontWeight: '600',
+        fontWeight: '500',
     },
     subtitle: {
         alignSelf: 'center',
-        fontSize: 16,
+        fontSize: 14,
+        color: '#878787',
         fontWeight: '400',
     },
     label1: {
-        marginTop: 15,
+        padding: 12,
         fontSize: 16,
-        color: "#000",
-        marginLeft: 15,
-        marginBottom: 5,
+        fontWeight: '400',
+        left: 10,
+        color: "#878787",
+    },
+    label2: {
+        padding: 12,
+        fontSize: 16,
+        fontWeight: '500',
+        left: 10,
+        color: "#878787",
+    },
+    label3: {
+        padding: 12,
+        fontSize: 16,
+        fontWeight: '500',
+        left: 10,
+        color: "#878787",
     },
     input: {
+        padding: 15,
         borderWidth: 1,
-        borderColor: 'lightgray',
-        marginLeft: 15,
-        marginRight: 15,
-        padding: 10,
+        borderColor: 'black',
+        borderRadius: 12,
+        margin: 12,
+        marginTop: 0,
     },
     checkboxContainer: {
         flexDirection: 'row',
@@ -138,15 +159,20 @@ const styles = StyleSheet.create({
     ortext: {
         textAlign: 'center',
         fontSize: 20,
+        fontWeight: '400',
+        color: 'gray',
     },
     btn1: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 18,
+        fontWeight: '400',
         borderColor: 'lightgray',
         borderWidth: 1,
         padding: 12,
+        color: 'gray',
         borderRadius: 12,
         margin: 15,
+        marginBottom: '1%',
     },
     footertext: {
         marginTop: 30,

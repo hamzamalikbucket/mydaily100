@@ -9,8 +9,11 @@ import Goals from './Goals';
 const SwiperScreen = () => {
     return (
         <View style={styles.container}>
-            <Swiper loop={false} showsPagination={true} 
-            activeDotColor='#D11A38'>
+            <Swiper loop={false}
+                showsPagination={true}
+                activeDotStyle={styles.activedot}
+                dotStyle={styles.dot}
+            >
                 <MainPage />
                 <SuccessChart />
                 <DailyTarget />
@@ -26,5 +29,17 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-   
+    dot: {
+        width: 8,
+        height: 8,
+        borderRadius: 5,
+        marginBottom: 220,
+    },
+    activedot: {
+        backgroundColor: '#D11A38',
+        width: 24,
+        height: 8,
+        borderRadius: 100,
+        marginBottom: 220,
+    },
 })

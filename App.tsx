@@ -161,8 +161,16 @@ const Stack = createStackNavigator();
 const MyDrawer = () => {
   const Drawer = createDrawerNavigator();
   return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Setting" component={Setting} />
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#fff',
+          elevation: 0,
+          shadowOpacity: 0,
+        },
+      }}
+    >
+      <Drawer.Screen name="YourGoals" component={YourGoals} />
       <Drawer.Screen name="Journal" component={Journal} />
       <Drawer.Screen name="Library" component={Library} />
       <Drawer.Screen name="TermsConditions" component={TermsConditions} />
@@ -176,14 +184,14 @@ const App = () => {
   return (
     <NavigationContainer>
       {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
-        <Stack.Screen name="MyDrawer" component={MyDrawer}/>
-       <Stack.Navigator initialRouteName="SwiperScreen" screenOptions={{ headerShown: false }}>
-         <Stack.Screen name="SwiperScreen" component={SwiperScreen} />
+        <Stack.Screen name="MyDrawer" component={MyDrawer} />
+        <Stack.Navigator initialRouteName="SwiperScreen" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="SwiperScreen" component={SwiperScreen} />
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="SuccessChart" component={SuccessChart} />
         <Stack.Screen name="DailyTarget" component={DailyTarget} />
         <Stack.Screen name="Goals" component={Goals} />
-       <Stack.Screen name="OtpPage" component={OtpPage} />
+        <Stack.Screen name="OtpPage" component={OtpPage} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
         <Stack.Screen name="ResetPassword1" component={ResetPassword1} />
@@ -207,10 +215,10 @@ const App = () => {
         <Stack.Screen name="Journal3" component={Journal3} />
         <Stack.Screen name="TermsConditions" component={TermsConditions} />
         <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
-        <Stack.Screen name="Contact" component={Contact} />
+         <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Editjournal" component={Editjournal} />
-        <Stack.Screen name="PersonalGoals" component={PersonalGoals} />
-        <Stack.Screen name="Library" component={Library} /> 
+        <Stack.Screen name="PersonalGoals" component={PersonalGoals} /> 
+        <Stack.Screen name="Library" component={Library} />
       </Stack.Navigator>
     </NavigationContainer >
   );

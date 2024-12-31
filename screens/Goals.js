@@ -9,24 +9,23 @@ const Goals = () => {
     return (
         <SafeAreaView style={styles.container}>
             {/* <ScrollView > */}
-                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-                    <Text style={styles.text}>Skip</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+                <Text style={styles.text}>Skip</Text>
+            </TouchableOpacity>
+            <Image source={require('../assets/images/img4.png')} style={styles.image4} />
+            <Text style={styles.line1}>Achieve Your Goals</Text>
+            <Text style={styles.line2}>Reach your Dreams</Text>
+            <Text style={styles.discription}>Turn aspirations into reality,
+                {'\n'}one daily goal at a time. My Daily 100:
+                {'\n'}<Text style={styles.Companion}>Your Success Companion</Text></Text>
+            <View style={styles.icons}>
+                <TouchableOpacity style={{position:'absolute', left:15, width: 56, top: 10, height: 56, borderRadius: 25, padding: 11}} onPress={() => navigation.goBack()}>
+                    <Icon name="arrow-back" size={32} color="#D11A38"/>
                 </TouchableOpacity>
-                <Image source={require('../assets/images/img4.png')} style={styles.image4} />
-                <Text style={styles.line1}>Achieve Your Goals</Text>
-                <Text style={styles.line2}>Reach your Dreams</Text>
-                <Text style={styles.discription}>Turn aspirations into reality,
-                    one daily goal at a time. My Daily 100:
-                    <Text style={styles.Companion}>Your Success Companion</Text></Text>
-                <View style={styles.icons}>
-                    <TouchableOpacity onPress={() => navigation.navigate('DailyTarget')}>
-                        <Icon name="arrow-back" size={32} color="#D11A38" />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-                        <Icon name="arrow-forward" size={32} color="#fff"
-                            style={styles.iconStyle} />
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity style={{ position: 'absolute', right: 15, backgroundColor: '#D11A38', width: 58, height: 58, borderRadius: 28, top: 12, padding: 12 }} onPress={() => navigation.navigate('SignIn')}>
+                    <Icon name="arrow-forward" size={32} color="#fff" />
+                </TouchableOpacity>
+            </View>
             {/* </ScrollView> */}
         </SafeAreaView>
     );
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: '400',
         textAlign: 'center',
-        marginTop: '5%',
+        color: '#878787',
     },
     Companion: {
         color: '#D11A38',
@@ -79,13 +78,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginTop: 160,
     },
-    iconStyle: {
-        backgroundColor: "#D11A38",
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        padding: 8,
-    },
+
 });
 
 export default Goals;

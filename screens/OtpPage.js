@@ -22,7 +22,7 @@ const OtpPage = () => {
         <SafeAreaView style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
                 <View style={styles.icon}>
-                    <Icon name='chevron-left' size={26} color='gray' />
+                    <Icon name='chevron-left' size={28} color='gray' />
                     <Text style={styles.icontext}>Back</Text>
                 </View>
             </TouchableOpacity>
@@ -78,22 +78,24 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     title: {
-        marginTop: '30%',
+        marginTop: 30,
         color: '#D11A38',
-        fontSize: 36,
-        fontWeight: '600',
+        fontSize: 34,
+        fontWeight: '500',
         alignSelf: 'center',
     },
     subtitle: {
         fontSize: 16,
         fontWeight: '500',
         alignSelf: 'center',
+        color: '#878787',
     },
     text: {
         textAlign: 'center',
         color: '#D11A38',
         marginTop: 20,
         fontSize: 18,
+        fontWeight: '400',
     },
     grouptext: {
         justifyContent: 'space-between',
@@ -102,10 +104,16 @@ const styles = StyleSheet.create({
     text1: {
         marginLeft: 20,
         fontSize: 16,
+        fontWeight: '600',
+        color: 'lightgray',
+
     },
     text2: {
         marginRight: 20,
         fontSize: 16,
+        fontWeight: '600',
+        color: 'lightgray',
+
     },
     otpInput: {
         height: 100,
@@ -116,6 +124,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'lightgrey',
         fontSize: 14,
+        color: '#000',
         borderRadius: 12,
     },
     icon: {
@@ -125,8 +134,8 @@ const styles = StyleSheet.create({
     },
     icontext: {
         fontSize: 20,
+        color: 'gray',
     },
-   
     modalicon: {
         backgroundColor: "white",
         borderRadius: 12,

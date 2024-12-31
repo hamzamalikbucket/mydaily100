@@ -54,28 +54,35 @@ const SignIn = () => {
         <SafeAreaView style={styles.container}>
             <Text style={styles.line1}>Welcome Back</Text>
             <Text style={styles.line2}>Sign in to continue</Text>
-            <Text style={styles.label1}>Email</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="example@email.com"
-                keyboardType="email-address"
-            // value={email}
-            // onChangeText={setEmail}
-            />
-            <Text style={styles.label1}>Password</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="password123"
-            // value={password}
-            // onChangeText={setPassword}
-            />
+            <View style={styles.inputData}>
+                <Text style={styles.label1}>Email</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="example@email.com"
+                    placeholderTextColor="#878787"
+                    keyboardType="email-address"
+                // value={email}
+                // onChangeText={setEmail}
+                />
+                <Text style={styles.label2}>Password</Text>
+                <TextInput
+                    style={styles.input1}
+                    placeholder="password123"
+                    placeholderTextColor="#878787"
+
+                // value={password}
+                // onChangeText={setPassword}
+                />
+            </View>
             <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')}>
                 <Text style={styles.forgetpassword}>Forget Password</Text>
             </TouchableOpacity>
 
-            <ReusableButton text="Login" onPress={() => { setisLoading(true)
-                setTimeout(() => { setisLoading(false);
-                navigation.navigate('YourGoals')
+            <ReusableButton text="Login" onPress={() => {
+                setisLoading(true)
+                setTimeout(() => {
+                    setisLoading(false);
+                    navigation.navigate('YourGoals')
                 }, 2000);
             }} />
 
@@ -87,8 +94,8 @@ const SignIn = () => {
                 <Text style={styles.btn2}>Apple</Text>
             </TouchableOpacity>
             <View style={styles.footertext}>
-                <Text>Don't have an account?{' '}
-                    <Text style={{ color: '#D11A38' }} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
+                <Text style={{ color: '#878787', fontWeight: '400' }}>Don't have an account?{' '}
+                    <Text style={{ color: '#D11A38', fontSize: 16 }} onPress={() => navigation.navigate('SignUp')}>Sign Up</Text>
                 </Text>
             </View>
             <Modal
@@ -115,56 +122,86 @@ const styles = StyleSheet.create({
     line1: {
         textAlign: 'center',
         color: '#D11A38',
-        fontSize: 36,
-        fontWeight: '600',
-        marginTop: 35,
+        fontSize: 34,
+        fontWeight: '500',
+        top: 50,
     },
     line2: {
         textAlign: 'center',
-        fontWeight: '400',
+        fontWeight: '500',
         fontSize: 16,
+        color: '#878787',
+        top: 35,
     },
     footertext: {
         marginTop: 20,
         alignSelf: 'center',
     },
+    inputData: {
+        marginTop: 25,
+    },
     input: {
         padding: 15,
         borderWidth: 1,
-        borderColor: 'lightgray',
-        marginLeft: 15,
-        marginRight: 15,
+        borderColor: 'black',
+        borderRadius: 12,
+        margin: 12,
+    },
+    input1: {
+        padding: 15,
+        borderWidth: 1,
+        borderColor: 'black',
+        borderRadius: 12,
+        margin: 12,
     },
     label1: {
-        marginTop: 20,
         padding: 12,
         fontSize: 16,
+        fontWeight: '500',
+        left: 10,
+        color: "#000",
+    },
+    label2: {
+        padding: 12,
+        fontSize: 16,
+        fontWeight: '500',
+        left: 10,
         color: "#000",
     },
     forgetpassword: {
         textAlign: 'right',
-        padding: 12,
+        color: 'gray',
+        fontSize: 15,
+        fontWeight: '400',
+        padding: 8,
+        right: 12,
     },
 
     ortext: {
         textAlign: 'center',
         fontSize: 20,
+        fontWeight: '400',
+        color: 'gray',
     },
     btn1: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 18,
+        fontWeight: '400',
         borderColor: 'lightgray',
         borderWidth: 1,
         padding: 12,
+        color: 'gray',
         borderRadius: 12,
         margin: 15,
         marginBottom: '1%',
     },
     btn2: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 18,
+        fontWeight: '400',
         borderColor: 'lightgray',
         borderWidth: 1,
+        color: 'gray',
         padding: 12,
         borderRadius: 12,
         margin: 15,

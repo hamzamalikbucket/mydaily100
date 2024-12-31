@@ -1,7 +1,7 @@
 
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, Image, TouchableOpacity, SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const MainPage = () => {
@@ -15,12 +15,11 @@ const MainPage = () => {
                 style={styles.image1} />
             <Text style={styles.line1}>Unlock your</Text>
             <Text style={styles.line2}>Potential Now</Text>
-            <Text style={styles.discription}>Visualize and track daily progress,
-                turning obstacles into stepping stones with</Text>
+            <Text style={styles.discription}>Visualize and track daily progress,</Text>
+            <Text style={styles.discription}> turning obstacles into stepping stones with</Text>
             <Image source={require('../assets/images/logo.png')} style={styles.logo} />
-            <TouchableOpacity onPress={() => navigation.navigate('SuccessChart')}>
-                <Icon name="arrow-forward" size={32} color="#fff"
-                    style={styles.iconStyle} />
+            <TouchableOpacity style={{position:'absolute', right:20, bottom:65, backgroundColor: '#D11A38', width: 56, height: 56, borderRadius: 25, padding: 10}} onPress={() => navigation.navigate('SuccessChart')}>
+                <Icon name="arrow-forward" size={32} color="#fff"/>
             </TouchableOpacity>
         </SafeAreaView>
     );
@@ -30,7 +29,8 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        
     },
     text: {
         color: '#D11A38',
@@ -41,14 +41,16 @@ const styles = StyleSheet.create({
     },
     image1: {
         alignSelf: 'center',
-        marginTop: 50,
+        width: 298,
+        height: 293,
+        marginTop: 90,
     },
     line1: {
         fontSize: 34,
         color: '#000',
         fontWeight: '400',
         textAlign: 'center',
-        marginTop: '10%',
+        marginTop: 10,
     },
     line2: {
         fontSize: 34,
@@ -57,24 +59,15 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     discription: {
-        fontSize: 17,
+        fontSize: 15,
         fontWeight: '400',
         textAlign: 'center',
-        marginTop: '5%',
+        color: '#878787',
     },
     logo: {
         alignSelf: 'center',
-        marginTop: '5%',
-    },
-    iconStyle: {
-        backgroundColor: "#D11A38",
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        padding: 8,
-        alignSelf: 'flex-end',
-        marginTop: 100,
-        right: 15,
+        width: 84,
+        height: 40,
     },
 });
 

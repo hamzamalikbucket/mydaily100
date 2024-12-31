@@ -3,7 +3,9 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import frame66 from '../assets/images/frame66.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 const YourGoals = () => {
+
     const navigation = useNavigation();
 
     const data = [
@@ -95,42 +97,39 @@ const YourGoals = () => {
             </View>
         );
     };
-    
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', top: 15 }}>
-                <TouchableOpacity>
-                    <Icon name="menu" size={30} color="grey" style={{ left: 12 }} />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Icon name="notifications" size={30} color="#D11A38" style={{ right: 12 }} />
-                </TouchableOpacity>
-            </View>
-            <Text style={styles.text}>Your Goals</Text>
-            <Image source={require('../assets/images/frame58.png')} style={styles.frame58} />
-            <View style={styles.group}>
-                <Text style={styles.line1}>Your Assessment</Text>
-                <Text style={styles.line2}>View all</Text>
-            </View>
-            <FlatList
-                data={data}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={(props) => renderItem({ ...props, section: 'assessment' })}
-                contentContainerStyle={styles.listContainer}
-            />
-            <View style={styles.group1}>
-                <TouchableOpacity onPress={() => navigation.navigate('YourGoals2')}>
-                    <Text style={styles.line1}>My Completed 100</Text>
-                </TouchableOpacity>
-                <Text style={styles.line2}>View all</Text>
-            </View>
-            <FlatList
-                data={data2}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={(props) => renderItem({ ...props, section: 'completed' })}
-                contentContainerStyle={styles.listContainer}
-            />
+                <View style={{ alignSelf: 'flex-end' }}>
+                    <TouchableOpacity>
+                        <Icon name="notifications" size={30} color="#D11A38" />
+                    </TouchableOpacity>
+                </View>
+                <Text style={styles.text}>Your Goals</Text>
+                <Image source={require('../assets/images/frame58.png')} style={styles.frame58} />
+                <View style={styles.group}>
+                    <Text style={styles.line1}>Your Assessment</Text>
+                    <Text style={styles.line2}>View all</Text>
+                </View>
+                <FlatList
+                    data={data}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={(props) => renderItem({ ...props, section: 'assessment' })}
+                    contentContainerStyle={styles.listContainer}
+                />
+                <View style={styles.group1}>
+                    <TouchableOpacity onPress={() => navigation.navigate('YourGoals2')}>
+                        <Text style={styles.line1}>My Completed 100</Text>
+                    </TouchableOpacity>
+                    <Text style={styles.line2}>View all</Text>
+                </View>
+                <FlatList
+                    data={data2}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={(props) => renderItem({ ...props, section: 'completed' })}
+                    contentContainerStyle={styles.listContainer}
+                />
             </ScrollView>
         </SafeAreaView>
     )
@@ -149,11 +148,11 @@ const styles = StyleSheet.create({
         width: '90%',
     },
     text: {
-        fontSize: 36,
+        fontSize: 34,
         fontWeight: '600',
         color: '#D11A38',
-        left: 25,
         marginTop: 20,
+        marginLeft: 15,
     },
     frame58: {
         alignSelf: 'center',
@@ -163,15 +162,18 @@ const styles = StyleSheet.create({
     assessmentName: {
         fontSize: 16,
         fontWeight: '500',
+        color: '#5E5E5E',
     },
     todoCount: {
         fontSize: 14,
+        fontWeight: '400',
         color: '#D11A38',
     },
     viewButton: {
         color: '#D11A38',
         fontSize: 14,
         fontWeight: '400',
+        right: 10,
     },
     itemContainer: {
         flexDirection: 'row',
@@ -184,8 +186,8 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     image: {
-        width: 50,
-        height: 50,
+        width: 60,
+        height: 60,
     },
     group: {
         flexDirection: 'row',
@@ -195,7 +197,8 @@ const styles = StyleSheet.create({
     line1: {
         fontSize: 18,
         fontWeight: '600',
-        left: 15,
+        color:'#878787',
+        left: 20,
     },
     line2: {
         fontSize: 18,
