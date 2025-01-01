@@ -1,40 +1,50 @@
-import { View,SafeAreaView,ScrollView, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, SafeAreaView, ScrollView, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import React from 'react';
-import {useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const ProfilePage = () => {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-            <TouchableOpacity onPress={()=>navigation.goBack()}>
-            <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
-            </TouchableOpacity>
-            <Text style={styles.title}>Profile Information</Text>
-            <Image source={require('../assets/images/frame38.png')} style={styles.frame38} />
-            <Image source={require('../assets/images/frame39.png')} style={styles.frame39} />
-            <Text style={styles.label1}>Full Name</Text>
-            <TextInput
-                style={styles.input}
-                placeholder='Jhon Doe'
-            />
-            <Text style={styles.label2}>Country</Text>
-            <TextInput
-                style={styles.input}
-                placeholder='United States America'
-            />
-            <Text style={styles.label3}>City</Text>
-            <TextInput
-                style={styles.input}
-                placeholder='New York'
-            />
-            <Text style={styles.label4}>Address</Text>
-            <TextInput
-                style={styles.input}
-                placeholder='great street 01'
-            />
-            <ReusableButton text='Add Motivation' onPress={() => navigation.navigate('Motivation')} />
+                <View style={styles.header}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Icon name="chevron-left" size={26} color="gray" />
+                        <TouchableOpacity>
+                            <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <Text style={styles.title}>Profile Information</Text>
+                <Image source={require('../assets/images/frame38.png')} style={styles.frame38} />
+                <Image source={require('../assets/images/frame39.png')} style={styles.frame39} />
+                <Text style={styles.label1}>Full Name</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder='Jhon Doe'
+                    placeholderTextColor="lightgray"
+                />
+                <Text style={styles.label2}>Country</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder='United States America'
+                    placeholderTextColor="lightgray"
+                />
+                <Text style={styles.label3}>City</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder='New York'
+                    placeholderTextColor="lightgray"
+                />
+                <Text style={styles.label4}>Address</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder='great street 01'
+                    placeholderTextColor="lightgray"
+                />
+                <ReusableButton text='Add Motivation' onPress={() => navigation.navigate('Motivation')} />
             </ScrollView>
         </SafeAreaView>
     )
@@ -44,51 +54,58 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        marginTop: 10,
     },
-    frame30: {
-        marginTop: 15,
-        left: 10,
+    header: {
+        padding: 10,
     },
     title: {
         alignSelf: 'center',
         marginTop: 30,
         color: '#D11A38',
-        fontSize: 36,
-        fontWeight: '600',
+        fontSize: 34,
+        fontWeight: '500',
     },
     frame38: {
         alignSelf: 'center',
-        marginTop: '30%',
+        marginTop: '35%',
         position: 'absolute',
     },
     frame39: {
         alignSelf: 'center',
-        marginTop: '15%',
+        marginTop: 55,
     },
     label1: {
         fontSize: 18,
         marginTop: '20%',
         left: 15,
+        color: '#878787',
+        fontWeight: '300',
     },
     label2: {
         fontSize: 18,
         left: 15,
+        color: '#878787',
+        fontWeight: '300',
     },
     label3: {
         fontSize: 18,
         left: 15,
+        color: '#878787',
+        fontWeight: '300',
     },
     label4: {
         fontSize: 18,
         left: 15,
+        color: '#878787',
+        fontWeight: '300',
     },
     input: {
-        marginLeft: 15,
         borderColor: 'lightgray',
         borderWidth: 1,
-        margin: 15,
+        marginHorizontal: 15,
+        marginVertical: 5,
         borderRadius: 12,
-        padding: 15,
     },
 
 })

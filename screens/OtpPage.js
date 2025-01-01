@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'lightgrey',
         fontSize: 14,
-        color: '#000',
+        color: 'black',
         borderRadius: 12,
     },
     icon: {

@@ -41,8 +41,9 @@ export default function SignUp() {
                 <CheckBox
                     value={isChecked}
                     onValueChange={setIsChecked}
+                    tintColors={{ true: '#D11A38', false: '#878787' }}
                 />
-                <Text style={{ top: 5, color: "#878787", fontWeight: '500' }}>
+                <Text style={{ top: 2, color: "#878787",fontSize: 15, fontWeight: '300' }}>
                     By sign up I agree with{' '}
                     <Text style={{ color: '#D11A38' }} onPress={() => {
                         setIsChecked((prevState) => !prevState);
@@ -54,8 +55,9 @@ export default function SignUp() {
                 <CheckBox
                     value={isPrivcyChecked}
                     onValueChange={setIsPrivcyChecked}
+                    tintColors={{ true: '#D11A38', false: '#878787' }}
                 />
-                <Text style={{ top: 5, color: '#878787',fontWeight: '500' }}>
+                <Text style={{ top: 2, color: '#878787',fontSize: 15, fontWeight: '300' }}>
                     By sign up I agree with{' '}
                     <Text style={{ color: '#D11A38' }} onPress={() => {
                         setIsPrivcyChecked((prevState) => !prevState);
@@ -64,11 +66,13 @@ export default function SignUp() {
                 </Text>
             </View>
 
-            <ReusableButton text="Create New Account" onPress={()=>{setisLoading(true)
-                setTimeout(() => { setisLoading(false);
-                navigation.navigate('TermsConditions')
+            <ReusableButton text="Create New Account" onPress={() => {
+                setisLoading(true)
+                setTimeout(() => {
+                    setisLoading(false);
+                    navigation.navigate('TermsConditions')
                 }, 2000);
-            }}/>
+            }} />
 
             <Text style={styles.ortext}>or</Text>
             <TouchableOpacity>

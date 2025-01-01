@@ -1,4 +1,4 @@
-import { View, SafeAreaView, Text, Image, StyleSheet, TouchableOpacity, FlatList, Modal, Alert } from 'react-native';
+import { View, SafeAreaView, Text, Image, StyleSheet, ScrollView, TouchableOpacity, FlatList, Modal } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
@@ -7,6 +7,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const PicUpload = () => {
     const navigation = useNavigation();
     const [OpenModal, setOpenModal] = useState(false);
+    const handleNavigation = () => {
+        setOpenModal(false);
+        navigation.navigate('ContactUs');
+    };
     const data = [
         { id: 1 },
         { id: 2 },
@@ -17,8 +21,8 @@ const PicUpload = () => {
     const renderItem = ({ item }) => (
         <TouchableOpacity>
             <View style={styles.list}>
-                <TouchableOpacity onPress={()=> navigation.navigate('Setting')}>
-                <Icon name="file-upload" size={40} color="gray" />
+                <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
+                    <Icon name="file-upload" size={40} color="gray" alignSelf='center' padding={90} />
                 </TouchableOpacity>
             </View>
         </TouchableOpacity>
@@ -26,41 +30,43 @@ const PicUpload = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
-                <Icon name="chevron-left" size={26} color="gray" />
-                <TouchableOpacity>
-                    <Text style={{ fontSize: 18 }}>Back</Text>
-                </TouchableOpacity>
-            </View>
-            <Text style={styles.title}>Upload a Picture{"\n"} of your Dreams</Text>
-            <FlatList
-                data={data}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id.toString()}
-            />
-            <ReusableButton text='save' onPress={() => {
-                setOpenModal(true);
-            }} />
-            <Modal
-                visible={OpenModal}
-                animationType="slide"
-                transparent={true}>
-                <View style={styles.modalicon}>
-                    <View style={styles.modalContent}>
-                        <Image source={require('../assets/images/frame16.png')} />
-                        <Text style={styles.maintext1}>Successfully Set up</Text>
-                        <Text style={styles.maintext2}>congratulations your Profile</Text>
-                        <Text style={styles.maintex3}>account was set now</Text>
-                        <TouchableOpacity
-                            style={styles.clossIcon}
+            <ScrollView>
+                <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
+                    <Icon name="chevron-left" size={26} color="gray" />
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
+                    </TouchableOpacity>
+                </View>
+                <Text style={styles.title}>Upload a Picture{"\n"} of your Dreams</Text>
+                <FlatList
+                    data={data}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id.toString()}
+                />
+                <ReusableButton text='save' onPress={() => {
+                    setOpenModal(true);
+                }} />
+                <Modal
+                    visible={OpenModal}
+                    animationType="slide"
+                    transparent={true}>
+                    <View style={styles.modalicon}>
+                        <TouchableOpacity style={styles.clossIcon}
                             onPress={() => {
                                 setOpenModal(false);
-                            }}>
-                            <Icon name="close" size={30} color="black" />
-                            </TouchableOpacity>
+                            }} onPressIn={handleNavigation}>
+                            <Icon name="close" size={30} color="gray" />
+                        </TouchableOpacity>
+
+                        <View style={styles.modalContent}>
+                            <Image source={require('../assets/images/frame16.png')} />
+                            <Text style={styles.maintext1}>Successfully Set up</Text>
+                            <Text style={styles.maintext2}>congratulations your Profile</Text>
+                            <Text style={styles.maintex3}>account was set now</Text>
+                        </View>
                     </View>
-                </View>
-            </Modal>
+                </Modal>
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -74,20 +80,25 @@ const styles = StyleSheet.create({
     title: {
         alignSelf: 'center',
         color: '#D11A38',
-        fontSize: 36,
-        fontWeight: '600',
+        fontSize: 34,
+        fontWeight: '500',
         textAlign: 'center',
         marginVertical: 20,
     },
     list: {
+        height: 60,
+        marginVertical: 0,
+        marginBottom: 12,
+        borderRadius: 12,
         width: 353,
         height: 220,
-        backgroundColor: '#FFC0BC',
-        marginBottom: 15,
+        backgroundColor: '#fabbdc',
         alignSelf: 'center',
-        borderRadius: 12,
-        justifyContent: 'center',
-        alignItems: 'center',
+    },
+    clossIcon: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
     },
     modalicon: {
         backgroundColor: "white",
@@ -97,7 +108,7 @@ const styles = StyleSheet.create({
     },
     modalContent: {
         alignItems: "center",
-        marginTop: 250,
+        top: 250,
     },
     maintext1: {
         fontSize: 34,

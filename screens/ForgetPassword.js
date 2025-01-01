@@ -33,11 +33,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#D11A38',
         fontSize: 36,
-        fontWeight: '600',
+        fontWeight: '500',
     },
     subtitle: {
         textAlign: 'center',
-        fontSize: 16,
+        fontSize: 14,
+        color: '#878787',
+        fontWeight: '300',
     },
 })
 export default ForgetPassword;

@@ -120,6 +120,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import Journal from './screens/Journal';
 import Journal1 from './screens/Journal1';
 import Journal2 from './screens/Journal2';
@@ -128,8 +130,6 @@ import Editjournal from './screens/Editjournal';
 import PersonalGoals from './screens/PersonalGoals';
 import Library from './screens/Library';
 import YourGoals from './screens/YourGoals';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-
 import YourGoals2 from './screens/YourGoals2';
 import Contact from './screens/Personalinfo';
 import PaymentDetails from './screens/PaymentDetails';
@@ -138,7 +138,7 @@ import DateTime from './screens/DateTime';
 import SelectCoach from './screens/SelectCoach';
 import ContactUs from './screens/ContactUs';
 import ChangePassword from './screens/ChangePassword';
-import Setting from './screens/Setting';
+// import Setting from './screens/Setting';
 import PicUpload from './screens/PicUpload';
 import Setup from './screens/Setup';
 import Motivation from './screens/Motivation';
@@ -157,9 +157,10 @@ import Goals from './screens/Goals';
 import SwiperScreen from './screens/SwiperScreen';
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
 
 const MyDrawer = () => {
-  const Drawer = createDrawerNavigator();
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -183,9 +184,10 @@ const MyDrawer = () => {
 const App = () => {
   return (
     <NavigationContainer>
+              <Stack.Screen name="MyDrawer" component={MyDrawer} />
+
       {/* <Stack.Navigator screenOptions={{ headerShown: false }}> */}
-        <Stack.Screen name="MyDrawer" component={MyDrawer} />
-        <Stack.Navigator initialRouteName="SwiperScreen" screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName="SwiperScreen" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="SwiperScreen" component={SwiperScreen} />
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="SuccessChart" component={SuccessChart} />
@@ -207,18 +209,18 @@ const App = () => {
         <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
         <Stack.Screen name="PaymentSuccessfull" component={PaymentSuccessfull} />
         <Stack.Screen name="YourGoals" component={YourGoals} />
-        <Stack.Screen name="Journal" component={Journal} />
-        <Stack.Screen name="Setting" component={Setting} />
+        {/* <Stack.Screen name="Journal" component={Journal} /> */}
+        {/* <Stack.Screen name="Setting" component={Setting} /> */}
         <Stack.Screen name="YourGoals2" component={YourGoals2} />
         <Stack.Screen name="Journal1" component={Journal1} />
         <Stack.Screen name="Journal2" component={Journal2} />
         <Stack.Screen name="Journal3" component={Journal3} />
-        <Stack.Screen name="TermsConditions" component={TermsConditions} />
-        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+        {/* <Stack.Screen name="TermsConditions" component={TermsConditions} /> */}
+        {/* <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} /> */}
          <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Editjournal" component={Editjournal} />
         <Stack.Screen name="PersonalGoals" component={PersonalGoals} /> 
-        <Stack.Screen name="Library" component={Library} />
+        {/* <Stack.Screen name="Library" component={Library} /> */}
       </Stack.Navigator>
     </NavigationContainer >
   );

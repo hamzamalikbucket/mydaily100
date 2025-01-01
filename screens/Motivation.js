@@ -1,7 +1,8 @@
-import { View,SafeAreaView, Image, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { View, SafeAreaView, Image, Text,ScrollView, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Motivation = () => {
     const navigation = useNavigation();
@@ -11,20 +12,26 @@ const Motivation = () => {
         { id: 2, title: 'Wealth' },
         { id: 3, title: 'Travel' },
         { id: 4, title: 'Excersie' },
-       
+
     ];
     const renderItem = ({ item }) => (
         <TouchableOpacity>
-        <View style={styles.list}>
-            <Text style={styles.text}>{item.title}</Text>
-        </View>
+            <View style={styles.list}>
+                <Text style={styles.text}>{item.title}</Text>
+            </View>
         </TouchableOpacity>
     );
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
-            </TouchableOpacity>
+            <ScrollView>
+            <View style={styles.header}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Icon name="chevron-left" size={26} color="gray" />
+                    <TouchableOpacity onPress={()=>navigation.goBack()}>
+                        <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
             <Text style={styles.title}>Add Motivation</Text>
             <FlatList
                 data={data}
@@ -32,6 +39,7 @@ const Motivation = () => {
                 keyExtractor={(item) => item.id}
             />
             <ReusableButton text='upload your dreams' onPress={() => navigation.navigate('PicUpload')} />
+            </ScrollView>
         </SafeAreaView>
     )
 }
@@ -41,31 +49,35 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-    frame30: {
-        marginTop: 20,
-        left: 10,
+    header: {
+        padding: 10,
     },
     title: {
         alignSelf: 'center',
         color: '#D11A38',
-        fontSize: 36,
-        fontWeight: '600',
+        fontSize: 34,
+        fontWeight: '500',
+        marginTop: 15,
+        marginBottom: 15,
     },
     list: {
         height: 60,
-        marginBottom: 15,
+        marginVertical: 0,    
+        marginBottom: 12,    
         borderRadius: 12,
-        width:353,
+        width: 353,
         height: 220,
-        marginTop: '10%',
-        backgroundColor: '#FFC0BC',
-        margin:30,
-        
+        backgroundColor: '#fabbdc',
+        alignSelf: 'center',
+
     },
     text: {
         textAlign: 'center',
-        fontSize: 26,
-        padding: '25%',
+        justifyContent: "center",
+        fontSize: 28,
+        fontWeight: '500',
+        padding: 80,
+        color: '#595959',
     },
 
 })

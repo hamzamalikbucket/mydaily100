@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, Modal, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -8,39 +8,56 @@ const ResetPassword1 = () => {
     const navigation = useNavigation();
     const [isLoading, setisLoading] = useState(false);
 
+    const handleNavigation =()=>{
+        setisLoading(false);
+        navigation.navigate('ProfilePage');
+    };
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
                 <Icon name="chevron-left" size={26} color="gray" />
-                <TouchableOpacity>
-                    <Text style={{ fontSize: 18 }}>Back</Text>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Text style={{ fontSize: 18, color: 'gray', fontWeight: '400' }}>Back</Text>
                 </TouchableOpacity>
             </View>
+
             <Text style={styles.label}>Reset Password</Text>
-            <Text style={styles.inputlabel1}>Password</Text>
-            <TextInput
-                style={styles.input}
-                placeholder='New Password'
-            />
-            <Text style={styles.inputlabel}>Confirm New Password</Text>
-            <TextInput
-                style={styles.input}
-                placeholder='New Password'
-            />
-            <ReusableButton text="Save New Password" onPress={() =>{setisLoading(true)
-                setTimeout(() => {
-                    setisLoading(false)
-                }, 2000)
+            <View style={{ marginTop: 15, }}>
+                <Text style={styles.inputlabel1}>New Password</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder='New Password'
+                    placeholderTextColor="lightgray"
+                />
+
+                <Text style={styles.inputlabel}>Confirm New Password</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder='New Password'
+                    placeholderTextColor="lightgray"
+
+                />
+            </View>
+            <ReusableButton text="Save New Password" onPress={() => {
+                setisLoading(true)
             }} />
             <Modal
                 animationType="slide"
                 transparent={true}
                 visible={isLoading}>
                 <View style={styles.modaloverlay}>
+                    <TouchableOpacity style={styles.closeButton}
+                        onPress={() => setisLoading(false)}
+                    >
+                        <Icon name="close" size={24} color="white" />
+                    </TouchableOpacity>
                     <View style={styles.modalcontent}>
-                        <Icon name= "check-circle" size={100} color="#fff"/>
+                        <Icon name="check-circle" size={100} color="#fff" />
                         <Text style={styles.loadertext}>Password Changed!</Text>
-                        <Text style={styles.loadertext1}>back to login</Text>
+                        <TouchableOpacity onPress={handleNavigation}>
+                            <Text style={styles.loadertext1}>Go to ProfilePage</Text>
+                        </TouchableOpacity>
+
                     </View>
                 </View>
             </Modal>
@@ -54,35 +71,47 @@ const styles = StyleSheet.create({
     },
     label: {
         marginTop: 30,
-        textAlign: 'center',
         color: '#D11A38',
-        fontSize: 36,
-        fontWeight: '600',
+        left: 15,
+        fontSize: 34,
+        fontWeight: '500',
+        marginBottom: 25,
     },
     input: {
         padding: 15,
         borderWidth: 1,
-        borderColor: 'lightgray',
-        marginLeft: 15,
-        marginRight: 15,
+        borderColor: 'black',
         borderRadius: 12,
+        marginHorizontal: 12,
+        marginVertical: 5,
     },
     inputlabel: {
-        padding: 12,
-        fontSize: 16,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        fontSize: 14,
+        fontWeight: '400',
         left: 5,
+        color: '#878787',
+
     },
     inputlabel1: {
-        marginTop: 35,
-        padding: 12,
-        fontSize: 16,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
+        fontSize: 14,
+        fontWeight: '400',
+        color: '#878787',
         left: 5,
+    },
+    closeButton: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
     },
     modaloverlay: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.7)",
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
     },
     modalcontent: {
         padding: 20,
@@ -94,8 +123,9 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     loadertext1: {
-        fontSize: 16,
-        fontWeight: '500',
+        fontSize: 15,
+        fontWeight: '300',
+        top: 12,
         color: '#fff',
     },
 })

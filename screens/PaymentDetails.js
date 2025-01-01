@@ -1,4 +1,4 @@
-import { StyleSheet, SafeAreaView, ScrollView, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, SafeAreaView, ScrollView, Text, View, Image,TextInput, Modal, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -7,7 +7,11 @@ import CheckBox from '@react-native-community/checkbox';
 const PaymentDetails = () => {
     const navigation = useNavigation();
     const [isChecked, setIsChecked] = useState(false);
+    const [OpenModal, setOpenModal] = useState(false);
 
+    const handleNavigation = () => {
+        setOpenModal(false);
+    };
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
@@ -15,7 +19,7 @@ const PaymentDetails = () => {
                     <View style={{ flexDirection: 'row', alignItems: 'center', top: 15 }}>
                         <Icon name="chevron-left" size={26} color="gray" />
                         <TouchableOpacity>
-                            <Text style={{ fontSize: 18 }}>Back</Text>
+                            <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -28,7 +32,7 @@ const PaymentDetails = () => {
                 />
                 <View style={styles.group}>
                     <View style={styles.inputContainer}>
-                        <Text>Expire Date</Text>
+                        <Text style={{ color: 'gray' }}>Expire Date</Text>
                         <TextInput
                             style={styles.input1}
                             placeholder="12/34"
@@ -36,9 +40,9 @@ const PaymentDetails = () => {
                         />
                     </View>
                     <View style={styles.inputContainer}>
-                        <View style={{flexDirection: 'row'}}>
-                        <Text>CVV</Text>
-                        <Icon name="help" size={15} style={{left: 5, top: 2}}/>
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text style={{ color: 'gray' }}>CVV</Text>
+                            <Icon name="help" size={15} style={{ left: 5, top: 2 }} />
                         </View>
                         <TextInput
                             style={styles.input1}
@@ -51,15 +55,37 @@ const PaymentDetails = () => {
                     <CheckBox
                         value={isChecked}
                         onValueChange={setIsChecked}
+                        tintColors={{ true: '#D11A38', false: '#878787' }}
+
                     />
-                    <Text style={{fontSize: 18, fontWeight: '400'}}>Save card details</Text>
+                    <Text style={{ fontSize: 15, fontWeight: '300', color: 'gray' }}>Save card details</Text>
                 </View>
                 <View style={styles.footer}>
                     <Text style={styles.text2}>$26</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('YourGoals')} style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={() => {
+                    setOpenModal(true);
+                }}>
                         <Text style={styles.textbtn}>Pay & Confirm</Text>
                     </TouchableOpacity>
                 </View>
+                <Modal
+                    visible={OpenModal}
+                    animationType="slide"
+                    transparent={true}>
+                    <View style={styles.modalicon}>
+                        <TouchableOpacity style={styles.clossIcon}
+                            onPress={() => {
+                                setOpenModal(false);
+                            }} onPressIn={handleNavigation}>
+                            <Icon name="close" size={30} color="gray" />
+                        </TouchableOpacity>
+
+                        <View style={styles.modalContent}>
+                            <Image source={require('../assets/images/frame16.png')} />
+                            <Text style={styles.maintext1}>Payment Successfull </Text>
+                        </View>
+                    </View>
+                </Modal>
             </ScrollView>
         </SafeAreaView>
     );
@@ -79,8 +105,8 @@ const styles = StyleSheet.create({
     },
     line1: {
         color: '#D11A38',
-        fontSize: 32,
-        fontWeight: '600',
+        fontSize: 34,
+        fontWeight: '500',
         textAlign: 'center',
         top: 50,
     },
@@ -88,6 +114,7 @@ const styles = StyleSheet.create({
         top: 100,
         left: 15,
         fontSize: 16,
+        color: 'gray',
     },
     input: {
         borderWidth: 1,
@@ -98,8 +125,9 @@ const styles = StyleSheet.create({
     },
     text2: {
         fontSize: 30,
-        marginLeft: 20,
-        fontWeight: '700',
+        marginLeft: 10,
+        color: 'gray',
+        fontWeight: '500',
     },
     textbtn: {
         color: '#fff',
@@ -129,7 +157,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 20,
-        marginTop: 440,
+        marginTop: 460,
 
     },
     group: {
@@ -150,5 +178,25 @@ const styles = StyleSheet.create({
         padding: 8,
         borderRadius: 12,
         marginTop: 5,
+    },
+    clossIcon: {
+        position: 'absolute',
+        top: 20,
+        right: 20,
+    },
+    modalicon: {
+        backgroundColor: "white",
+        borderRadius: 12,
+        width: "100%",
+        height: "100%",
+    },
+    modalContent: {
+        alignItems: "center",
+        top: 250,
+    },
+    maintext1:{
+        color: '#D11A38',
+        fontSize: 34,
+        fontWeight: '500',
     },
 });

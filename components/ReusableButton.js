@@ -14,8 +14,7 @@ export default ReusableButton;
 const styles = StyleSheet.create({
     button: {
         backgroundColor: '#D11A38',
-        fontSize: 16,
-        height: 52,
+        height: 56,
         margin: 20,
         borderRadius: 12,
     },
@@ -24,6 +23,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         padding: 15,
         fontSize: 17,
-        fontWeight: '700',
+        fontWeight: '500',
     },
 })
