@@ -120,18 +120,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     line1: {
-        textAlign: 'center',
         color: '#D11A38',
         fontSize: 34,
         fontWeight: '500',
-        top: 50,
+        textAlign: 'center',
+        marginTop: 30,
     },
     line2: {
-        textAlign: 'center',
         fontWeight: '500',
         fontSize: 16,
         color: '#878787',
-        top: 35,
+    
+        textAlign: 'center',
     },
     footertext: {
         marginTop: 20,

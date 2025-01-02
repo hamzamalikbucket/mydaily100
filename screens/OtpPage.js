@@ -21,9 +21,9 @@ const OtpPage = () => {
     return (
         <SafeAreaView style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
-                <View style={styles.icon}>
+                <View style={{ flexDirection: 'row', marginTop: 15, left: 12 }}>
                     <Icon name='chevron-left' size={28} color='gray' />
-                    <Text style={styles.icontext}>Back</Text>
+                    <Text style={{ fontSize: 20, color: 'gray' }}>Back</Text>
                 </View>
             </TouchableOpacity>
 
@@ -36,36 +36,38 @@ const OtpPage = () => {
             <Text style={styles.text}>Enter Code here:</Text>
             <View>
                 <OtpInput
-                    style={styles.otpInput}
+                    style={styles.inputField}
                     numberOfDigits={5}
                     otp={otp}
                     onTextChange={setOtp}
-                    codeInputFieldStyle={styles.inputField}
+                // codeInputFieldStyle={styles.inputField}
                 />
             </View>
             <ReusableButton text="Confirm" onPress={() => handleOTP(otp)} />
             <View style={styles.grouptext}>
-                <Text style={styles.text1}>Expire in 00.59</Text>
-                <Text style={styles.text2}>Resend code</Text>
+                <Text style={{ color: '#898989' }}>Expire in 00.59</Text>
+                <Text style={{ color: '#898989' }}>Resend code</Text>
             </View>
 
-            <Modal visible={OpenModal} animationType="slide"
+            <Modal visible={OpenModal}
+                animationType="slide"
                 transparent={true}>
-                    <View style={styles.modalicon}>
-                        <View style={styles.modalContent}>
-                            <Image source={require('../assets/images/frame16.png')} />
-                            <Text style={styles.maintext1}>Successfully Verified</Text>
-                            <Text style={styles.maintext2}>Your account is set now,we will redirect you to </Text>
-                            <Text> profile information</Text>
-                            <TouchableOpacity
-                                style={styles.button}
-                                onPress={() => { setOpenModal(false);
-                                navigation.navigate("ProfilePage");
-                                }}>
-                                <Text style={styles.buttonText}>Okay</Text>
-                            </TouchableOpacity>
-                        </View>
+                <View style={styles.modalicon}>
+                    <TouchableOpacity style={styles.closeButton}
+                        onPress={() => {
+                            setOpenModal(false);
+                            navigation.navigate("ProfilePage");
+                        }}>
+                        <Icon name="close" size={28} color="#D11A38" />
+                    </TouchableOpacity>
+                    <View style={styles.modalContent}>
+                        <Image source={require('../assets/images/frame16.png')} />
+                        <Text style={styles.maintext1}>Successfully Verified</Text>
+                        <Text style={styles.maintext2}>Your account is set now,we will redirect you to </Text>
+                        <Text> profile information</Text>
+
                     </View>
+                </View>
             </Modal>
 
         </SafeAreaView>
@@ -93,48 +95,25 @@ const styles = StyleSheet.create({
     text: {
         textAlign: 'center',
         color: '#D11A38',
-        marginTop: 20,
+        marginVertical: 20,
         fontSize: 18,
         fontWeight: '400',
     },
     grouptext: {
         justifyContent: 'space-between',
         flexDirection: 'row',
+        margin: 10,
+        top: 30,
     },
-    text1: {
-        marginLeft: 20,
-        fontSize: 16,
-        fontWeight: '600',
-        color: 'lightgray',
 
-    },
-    text2: {
-        marginRight: 20,
-        fontSize: 16,
-        fontWeight: '600',
-        color: 'lightgray',
-
-    },
-    otpInput: {
-        height: 100,
-    },
     inputField: {
         width: 60,
-        height: 60,
+        height: 40,
         borderWidth: 1,
         borderColor: 'lightgrey',
         fontSize: 14,
         color: 'black',
         borderRadius: 12,
-    },
-    icon: {
-        flexDirection: 'row',
-        marginTop: 15,
-        left: 12,
-    },
-    icontext: {
-        fontSize: 20,
-        color: 'gray',
     },
     modalicon: {
         backgroundColor: "white",
@@ -155,17 +134,12 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: '400',
     },
-    button: {
-        backgroundColor: "#D11A38",
-        padding: 10,
-        borderRadius: 5,
-        marginTop: 20,
+    closeButton: {
+        position: 'absolute',
+        top: 10,
+        right: 15,
     },
-    buttonText: {
-        color: "white",
-        fontSize: 16,
-        fontWeight: '500',
-    },
+
 })
 
 export default OtpPage;

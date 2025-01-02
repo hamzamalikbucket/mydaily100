@@ -9,14 +9,12 @@ const ProfilePage = () => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <View style={styles.header}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
                         <Icon name="chevron-left" size={26} color="gray" />
                         <TouchableOpacity>
                             <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
                 <Text style={styles.title}>Profile Information</Text>
                 <Image source={require('../assets/images/frame38.png')} style={styles.frame38} />
                 <Image source={require('../assets/images/frame39.png')} style={styles.frame39} />
@@ -54,30 +52,24 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        marginTop: 10,
-    },
-    header: {
-        padding: 10,
     },
     title: {
-        alignSelf: 'center',
-        marginTop: 30,
+        textAlign: 'center',
         color: '#D11A38',
         fontSize: 34,
         fontWeight: '500',
     },
     frame38: {
         alignSelf: 'center',
-        marginTop: '35%',
-        position: 'absolute',
+        top: 10,
     },
     frame39: {
         alignSelf: 'center',
-        marginTop: 55,
+        position: 'absolute',
+        marginTop: 155,
     },
     label1: {
         fontSize: 18,
-        marginTop: '20%',
         left: 15,
         color: '#878787',
         fontWeight: '300',
@@ -103,8 +95,8 @@ const styles = StyleSheet.create({
     input: {
         borderColor: 'lightgray',
         borderWidth: 1,
+        marginVertical: 10,
         marginHorizontal: 15,
-        marginVertical: 5,
         borderRadius: 12,
     },
 

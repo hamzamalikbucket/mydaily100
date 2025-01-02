@@ -71,7 +71,7 @@ export default function SignUp() {
                 setTimeout(() => {
                     setisLoading(false);
                     navigation.navigate('TermsConditions')
-                }, 2000);
+                }, 1000);
             }} />
 
             <Text style={styles.ortext}>or</Text>

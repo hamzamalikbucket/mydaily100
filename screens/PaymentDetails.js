@@ -70,14 +70,14 @@ const PaymentDetails = () => {
                 </View>
                 <Modal
                     visible={OpenModal}
-                    animationType="slide"
+                    animationType="fade"
                     transparent={true}>
                     <View style={styles.modalicon}>
                         <TouchableOpacity style={styles.clossIcon}
                             onPress={() => {
                                 setOpenModal(false);
                             }} onPressIn={handleNavigation}>
-                            <Icon name="close" size={30} color="gray" />
+                            <Icon name="close" size={30} color="#D11A38" />
                         </TouchableOpacity>
 
                         <View style={styles.modalContent}>
@@ -157,8 +157,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 20,
-        marginTop: 460,
-
+        marginTop: 430,
     },
     group: {
         top: 80,

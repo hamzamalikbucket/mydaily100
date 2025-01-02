@@ -21,14 +21,14 @@ const DailyTarget = () => {
                 <Text>daily challenges. My Daily 100: Your {'\n'}</Text>
                 guide to <Text style={styles.progress}>Unstoppable Progress</Text>
             </Text>
-            <View style={styles.icons}>
-                <TouchableOpacity style={{position:'absolute', left:15, width: 56, top: 10, height: 56, borderRadius: 25, padding: 11}} onPress={() => navigation.goBack()}>
+            {/* <View style={styles.icons}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Icon name="arrow-back" size={32} color="#D11A38" />
                 </TouchableOpacity>
-                <TouchableOpacity  style={{position:'absolute', right:15, backgroundColor: '#D11A38', width: 58, height: 58, borderRadius: 28, padding: 12}} onPress={() => navigation.navigate('Goals')}>
-                    <Icon name="arrow-forward" size={32} color="#fff"/>
+                <TouchableOpacity style={{ backgroundColor: '#D11A38', borderRadius: 28 }} onPress={() => navigation.navigate('Goals')}>
+                    <Icon name="arrow-forward" size={32} color="#fff" />
                 </TouchableOpacity>
-            </View>
+            </View> */}
             {/* </ScrollView> */}
         </SafeAreaView>
     );
@@ -76,12 +76,14 @@ const styles = StyleSheet.create({
     progress: {
         color: '#D11A38',
     },
-    icons: {
-        margin: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 160,
-    },
+    // icons: {
+    //     paddingHorizontal: 30,
+    //     flexDirection: 'row',
+    //     justifyContent: 'space-between',
+    //     position: 'absolute',
+    //     bottom: 40,
+    //     width: '100%',
+    // },
 });
 
 export default DailyTarget;

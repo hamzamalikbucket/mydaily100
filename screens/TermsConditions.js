@@ -37,13 +37,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     base: {
-        width: 350,
-        height: 810,
         backgroundColor: '#FFE5E9',
         alignSelf: 'center',
+        margin: 40,
         borderWidth: 1,
         borderRadius: 12,
-        marginTop: 40,
         borderColor: '#D11A38',
     },
 })

@@ -7,10 +7,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const PicUpload = () => {
     const navigation = useNavigation();
     const [OpenModal, setOpenModal] = useState(false);
-    const handleNavigation = () => {
-        setOpenModal(false);
-        navigation.navigate('ContactUs');
-    };
+    // const handleNavigation = () => {
+    //     setOpenModal(false);
+    //     navigation.navigate('ContactUs');
+    // };
     const data = [
         { id: 1 },
         { id: 2 },
@@ -54,8 +54,9 @@ const PicUpload = () => {
                         <TouchableOpacity style={styles.clossIcon}
                             onPress={() => {
                                 setOpenModal(false);
-                            }} onPressIn={handleNavigation}>
-                            <Icon name="close" size={30} color="gray" />
+                                navigation.navigate("ContactUs")
+                            }} >
+                            <Icon name="close" size={30} color="#D11A38" />
                         </TouchableOpacity>
 
                         <View style={styles.modalContent}>

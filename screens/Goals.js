@@ -18,14 +18,14 @@ const Goals = () => {
             <Text style={styles.discription}>Turn aspirations into reality,
                 {'\n'}one daily goal at a time. My Daily 100:
                 {'\n'}<Text style={styles.Companion}>Your Success Companion</Text></Text>
-            <View style={styles.icons}>
-                <TouchableOpacity style={{position:'absolute', left:15, width: 56, top: 10, height: 56, borderRadius: 25, padding: 11}} onPress={() => navigation.goBack()}>
+            {/* <View style={styles.icons}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Icon name="arrow-back" size={32} color="#D11A38"/>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ position: 'absolute', right: 15, backgroundColor: '#D11A38', width: 58, height: 58, borderRadius: 28, top: 12, padding: 12 }} onPress={() => navigation.navigate('SignIn')}>
+                <TouchableOpacity style={{backgroundColor: '#D11A38', borderRadius: 28}} onPress={() => navigation.navigate('SignIn')}>
                     <Icon name="arrow-forward" size={32} color="#fff" />
                 </TouchableOpacity>
-            </View>
+            </View> */}
             {/* </ScrollView> */}
         </SafeAreaView>
     );
@@ -72,12 +72,14 @@ const styles = StyleSheet.create({
     Companion: {
         color: '#D11A38',
     },
-    icons: {
-        margin: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 160,
-    },
+    // icons: {
+    //     paddingHorizontal: 30,
+    //     flexDirection: 'row',
+    //     justifyContent: 'space-between',
+    //     position: 'absolute',
+    //     bottom: 40,
+    //     width: '100%',
+    // },
 
 });
 

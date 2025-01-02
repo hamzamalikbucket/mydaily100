@@ -209,18 +209,18 @@ const App = () => {
         <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
         <Stack.Screen name="PaymentSuccessfull" component={PaymentSuccessfull} />
         <Stack.Screen name="YourGoals" component={YourGoals} />
-        {/* <Stack.Screen name="Journal" component={Journal} /> */}
+        <Stack.Screen name="Journal" component={Journal} />
         {/* <Stack.Screen name="Setting" component={Setting} /> */}
         <Stack.Screen name="YourGoals2" component={YourGoals2} />
         <Stack.Screen name="Journal1" component={Journal1} />
         <Stack.Screen name="Journal2" component={Journal2} />
         <Stack.Screen name="Journal3" component={Journal3} />
-        {/* <Stack.Screen name="TermsConditions" component={TermsConditions} /> */}
-        {/* <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} /> */}
+        <Stack.Screen name="TermsConditions" component={TermsConditions} />
+        <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
          <Stack.Screen name="Contact" component={Contact} />
         <Stack.Screen name="Editjournal" component={Editjournal} />
         <Stack.Screen name="PersonalGoals" component={PersonalGoals} /> 
-        {/* <Stack.Screen name="Library" component={Library} /> */}
+        <Stack.Screen name="Library" component={Library} />
       </Stack.Navigator>
     </NavigationContainer >
   );
