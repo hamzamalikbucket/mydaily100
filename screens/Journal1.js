@@ -4,9 +4,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import ReusableButton from '../components/ReusableButton';
 import frame74 from '../assets/images/frame74.png';
 import frame75 from '../assets/images/frame75.png';
+import { useNavigation } from '@react-navigation/native';
 
 const Journal1 = () => {
 
+    const navigation = useNavigation();
     const item = [
         { id: 1, image: frame74 },
         { id: 2, image: frame75 },
@@ -92,7 +94,7 @@ const Journal1 = () => {
                     numColumns={2}
                 />
 
-                <ReusableButton text='Save' />
+                <ReusableButton text='Save' onPress={()=> navigation.navigate('Journal2')}/>
             </ScrollView>
         </SafeAreaView>
 

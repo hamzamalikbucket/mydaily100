@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View, SafeAreaView, Image, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView,ScrollView, Image, FlatList, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import frame76 from '../assets/images/frame76.png';
+import ReusableButton from '../components/ReusableButton';
+import { useNavigation } from '@react-navigation/native';
 
 const Journal2 = () => {
+    const navigation = useNavigation();
     const item = [
         {
             id: 1,
@@ -106,6 +109,7 @@ const Journal2 = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <ScrollView>
             <View style={styles.header}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Icon name="chevron-left" size={26} color="gray" />
@@ -128,6 +132,8 @@ const Journal2 = () => {
                 renderItem={renderItem}
                 contentContainerStyle={styles.contentContainer}
             />
+            <ReusableButton text= "Next"/>
+            </ScrollView>
         </SafeAreaView>
     );
 };

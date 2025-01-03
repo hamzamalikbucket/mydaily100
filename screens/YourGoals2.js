@@ -143,6 +143,11 @@ const styles = StyleSheet.create({
     textContainer: {
         flex: 1,
     },
+    assessmentName:{
+        fontSize: 16,
+        fontWeight: '500',
+        color: '#5E5E5E',
+    },
     todoCount: {
         fontSize: 14,
         color: '#D11A38',
@@ -163,6 +168,7 @@ const styles = StyleSheet.create({
     viewButton: {
         color: '#D11A38',
         fontWeight: '600',
+        fontSize: 14,
     },
     image: {
         width: 50,

@@ -63,11 +63,12 @@ const Journal3 = () => {
     )
 }
 
-export default () => (
-    <MenuProvider>
-        <Journal3 />
-    </MenuProvider>
-)
+export default Journal3;
+// () => (
+//     <MenuProvider>
+//         <Journal3 />
+//     </MenuProvider>
+// )
 
 const styles = StyleSheet.create({
     container: {

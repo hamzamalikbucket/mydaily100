@@ -39,7 +39,6 @@ const SwiperScreen = () => {
                     } else {
                         navigation.navigate('SignIn');
                     }
-
                 }}>
                     <Icon name="arrow-forward" size={32} color="#fff" />
                 </TouchableOpacity>
