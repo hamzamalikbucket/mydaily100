@@ -11,7 +11,7 @@ import ReusableButton from '../components/ReusableButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-const SelectCoach = () => {
+const MyTeam = () => {
     const navigation = useNavigation();
 
     const item = [
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default SelectCoach;
+export default MyTeam;
