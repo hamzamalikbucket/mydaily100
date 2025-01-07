@@ -2,73 +2,6 @@ import { StyleSheet, Text, TouchableOpacity, View, Image, SafeAreaView, ScrollVi
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-
-// const CustomDrawer = ({ navigation }) => {
-//     return (
-//         <View style={styles.container}>
-//             {/* <Text>CustomDrawer</Text> */}
-//             <Image source={require('../assets/images/frame41.png')} style={styles.frame41} />
-//             <Text style={styles.title}>Mary Linton</Text>
-//             <TouchableOpacity onPress={()=> navigation.navigate('ProfilePage')}>
-//                 <Text style={styles.subtitle}>Edit Profile</Text>
-//             </TouchableOpacity>
-//             <TouchableOpacity
-//                 style={styles.item}
-//                 onPress={() => navigation.navigate("YourGoals")}>
-//                 <Text>YourGoals</Text>
-//             </TouchableOpacity>
-//             <TouchableOpacity
-//                 style={styles.item}
-//                 onPress={() =>
-//                     navigation.navigate("Journal")}>
-//                 <Text>journal</Text>
-//             </TouchableOpacity>
-//             <TouchableOpacity
-//                 style={styles.item}
-//                 onPress={() =>
-//                     navigation.navigate("Journal1")}>
-//                 <Text>journal1</Text>
-//             </TouchableOpacity>
-//             <TouchableOpacity
-//                 style={styles.item}
-//                 onPress={() =>
-//                     navigation.navigate("ProfilePage")}>
-//                 <Text>ProfilePage</Text>
-//             </TouchableOpacity>
-//         </View>
-//     )
-// }
-// export default CustomDrawer;
-
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         backgroundColor: '#fff',
-//     },
-//     item: {
-//         padding: 10,
-//         marginVertical: 5,
-//         borderRadius: 12,
-//         borderBottomWidth: 0.5,
-//         // backgroundColor: '#ddd',
-//         marginRight: 15,
-//     },
-//     frame41: {
-//         alignSelf: 'center',
-//     },
-//     title: {
-//         fontSize: 22,
-//         color: '#D11A38',
-//         fontWeight: '500',
-//         textAlign: 'center',
-//     },
-//     subtitle: {
-//         fontSize: 18,
-//         color: 'gray',
-//         fontWeight: '300',
-//         textAlign: 'center',
-//     },
-// })
 const CustomDrawer = ({ navigation }) => {
     const [activeIndex, setActiveIndex] = useState(null);
     return (
@@ -84,13 +17,13 @@ const CustomDrawer = ({ navigation }) => {
                     style={[styles.item, activeIndex === 0 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(0);
-                        navigation.navigate('YourGoals')
+                        navigation.navigate('Your Goals')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                    <Icon name="language" size={22} color={activeIndex === 0 ? '#D11A38' : 'gray'} />
+                        <Icon name="language" size={22} color={activeIndex === 0 ? '#D11A38' : 'gray'} />
 
-                    <Text style={activeIndex === 0 ? styles.activeText : styles.inactiveText}>Your Goals</Text></View>
+                        <Text style={activeIndex === 0 ? styles.activeText : styles.inactiveText}>Your Goals</Text></View>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -101,8 +34,8 @@ const CustomDrawer = ({ navigation }) => {
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                    <Icon name="folder" size={22} color={activeIndex === 1 ? '#D11A38' : 'gray'} />
-                    <Text style={activeIndex === 1 ? styles.activeText : styles.inactiveText}>Journal</Text></View>
+                        <Icon name="folder" size={22} color={activeIndex === 1 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 1 ? styles.activeText : styles.inactiveText}>Journal</Text></View>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -116,12 +49,34 @@ const CustomDrawer = ({ navigation }) => {
                         <Icon name="folder" size={22} color={activeIndex === 2 ? '#D11A38' : 'gray'} />
                         <Text style={activeIndex === 2 ? styles.activeText : styles.inactiveText}>Journal1</Text></View>
                 </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.item, activeIndex === 9 ? styles.activeItem : null]}
+                    onPress={() => {
+                        setActiveIndex(9);
+                        navigation.navigate('Library')
+                    }}
+                >
+                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
+                        <Icon name="bookmarks" size={22} color={activeIndex === 9 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 9 ? styles.activeText : styles.inactiveText}>Library</Text></View>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.item, activeIndex === 10 ? styles.activeItem : null]}
+                    onPress={() => {
+                        setActiveIndex(10);
+                        navigation.navigate('Notification')
+                    }}
+                >
+                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
+                        <Icon name="bookmarks" size={22} color={activeIndex === 10 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 10 ? styles.activeText : styles.inactiveText}>Notifications</Text></View>
+                </TouchableOpacity>
 
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 3 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(3);
-                        navigation.navigate('ProfilePage')
+                        navigation.navigate('Profile Page')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
@@ -132,7 +87,7 @@ const CustomDrawer = ({ navigation }) => {
                     style={[styles.item, activeIndex === 4 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(4);
-                        navigation.navigate('MyTeam')
+                        navigation.navigate('My Team')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
@@ -143,7 +98,7 @@ const CustomDrawer = ({ navigation }) => {
                     style={[styles.item, activeIndex === 5 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(5);
-                        navigation.navigate('TermsConditions')
+                        navigation.navigate('Terms Conditions')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
@@ -154,12 +109,37 @@ const CustomDrawer = ({ navigation }) => {
                     style={[styles.item, activeIndex === 6 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(6);
-                        navigation.navigate('PrivacyPolicy')
+                        navigation.navigate('Privacy Policy')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
                         <Icon name="shield" size={22} color={activeIndex === 6 ? '#D11A38' : 'gray'} />
                         <Text style={activeIndex === 6 ? styles.activeText : styles.inactiveText}>Privacy Policy</Text></View>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.item, activeIndex === 7 ? styles.activeItem : null]}
+                    onPress={() => {
+                        setActiveIndex(7);
+                        navigation.navigate('Setting')
+                    }}
+                >
+                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
+                        <Icon name="settings" size={22} color={activeIndex === 7 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 7 ? styles.activeText : styles.inactiveText}>Setting</Text></View>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.item, activeIndex === 8 ? styles.activeItem : null]}
+                    onPress={() => {
+                        setActiveIndex(8);
+                        navigation.navigate('Contact')
+                    }}
+                >
+                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
+                        <Icon name="phone" size={22} color={activeIndex === 8 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 8 ? styles.activeText : styles.inactiveText}>Contact Us/Request Coach</Text></View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=> navigation.navigate('SignIn')}>
+                    <Text style={styles.text}>Log Out</Text>
                 </TouchableOpacity>
             </ScrollView>
         </SafeAreaView >
@@ -194,9 +174,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     subtitle: {
-        fontSize: 18,
+        fontSize: 16,
         color: 'gray',
-        fontWeight: '300',
+        fontWeight: '600',
         textAlign: 'center',
     },
     activeText: {
@@ -210,5 +190,15 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '300',
         left: 5,
+    },
+    text: {
+        fontSize: 18,
+        fontWeight: '600',
+        color: 'gray',
+        textAlign: 'center',
+        marginTop: 15,
+        height: 34,
+        width: 93,
+        alignSelf: 'center',
     },
 });

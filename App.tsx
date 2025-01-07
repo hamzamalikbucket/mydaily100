@@ -14,7 +14,7 @@ import PersonalGoals from './screens/PersonalGoals';
 import Library from './screens/Library';
 import YourGoals from './screens/YourGoals';
 import YourGoals2 from './screens/YourGoals2';
-import Contact from './screens/Personalinfo';
+import Contact from './screens/Contact';
 import PaymentDetails from './screens/PaymentDetails';
 import PaymentSuccessfull from './screens/PaymentSuccessfull';
 import DateTime from './screens/DateTime';
@@ -38,7 +38,10 @@ import DailyTarget from './screens/DailyTarget';
 import Goals from './screens/Goals';
 import SwiperScreen from './screens/SwiperScreen';
 import CustomDrawer from './screens/CustomDrawer';
-import MyTeam from './screens/SelectCoach';
+import { Alert, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import MyTeam from './screens/MyTeam';
+import Notification from './screens/Notification';
 
 
 const Drawer = createDrawerNavigator();
@@ -46,16 +49,34 @@ const Drawer = createDrawerNavigator();
 const MyDrawer = () => {
   return (
     <Drawer.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: route.name === "Your Goals",
+        headerStyle: {
+          borderBottomColor: '#fff',
+          borderBottomWidth: 0,
+          elevation: 0,
+        },
+        headerRight: () => (
+          <TouchableOpacity
+            onPress={() => Alert.alert('notification pressed')}
+            style={{ marginRight: 12 }}
+          >
+            <Icon name="notifications" size={28} color="#D11A38" />
+          </TouchableOpacity>
+        ),
+      })}
       drawerContent={(props) => <CustomDrawer {...props} />}
     >
       <Drawer.Screen name="Your Goals" component={YourGoals} />
       <Drawer.Screen name="Profile Page" component={ProfilePage} />
       <Drawer.Screen name="Journal" component={Journal} />
       <Drawer.Screen name="Journal1" component={Journal1} />
+      <Drawer.Screen name="Library" component={Library} />
       <Drawer.Screen name="My Team" component={MyTeam} />
       <Drawer.Screen name="Terms Conditions" component={TermsConditions} />
       <Drawer.Screen name="Privacy Policy" component={PrivacyPolicy} />
-
+      <Drawer.Screen name="Setting" component={Setting} />
+      <Drawer.Screen name="Contact" component={Contact} />
     </Drawer.Navigator>
   );
 }
@@ -68,7 +89,7 @@ const App = () => {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="MyDrawer" component={MyDrawer} />
         <Stack.Screen name="SwiperScreen" component={SwiperScreen} />
-        <Stack.Screen name="MainPage" component={MainPage} />
+        {/* <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="SuccessChart" component={SuccessChart} />
         <Stack.Screen name="DailyTarget" component={DailyTarget} />
         <Stack.Screen name="Goals" component={Goals} />
@@ -76,13 +97,13 @@ const App = () => {
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
         <Stack.Screen name="ResetPassword1" component={ResetPassword1} />
-        <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
         <Stack.Screen name="Motivation" component={Motivation} />
         <Stack.Screen name="PicUpload" component={PicUpload} />
         <Stack.Screen name="Setup" component={Setup} />
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
-
+        <Stack.Screen name="Terms Conditions" component={TermsConditions} />
+        <Stack.Screen name="Privacy Policy" component={PrivacyPolicy} />
         <Stack.Screen name="DateTime" component={DateTime} />
         <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
         <Stack.Screen name="PaymentSuccessfull" component={PaymentSuccessfull} />
@@ -96,9 +117,13 @@ const App = () => {
         <Stack.Screen name="PersonalGoals" component={PersonalGoals} />
         <Stack.Screen name="AddPersonalgoals" component={AddPersonalgoals} />
         <Stack.Screen name="DailyPerformance" component={DailyPerformance} />
-        <Stack.Screen name="Library" component={Library} />
-        <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="Setting" component={Setting} />*/}
         <Stack.Screen name="ContactUs" component={ContactUs} />
+        <Stack.Screen name="MyTeam" component={MyTeam} />
+        <Stack.Screen name="Library" component={Library} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="Notification" component={Notification} />
+
 
       </Stack.Navigator>
     </NavigationContainer >

@@ -2,7 +2,7 @@ import { Image, ScrollView, StyleSheet, Text, View, FlatList, SafeAreaView, Touc
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import frame66 from '../assets/images/frame66.png';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+// import Icon from 'react-native-vector-icons/MaterialIcons';s
 
 const YourGoals = () => {
 
@@ -101,11 +101,6 @@ const YourGoals = () => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                <View style={{ alignSelf: 'flex-end' }}>
-                    <TouchableOpacity>
-                        <Icon name="notifications" size={30} color="#D11A38" />
-                    </TouchableOpacity>
-                </View>
                 <Text style={styles.text}>Your Goals</Text>
                 <Image source={require('../assets/images/frame58.png')} style={styles.frame58} />
                 <View style={styles.group}>
