@@ -21,7 +21,7 @@ const CustomDrawer = ({ navigation }) => {
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="language" size={22} color={activeIndex === 0 ? '#D11A38' : 'gray'} />
+                        <Icon name="flag" size={22} color={activeIndex === 0 ? '#D11A38' : 'gray'} />
 
                         <Text style={activeIndex === 0 ? styles.activeText : styles.inactiveText}>Your Goals</Text></View>
                 </TouchableOpacity>
@@ -50,6 +50,29 @@ const CustomDrawer = ({ navigation }) => {
                         <Text style={activeIndex === 2 ? styles.activeText : styles.inactiveText}>Journal1</Text></View>
                 </TouchableOpacity>
                 <TouchableOpacity
+                    style={[styles.item, activeIndex === 11 ? styles.activeItem : null]}
+                    onPress={() => {
+                        setActiveIndex(11);
+                        navigation.navigate('Journa2')
+                    }}
+                >
+                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
+                        <Icon name="folder" size={22} color={activeIndex === 11 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 11 ? styles.activeText : styles.inactiveText}>Journal2</Text></View>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.item, activeIndex === 12 ? styles.activeItem : null]}
+                    onPress={() => {
+                        setActiveIndex(12);
+                        navigation.navigate('Journal3')
+                    }}
+                >
+                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
+                        <Icon name="folder" size={22} color={activeIndex === 12 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 12 ? styles.activeText : styles.inactiveText}>Journal3</Text></View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
                     style={[styles.item, activeIndex === 9 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(9);
@@ -68,7 +91,7 @@ const CustomDrawer = ({ navigation }) => {
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="bookmarks" size={22} color={activeIndex === 10 ? '#D11A38' : 'gray'} />
+                        <Icon name="notifications" size={22} color={activeIndex === 10 ? '#D11A38' : 'gray'} />
                         <Text style={activeIndex === 10 ? styles.activeText : styles.inactiveText}>Notifications</Text></View>
                 </TouchableOpacity>
 
@@ -138,6 +161,17 @@ const CustomDrawer = ({ navigation }) => {
                         <Icon name="phone" size={22} color={activeIndex === 8 ? '#D11A38' : 'gray'} />
                         <Text style={activeIndex === 8 ? styles.activeText : styles.inactiveText}>Contact Us/Request Coach</Text></View>
                 </TouchableOpacity>
+                <TouchableOpacity
+                    style={[styles.item, activeIndex === 13 ? styles.activeItem : null]}
+                    onPress={() => {
+                        setActiveIndex(13);
+                        navigation.navigate('Personal Goals')
+                    }}
+                >
+                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
+                        <Icon name="phone" size={22} color={activeIndex === 13 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 13 ? styles.activeText : styles.inactiveText}>Personal Goals</Text></View>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={()=> navigation.navigate('SignIn')}>
                     <Text style={styles.text}>Log Out</Text>
                 </TouchableOpacity>
@@ -159,7 +193,7 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         borderRadius: 12,
         borderBottomWidth: 0.5,
-        backgroundColor: '#f0f0f0',
+        // backgroundColor: '#f0f0f0',
     },
     activeItem: {
         backgroundColor: '#f0f0f0',
@@ -186,9 +220,9 @@ const styles = StyleSheet.create({
         left: 5,
     },
     inactiveText: {
-        color: '#333',
+        color: 'black',
         fontSize: 20,
-        fontWeight: '300',
+        fontWeight: '400',
         left: 5,
     },
     text: {

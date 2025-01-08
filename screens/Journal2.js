@@ -113,7 +113,7 @@ const Journal2 = () => {
             <View style={styles.header}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Icon name="chevron-left" size={26} color="gray" />
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>navigation.goBack()}>
                         <Text style={{ fontSize: 18 }}>Back</Text>
                     </TouchableOpacity>
                 </View>
@@ -132,7 +132,7 @@ const Journal2 = () => {
                 renderItem={renderItem}
                 contentContainerStyle={styles.contentContainer}
             />
-            <ReusableButton text= "Next"/>
+            <ReusableButton text= "Next" onPress={()=>navigation.navigate('Journal3')}/>
             </ScrollView>
         </SafeAreaView>
     );

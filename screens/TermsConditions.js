@@ -24,7 +24,7 @@ const TermsConditions = () => {
                         cursus. Mauris malesuada augue in metus aliquet, at auctor metusconsectetur. Curabitur eget mi
                         vel felis euismod mollis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla, urna eu tincidunt
                         congue,Lorem ipsum dolor sit amet.Curabitur eget mi vel felis euismod mollis.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet , </Text>
-                    <ReusableButton text="Agree" onPress={() => navigation.navigate('PrivacyPolicy')} />
+                    <ReusableButton text="Agree" onPress={() => navigation.navigate('Privacy Policy')} />
                 </View>
         </SafeAreaView>
     )

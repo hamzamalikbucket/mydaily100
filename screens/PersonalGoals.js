@@ -1,12 +1,12 @@
-import { View, SafeAreaView,Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { View, SafeAreaView,Text, StyleSheet,ScrollView, TouchableOpacity, FlatList } from 'react-native';
 import React from 'react';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 const PersonalGoals = () => {
-    // const navigation = useNavigation();
+    const navigation = useNavigation();
 
     const data = [
         { id: 1, title: 'Health' },
@@ -24,10 +24,11 @@ const PersonalGoals = () => {
     );
     return (
         <SafeAreaView style={styles.container}>
+            <ScrollView>
             <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
                 <Icon name="chevron-left" size={26} color="gray" />
-                <TouchableOpacity>
-                    <Text style={{ fontSize: 18 }}>Back</Text>
+                <TouchableOpacity onPress={()=>navigation.goBack()}>
+                    <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
                 </TouchableOpacity>
             </View>
             <Text style={styles.title}>Personal Goals</Text>
@@ -36,7 +37,8 @@ const PersonalGoals = () => {
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
             />
-            <ReusableButton text='Next' />
+            <ReusableButton text='Next' onPress={()=>navigation.navigate('Library')}/>
+            </ScrollView>
         </SafeAreaView>
     )
 }
@@ -54,20 +56,17 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     list: {
-        height: 60,
-        marginBottom: 15,
         borderRadius: 12,
         width: 353,
         height: 220,
-        marginTop: '10%',
         backgroundColor: '#FFC0BC',
-        margin: 30,
-
+        marginHorizontal: 30,
+        marginVertical: 10,
     },
     text: {
-        textAlign: 'center',
         fontSize: 26,
-        padding: '25%',
+        alignSelf: 'center',
+        marginTop: '25%',      
     },
 
 })

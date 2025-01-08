@@ -6,10 +6,11 @@ import frame78 from '../assets/images/frame78.png';
 import frame79 from '../assets/images/frame79.png';
 import frame80 from '../assets/images/frame80.png';
 import frame81 from '../assets/images/frame81.png';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Library = () => {
-
+    const navigation = useNavigation();
     const [SelectedItem, setSelectedItem] = useState('Books')
 
     const data = [
@@ -40,36 +41,36 @@ const Library = () => {
         { id: 6, image: frame79, title: "Making Money Class", description: "5 mins watch" },
     ];
 
-    const data2 =[
-        {id:1, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:2, image: frame81, title: "Psychology Money", description: "5 mins listen"},
-        {id:3, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:4, image: frame81, title: "Psychology Money", description: "5 mins listen"},
-        {id:5, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:6, image: frame81, title: "Psychology Money", description: "5 mins listen"},
+    const data2 = [
+        { id: 1, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 2, image: frame81, title: "Psychology Money", description: "5 mins listen" },
+        { id: 3, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 4, image: frame81, title: "Psychology Money", description: "5 mins listen" },
+        { id: 5, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 6, image: frame81, title: "Psychology Money", description: "5 mins listen" },
     ];
-    const data3 =[
-        {id:1, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:2, image: frame81, title: "Psychology Money", description: "5 mins listen"},
-        {id:3, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:4, image: frame81, title: "Psychology Money", description: "5 mins listen"},
-        {id:5, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:6, image: frame81, title: "Psychology Money", description: "5 mins listen"},
+    const data3 = [
+        { id: 1, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 2, image: frame81, title: "Psychology Money", description: "5 mins listen" },
+        { id: 3, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 4, image: frame81, title: "Psychology Money", description: "5 mins listen" },
+        { id: 5, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 6, image: frame81, title: "Psychology Money", description: "5 mins listen" },
     ];
-    const data4 =[
-        {id:1, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:2, image: frame81, title: "Psychology Money", description: "5 mins listen"},
-        {id:3, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:4, image: frame81, title: "Psychology Money", description: "5 mins listen"},
-        {id:5, image: frame80, title: "Hyper Focus", description: "5 mins listen"},
-        {id:6, image: frame81, title: "Psychology Money", description: "5 mins listen"},
+    const data4 = [
+        { id: 1, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 2, image: frame81, title: "Psychology Money", description: "5 mins listen" },
+        { id: 3, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 4, image: frame81, title: "Psychology Money", description: "5 mins listen" },
+        { id: 5, image: frame80, title: "Hyper Focus", description: "5 mins listen" },
+        { id: 6, image: frame81, title: "Psychology Money", description: "5 mins listen" },
     ];
     const renderItem1 = ({ item }) => {
         return (
             <View>
                 <Image source={item.image} />
-                <Text style={{ color: 'black', fontSize: 16, fontWeight: '700', left: 25}}>{item.title}</Text>
-                <Text style={{ color: '#D11A38', fontSize: 16, fontWeight: '400', left: 25}}>{item.description}</Text>
+                <Text style={{ color: 'black', fontSize: 16, fontWeight: '700', left: 25 }}>{item.title}</Text>
+                <Text style={{ color: '#D11A38', fontSize: 16, fontWeight: '400', left: 25 }}>{item.description}</Text>
             </View>
         )
     };
@@ -77,8 +78,8 @@ const Library = () => {
         return (
             <View>
                 <Image source={item.image} />
-                <Text style={{ color: 'black', fontSize: 16, fontWeight: '700', left: 25}}>{item.title}</Text>
-                <Text style={{ color: '#D11A38', fontSize: 16, fontWeight: '400', left: 25}}>{item.description}</Text>
+                <Text style={{ color: 'black', fontSize: 16, fontWeight: '700', left: 25 }}>{item.title}</Text>
+                <Text style={{ color: '#D11A38', fontSize: 16, fontWeight: '400', left: 25 }}>{item.description}</Text>
             </View>
         )
     };
@@ -86,8 +87,8 @@ const Library = () => {
         return (
             <View>
                 <Image source={item.image} />
-                <Text style={{ color: 'black', fontSize: 16, fontWeight: '700', left: 25}}>{item.title}</Text>
-                <Text style={{ color: '#D11A38', fontSize: 16, fontWeight: '400', left: 25}}>{item.description}</Text>
+                <Text style={{ color: 'black', fontSize: 16, fontWeight: '700', left: 25 }}>{item.title}</Text>
+                <Text style={{ color: '#D11A38', fontSize: 16, fontWeight: '400', left: 25 }}>{item.description}</Text>
             </View>
         )
     };
@@ -95,8 +96,8 @@ const Library = () => {
         return (
             <View>
                 <Image source={item.image} />
-                <Text style={{ color: 'black', fontSize: 16, fontWeight: '700', left: 25}}>{item.title}</Text>
-                <Text style={{ color: '#D11A38', fontSize: 16, fontWeight: '400', left: 25}}>{item.description}</Text>
+                <Text style={{ color: 'black', fontSize: 16, fontWeight: '700', left: 25 }}>{item.title}</Text>
+                <Text style={{ color: '#D11A38', fontSize: 16, fontWeight: '400', left: 25 }}>{item.description}</Text>
             </View>
         )
     };
@@ -115,7 +116,7 @@ const Library = () => {
                 <View style={styles.header}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Icon name="chevron-left" size={26} color="gray" />
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
                             <Text style={{ fontSize: 18 }}>Back</Text>
                         </TouchableOpacity>
                     </View>

@@ -15,39 +15,42 @@ const Setting = () => {
     const navigation = useNavigation();
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('Setup')}>
-                <Image source={require('../assets/images/frame30.png')} style={styles.frame30} />
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
+                <Icon name="chevron-left" size={26} color="gray" />
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
+                </TouchableOpacity>
+            </View>
             <Text style={styles.label}>Settings</Text>
             <Image source={require('../assets/images/frame41.png')} style={styles.frame41} />
             <TouchableOpacity>
                 <Text style={styles.label2}>Edit profile</Text>
             </TouchableOpacity>
-            
-                <TouchableOpacity  style={styles.item}>
-                    <View style={styles.section}>
-                        <Icon name={'subscriptions'} size={24} />
-                        <Text style={styles.text}>{'subscriptions'}</Text>
-                    </View>
-                    <Icon name="chevron-right" size={36} />
-                </TouchableOpacity>
 
-                <TouchableOpacity  style={styles.item}>
-                    <View style={styles.section}>
-                        <Icon name={'notifications'} size={24} />
-                        <Text style={styles.text}>{'Notification Setting'}</Text>
-                    </View>
-                    <Icon name="chevron-right" size={36} />
-                </TouchableOpacity>
+            <TouchableOpacity style={styles.item}>
+                <View style={styles.section}>
+                    <Icon name={'subscriptions'} size={24} />
+                    <Text style={styles.text}>{'subscriptions'}</Text>
+                </View>
+                <Icon name="chevron-right" size={36} />
+            </TouchableOpacity>
 
-                <TouchableOpacity  style={styles.item} onPress={()=>navigation.navigate('ChangePassword')}>
-                    <View style={styles.section}>
-                        <Icon name={'shield'} size={24} />
-                        <Text style={styles.text}>{'Change Password'}</Text>
-                    </View>
-                    <Icon name="chevron-right" size={36} />
-                </TouchableOpacity>
-         
+            <TouchableOpacity style={styles.item}>
+                <View style={styles.section}>
+                    <Icon name={'notifications'} size={24} />
+                    <Text style={styles.text}>{'Notification Setting'}</Text>
+                </View>
+                <Icon name="chevron-right" size={36} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('ChangePassword')}>
+                <View style={styles.section}>
+                    <Icon name={'shield'} size={24} />
+                    <Text style={styles.text}>{'Change Password'}</Text>
+                </View>
+                <Icon name="chevron-right" size={36} />
+            </TouchableOpacity>
+
         </SafeAreaView>
     )
 }

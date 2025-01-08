@@ -39,7 +39,7 @@ const MyTeam = () => {
             <ScrollView>
             <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
                 <Icon name="chevron-left" size={26} color="gray" />
-                <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
                 </TouchableOpacity>
             </View>

@@ -1,9 +1,11 @@
 import { StyleSheet, Text, View, FlatList, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 
 
 const Notification = () => {
+    const navigation = useNavigation();
     const data = [
         {
             id: 1,
@@ -79,7 +81,7 @@ const Notification = () => {
             <ScrollView>
             <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
                 <Icon name="chevron-left" size={26} color="gray" />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=> navigation.goBack()}>
                     <Text style={{ fontSize: 18 }}>Back</Text>
                 </TouchableOpacity>
             </View>

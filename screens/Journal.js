@@ -9,7 +9,7 @@ const Journal = () => {
         <SafeAreaView style={styles.container}>
             <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
                 <Icon name="chevron-left" size={26} color="gray" />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.goBack()}>
                     <Text style={{ fontSize: 18 }}>Back</Text>
                 </TouchableOpacity>
             </View>
