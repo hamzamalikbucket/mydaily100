@@ -1,4 +1,4 @@
-import { SafeAreaView, View, Text, StyleSheet, Image, TextInput, Modal, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { SafeAreaView, View, Text, ScrollView, StyleSheet, Image, TextInput, Modal, TouchableOpacity, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
@@ -13,88 +13,91 @@ export default function SignUp() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Image source={require('../assets/images/logo.png')} style={styles.logo} />
-            <Text style={styles.title}>Sign Up</Text>
-            <Text style={styles.subtitle}>Create your new account</Text>
-            <Text style={styles.label1}>Email</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="example@email.com"
-                placeholderTextColor="lightgray"
-                keyboardType="email-address"
-            />
-            <Text style={styles.label2}>Password</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="password123"
-                placeholderTextColor="lightgray"
-
-            />
-            <Text style={styles.label3}>Confirm Password</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="password123"
-                placeholderTextColor="lightgray"
-
-            />
-            <View style={styles.checkboxContainer}>
-                <CheckBox
-                    value={isChecked}
-                    onValueChange={setIsChecked}
-                    tintColors={{ true: '#D11A38', false: '#878787' }}
+            <ScrollView>
+                <Image source={require('../assets/images/logo.png')} style={styles.logo} />
+                <Text style={styles.title}>Sign Up</Text>
+                <Text style={styles.subtitle}>Create your new account</Text>
+                <Text style={styles.label1}>Email</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="example@email.com"
+                    placeholderTextColor="lightgray"
+                    keyboardType="email-address"
                 />
-                <Text style={{ top: 2, color: "#878787",fontSize: 15, fontWeight: '300' }}>
-                    By sign up I agree with{' '}
-                    <Text style={{ color: '#D11A38' }} onPress={() => {
-                        setIsChecked((prevState) => !prevState);
-                        navigation.navigate('TermsConditions')
-                    }}>Terms and Conditions</Text>
-                </Text>
-            </View>
-            <View style={styles.checkboxContainer1}>
-                <CheckBox
-                    value={isPrivcyChecked}
-                    onValueChange={setIsPrivcyChecked}
-                    tintColors={{ true: '#D11A38', false: '#878787' }}
+                <Text style={styles.label2}>Password</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="password123"
+                    placeholderTextColor="lightgray"
+
                 />
-                <Text style={{ top: 2, color: '#878787',fontSize: 15, fontWeight: '300' }}>
-                    By sign up I agree with{' '}
-                    <Text style={{ color: '#D11A38' }} onPress={() => {
-                        setIsPrivcyChecked((prevState) => !prevState);
-                        navigation.navigate('PrivacyPolicy')
-                    }}>Privacy and Policy</Text>
-                </Text>
-            </View>
+                <Text style={styles.label3}>Confirm Password</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="password123"
+                    placeholderTextColor="lightgray"
 
-            <ReusableButton text="Create New Account" onPress={() => {
-                setisLoading(true)
-                setTimeout(() => {
-                    setisLoading(false);
-                    navigation.navigate('TermsConditions')
-                }, 1000);
-            }} />
-
-            <Text style={styles.ortext}>or</Text>
-            <TouchableOpacity>
-                <Text style={styles.btn1}>Google</Text>
-            </TouchableOpacity>
-            <View style={styles.footertext}>
-                <Text style={{ color: '#878787', fontWeight: '400' }}>Already have an account?{' '}
-                    <Text style={{ color: '#D11A38', fontSize: 16 }} onPress={() => navigation.navigate('SignIn')}>Sign In</Text>
-                </Text>
-            </View>
-            <Modal
-                visible={isLoading}
-                transparent={true}
-                animationType="fade">
-
-                <View style={styles.modaloverlay}>
-                    <View style={styles.modalcontent}>
-                        <ActivityIndicator size="x-Large" color="#fff" />
-                        <Text style={styles.loadertext}>creating your account</Text>
-                    </View>
+                />
+                <View style={styles.checkboxContainer}>
+                    <CheckBox
+                        value={isChecked}
+                        onValueChange={setIsChecked}
+                        tintColors={{ true: '#D11A38', false: '#878787' }}
+                    />
+                    <Text style={{ top: 2, color: "#878787", fontSize: 15, fontWeight: '300' }}>
+                        By sign up I agree with{' '}
+                        <Text style={{ color: '#D11A38' }} onPress={() => {
+                            setIsChecked((prevState) => !prevState);
+                            navigation.navigate('Terms Conditions')
+                        }}>Terms and Conditions</Text>
+                    </Text>
                 </View>
-            </Modal>
+                <View style={styles.checkboxContainer1}>
+                    <CheckBox
+                        value={isPrivcyChecked}
+                        onValueChange={setIsPrivcyChecked}
+                        tintColors={{ true: '#D11A38', false: '#878787' }}
+                    />
+                    <Text style={{ top: 2, color: '#878787', fontSize: 15, fontWeight: '300' }}>
+                        By sign up I agree with{' '}
+                        <Text style={{ color: '#D11A38' }} onPress={() => {
+                            setIsPrivcyChecked((prevState) => !prevState);
+                            navigation.navigate('Privacy Policy')
+                        }}>Privacy and Policy</Text>
+                    </Text>
+                </View>
+                <View style={{ marginTop: 20 }}>
+                    <ReusableButton text="Create New Account" onPress={() => {
+                        setisLoading(true)
+                        setTimeout(() => {
+                            setisLoading(false);
+                            navigation.navigate('Terms Conditions')
+                        }, 1000);
+                    }} />
+                </View>
+                <Text style={styles.ortext}>or</Text>
+                <TouchableOpacity>
+                    <Text style={styles.btn1}>Google</Text>
+                </TouchableOpacity>
+                <View style={styles.footertext}>
+                    <Text style={{ color: '#878787', fontWeight: '400' }}>Already have an account?{' '}
+                        <Text style={{ color: '#D11A38', fontSize: 16 }} onPress={() => navigation.navigate('SignIn')}>Sign In</Text>
+                    </Text>
+                </View>
+                <Modal
+                    visible={isLoading}
+                    transparent={true}
+                    animationType="fade">
+
+                    <View style={styles.modaloverlay}>
+                        <View style={styles.modalcontent}>
+                            <ActivityIndicator size="x-Large" color="#fff" />
+                            <Text style={styles.loadertext}>creating your account</Text>
+                        </View>
+                    </View>
+                </Modal>
+                </ScrollView>
+
         </SafeAreaView>
     )
 }

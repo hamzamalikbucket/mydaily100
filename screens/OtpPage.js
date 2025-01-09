@@ -34,16 +34,18 @@ const OtpPage = () => {
                 confirm your email address.
             </Text>
             <Text style={styles.text}>Enter Code here:</Text>
-            <View>
+            <View style={styles.otpContainer}>
                 <OtpInput
-                    style={styles.inputField}
+                    style={styles.inputBox}
                     numberOfDigits={5}
                     otp={otp}
                     onTextChange={setOtp}
-                // codeInputFieldStyle={styles.inputField}
+                    focusColor="#D11A38"
                 />
             </View>
-            <ReusableButton text="Confirm" onPress={() => handleOTP(otp)} />
+            <View style={{ marginTop: 20 }}>
+                <ReusableButton text="Confirm" onPress={() => handleOTP(otp)} />
+            </View>
             <View style={styles.grouptext}>
                 <Text style={{ color: '#898989' }}>Expire in 00.59</Text>
                 <Text style={{ color: '#898989' }}>Resend code</Text>
@@ -106,14 +108,25 @@ const styles = StyleSheet.create({
         top: 30,
     },
 
-    inputField: {
-        width: 60,
-        height: 40,
-        borderWidth: 1,
-        borderColor: 'lightgrey',
-        fontSize: 14,
+    otpContainer: {
+        padding: 10,
+        fontSize: 12,
         color: 'black',
         borderRadius: 12,
+        marginVertical: 10,
+        marginHorizontal: 25,
+    },
+    inputBox: {
+        width: 50,               
+        height: 50,             
+        marginHorizontal: 8,      
+        borderWidth: 1,           
+        borderColor: 'black',
+        borderRadius: 8,         
+        textAlign: 'center',     
+        fontSize: 12,             
+        color: '#D11A38',         
+        backgroundColor: '#fff',  
     },
     modalicon: {
         backgroundColor: "white",

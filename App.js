@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -31,17 +31,17 @@ import SignIn from './screens/SignIn';
 import OtpPage from './screens/OtpPage';
 import SignUp from './screens/SignUp';
 import ForgetPassword from './screens/ForgetPassword';
-import ResetPassword1 from './screens/ResetPassword1';
 import MainPage from './screens/MainPage';
 import SuccessChart from './screens/SuccessChart';
 import DailyTarget from './screens/DailyTarget';
 import Goals from './screens/Goals';
 import SwiperScreen from './screens/SwiperScreen';
 import CustomDrawer from './screens/CustomDrawer';
-import { TouchableOpacity } from 'react-native';
+import { LogBox, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MyTeam from './screens/MyTeam';
 import Notification from './screens/Notification';
+import ResetPassword from './screens/ResetPassword';
 
 
 const Drawer = createDrawerNavigator();
@@ -70,11 +70,7 @@ const MyDrawer = () => {
       drawerContent={(props) => <CustomDrawer {...props} />}
     >
       <Drawer.Screen name="Your Goals" component={YourGoals} />
-      <Drawer.Screen name="Profile Page" component={ProfilePage} />
       <Drawer.Screen name="Journal" component={Journal} />
-      <Drawer.Screen name="Journal1" component={Journal1} />
-      <Drawer.Screen name="Journal2" component={Journal2} />
-      <Drawer.Screen name="Journal3" component={Journal3} />
       <Drawer.Screen name="Library" component={Library} />
       <Drawer.Screen name="My Team" component={MyTeam} />
       <Drawer.Screen name="Terms Conditions" component={TermsConditions} />
@@ -91,48 +87,50 @@ const Stack = createStackNavigator();
 
 const App = () => {
 
+  useEffect(()=>{
+    LogBox.ignoreAllLogs();
+  },[]);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName= "SwiperScreen"screenOptions={{ headerShown: false }}>
         <Stack.Screen name="MyDrawer" component={MyDrawer} />
         <Stack.Screen name="SwiperScreen" component={SwiperScreen} />
-        {/* <Stack.Screen name="MainPage" component={MainPage} />
+        <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="SuccessChart" component={SuccessChart} />
         <Stack.Screen name="DailyTarget" component={DailyTarget} />
         <Stack.Screen name="Goals" component={Goals} />
         <Stack.Screen name="OtpPage" component={OtpPage} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
-        <Stack.Screen name="ResetPassword1" component={ResetPassword1} />
+        <Stack.Screen name="ResetPassword" component={ResetPassword} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
         <Stack.Screen name="Motivation" component={Motivation} />
         <Stack.Screen name="PicUpload" component={PicUpload} />
         <Stack.Screen name="Setup" component={Setup} />
         <Stack.Screen name="ChangePassword" component={ChangePassword} />
         <Stack.Screen name="Terms Conditions" component={TermsConditions} />
+        <Stack.Screen name="Privacy Policy" component={PrivacyPolicy} />
         <Stack.Screen name="DateTime" component={DateTime} />
         <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
         <Stack.Screen name="PaymentSuccessfull" component={PaymentSuccessfull} />
         <Stack.Screen name="Contact" component={Contact} />
+        <Stack.Screen name="Your Goals" component={YourGoals} />
         <Stack.Screen name="YourGoals2" component={YourGoals2} />
+        <Stack.Screen name="Journal" component={Journal} />
         <Stack.Screen name="Journal1" component={Journal1} />
         <Stack.Screen name="Journal2" component={Journal2} />
-        <Stack.Screen name="Journal" component={Journal} />
+        <Stack.Screen name="Journal3" component={Journal3} />
         <Stack.Screen name="AddPersonalgoals" component={AddPersonalgoals} />
         <Stack.Screen name="DailyPerformance" component={DailyPerformance} />
-        <Stack.Screen name="Setting" component={Setting} />*/}
+        <Stack.Screen name="Setting" component={Setting} />
         <Stack.Screen name="PersonalGoals" component={PersonalGoals} />
         <Stack.Screen name="ContactUs" component={ContactUs} />
         <Stack.Screen name="MyTeam" component={MyTeam} />
         <Stack.Screen name="Library" component={Library} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Notification" component={Notification} />
-        <Stack.Screen name="Journal3" component={Journal3} />
         <Stack.Screen name="Editjournal" component={Editjournal} />
-        <Stack.Screen name="Privacy Policy" component={PrivacyPolicy} />
-
-
-
       </Stack.Navigator>
     </NavigationContainer >
   );

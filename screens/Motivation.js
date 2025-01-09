@@ -1,12 +1,12 @@
-import { View, SafeAreaView, Image, Text,ScrollView, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
-import React from 'react';
+import { View, SafeAreaView, Image, Text, ScrollView, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Motivation = () => {
     const navigation = useNavigation();
-
+    const [seectedId, setSelectedId] = useState(null);
     const data = [
         { id: 1, title: 'Health' },
         { id: 2, title: 'Wealth' },
@@ -15,8 +15,10 @@ const Motivation = () => {
 
     ];
     const renderItem = ({ item }) => (
-        <TouchableOpacity>
-            <View style={styles.list}>
+        <TouchableOpacity onPress={() => setSelectedId(item.id)}>
+            <View style={[styles.list,
+            { backgroundColor: seectedId === item.id ? '#ffe4e1' : '#fabbdc' }
+            ]}>
                 <Text style={styles.text}>{item.title}</Text>
             </View>
         </TouchableOpacity>
@@ -24,21 +26,23 @@ const Motivation = () => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-            <View style={styles.header}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Icon name="chevron-left" size={26} color="gray" />
-                    <TouchableOpacity onPress={()=>navigation.goBack()}>
-                        <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
-                    </TouchableOpacity>
+                <View style={styles.header}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Icon name="chevron-left" size={26} color="gray" />
+                        <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
-            <Text style={styles.title}>Add Motivation</Text>
-            <FlatList
-                data={data}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
-            />
-            <ReusableButton text='upload your dreams' onPress={() => navigation.navigate('PicUpload')} />
+                <Text style={styles.title}>Add Motivation</Text>
+                <FlatList
+                    data={data}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id}
+                />
+                <View style={{marginVertical: 25}}>
+                    <ReusableButton text='upload your dreams' onPress={() => navigation.navigate('PicUpload')} />
+                </View>
             </ScrollView>
         </SafeAreaView>
     )
@@ -62,8 +66,8 @@ const styles = StyleSheet.create({
     },
     list: {
         height: 60,
-        marginVertical: 0,    
-        marginBottom: 12,    
+        marginVertical: 0,
+        marginBottom: 12,
         borderRadius: 12,
         width: 353,
         height: 220,

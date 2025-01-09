@@ -4,11 +4,11 @@ import { useNavigation } from '@react-navigation/native';
 import ReusableButton from '../components/ReusableButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const ResetPassword1 = () => {
+const ResetPassword = () => {
     const navigation = useNavigation();
     const [isLoading, setisLoading] = useState(false);
 
-    const handleNavigation =()=>{
+    const handleNavigation = () => {
         setisLoading(false);
         navigation.navigate('ProfilePage');
     };
@@ -38,9 +38,11 @@ const ResetPassword1 = () => {
 
                 />
             </View>
+            <View style={{marginTop: 20}}>
             <ReusableButton text="Save New Password" onPress={() => {
                 setisLoading(true)
             }} />
+            </View>
             <Modal
                 animationType="slide"
                 transparent={true}
@@ -57,13 +59,13 @@ const ResetPassword1 = () => {
                         <TouchableOpacity onPress={handleNavigation}>
                             <Text style={styles.loadertext1}>Go to ProfilePage</Text>
                         </TouchableOpacity>
-
                     </View>
                 </View>
             </Modal>
         </SafeAreaView>
     )
 }
+export default ResetPassword;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -124,10 +126,9 @@ const styles = StyleSheet.create({
     },
     loadertext1: {
         fontSize: 15,
-        fontWeight: '300',
+        fontWeight: '400',
         top: 12,
         color: '#fff',
     },
 })
 
-export default ResetPassword1;

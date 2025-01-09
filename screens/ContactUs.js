@@ -10,7 +10,7 @@ const ContactUs = () => {
 
     const handleNavigation=()=>{
         setisLoading(false);
-        navigation.navigate('SelectCoach')
+        navigation.navigate('MyTeam')
     };
 
     return (
@@ -18,7 +18,7 @@ const ContactUs = () => {
             <ScrollView>
                 <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
                     <Icon name="chevron-left" size={26} color="gray" />
-                    <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
                         <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
                     </TouchableOpacity>
                 </View>
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     loadertext: {
         fontSize: 15,
         top: 12,
-        fontWeight: '300',
+        fontWeight: '400',
         color: '#fff',
     },
 })

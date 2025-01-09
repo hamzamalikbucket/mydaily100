@@ -82,7 +82,7 @@ const SignIn = () => {
                 setisLoading(true)
                 setTimeout(() => {
                     setisLoading(false);
-                    navigation.navigate('YourGoals')
+                    navigation.navigate('MyDrawer')
                 }, 2000);
             }} />
 

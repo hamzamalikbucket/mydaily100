@@ -50,7 +50,9 @@ const MyTeam = () => {
                 keyExtractor={(item) => item.id}
                 numColumns={2}
             />
+            <View style={{marginTop: 25}}> 
             <ReusableButton text="Next" onPress={() => navigation.navigate('DateTime')} />
+            </View>
             </ScrollView>
         </SafeAreaView>
     )
@@ -72,7 +74,8 @@ const styles = StyleSheet.create({
         padding: 50,
     },
     coachContainer: {
-        padding: 10,
+        padding: 20,
+        height: 170,
         top: 10,
         marginBottom: 10,
         alignItems: 'center',

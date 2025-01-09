@@ -18,7 +18,7 @@ const PaymentDetails = () => {
                 <View style={styles.header}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', top: 15 }}>
                         <Icon name="chevron-left" size={26} color="gray" />
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={()=>navigation.goBack()}>
                             <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
                         </TouchableOpacity>
                     </View>
@@ -47,7 +47,7 @@ const PaymentDetails = () => {
                         <TextInput
                             style={styles.input1}
                             placeholder="123"
-                            placeholderTextColor="#aaa"
+                            placeholderTextColor="lightgray"
                         />
                     </View>
                 </View>
@@ -58,8 +58,9 @@ const PaymentDetails = () => {
                         tintColors={{ true: '#D11A38', false: '#878787' }}
 
                     />
-                    <Text style={{ fontSize: 15, fontWeight: '300', color: 'gray' }}>Save card details</Text>
+                    <Text style={{ fontSize: 15, fontWeight: '400', color: 'gray' }}>Save card details</Text>
                 </View>
+                <Text style={{position: 'absolute', bottom: 50, fontSize: 24, fontWeight: '400', left: 22}}>Total</Text>
                 <View style={styles.footer}>
                     <Text style={styles.text2}>$26</Text>
                     <TouchableOpacity style={styles.button} onPress={() => {
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         marginLeft: 10,
         color: 'gray',
-        fontWeight: '500',
+        fontWeight: '700',
     },
     textbtn: {
         color: '#fff',
@@ -156,8 +157,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 20,
-        marginTop: 430,
+        marginHorizontal: 15,
+        marginTop: 470,
     },
     group: {
         top: 80,

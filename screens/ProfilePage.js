@@ -9,15 +9,17 @@ const ProfilePage = () => {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
-                        <Icon name="chevron-left" size={26} color="gray" />
-                        <TouchableOpacity onPress={()=>navigation.goBack()}>
-                            <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
-                        </TouchableOpacity>
-                    </View>
+                <View style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
+                    <Icon name="chevron-left" size={26} color="gray" />
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Text style={{ fontSize: 18, color: 'gray' }}>Back</Text>
+                    </TouchableOpacity>
+                </View>
                 <Text style={styles.title}>Profile Information</Text>
-                <Image source={require('../assets/images/frame38.png')} style={styles.frame38} />
-                <Image source={require('../assets/images/frame39.png')} style={styles.frame39} />
+                <View style={styles.imageFrame}>
+                    <Image source={require('../assets/images/frame38.png')} style={styles.frame38} />
+                    <Image source={require('../assets/images/frame39.png')} style={styles.frame39} />
+                </View>
                 <Text style={styles.label1}>Full Name</Text>
                 <TextInput
                     style={styles.input}
@@ -42,7 +44,10 @@ const ProfilePage = () => {
                     placeholder='great street 01'
                     placeholderTextColor="lightgray"
                 />
-                <ReusableButton text='Add Motivation' onPress={() => navigation.navigate('Motivation')} />
+                <View style={{ marginTop: 28 }}>
+                    <ReusableButton text='Add Motivation' onPress={() => navigation.navigate('Motivation')} />
+
+                </View>
             </ScrollView>
         </SafeAreaView>
     )
@@ -59,38 +64,45 @@ const styles = StyleSheet.create({
         fontSize: 34,
         fontWeight: '500',
     },
+    imageFrame: {
+        height: 150,
+        justifyContent: 'center',
+        position: 'relative',
+    },
     frame38: {
         alignSelf: 'center',
-        top: 10,
+        height: '100%',
+        resizeMode: 'contain',
+        marginTop: 20,
     },
     frame39: {
-        alignSelf: 'center',
         position: 'absolute',
-        marginTop: 155,
+        alignSelf: 'center',
+        resizeMode: 'contain',
     },
     label1: {
         fontSize: 18,
         left: 15,
         color: '#878787',
-        fontWeight: '300',
+        fontWeight: '400',
     },
     label2: {
         fontSize: 18,
         left: 15,
         color: '#878787',
-        fontWeight: '300',
+        fontWeight: '400',
     },
     label3: {
         fontSize: 18,
         left: 15,
         color: '#878787',
-        fontWeight: '300',
+        fontWeight: '400',
     },
     label4: {
         fontSize: 18,
         left: 15,
         color: '#878787',
-        fontWeight: '300',
+        fontWeight: '400',
     },
     input: {
         borderColor: 'lightgray',

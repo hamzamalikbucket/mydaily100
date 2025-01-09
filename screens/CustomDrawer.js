@@ -25,130 +25,83 @@ const CustomDrawer = ({ navigation }) => {
 
                         <Text style={activeIndex === 0 ? styles.activeText : styles.inactiveText}>Your Goals</Text></View>
                 </TouchableOpacity>
-
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 1 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(1);
-                        navigation.navigate('Journal')
+                        navigation.navigate('MyTeam')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="folder" size={22} color={activeIndex === 1 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 1 ? styles.activeText : styles.inactiveText}>Journal</Text></View>
+                        <Icon name="group" size={22} color={activeIndex === 1 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 1 ? styles.activeText : styles.inactiveText}>My Team</Text></View>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 2 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(2);
-                        navigation.navigate('Journal1')
+                        navigation.navigate('Journal')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
                         <Icon name="folder" size={22} color={activeIndex === 2 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 2 ? styles.activeText : styles.inactiveText}>Journal1</Text></View>
+                        <Text style={activeIndex === 2 ? styles.activeText : styles.inactiveText}>Journal</Text></View>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    style={[styles.item, activeIndex === 11 ? styles.activeItem : null]}
-                    onPress={() => {
-                        setActiveIndex(11);
-                        navigation.navigate('Journa2')
-                    }}
-                >
-                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="folder" size={22} color={activeIndex === 11 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 11 ? styles.activeText : styles.inactiveText}>Journal2</Text></View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={[styles.item, activeIndex === 12 ? styles.activeItem : null]}
-                    onPress={() => {
-                        setActiveIndex(12);
-                        navigation.navigate('Journal3')
-                    }}
-                >
-                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="folder" size={22} color={activeIndex === 12 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 12 ? styles.activeText : styles.inactiveText}>Journal3</Text></View>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={[styles.item, activeIndex === 9 ? styles.activeItem : null]}
-                    onPress={() => {
-                        setActiveIndex(9);
-                        navigation.navigate('Library')
-                    }}
-                >
-                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="bookmarks" size={22} color={activeIndex === 9 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 9 ? styles.activeText : styles.inactiveText}>Library</Text></View>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={[styles.item, activeIndex === 10 ? styles.activeItem : null]}
-                    onPress={() => {
-                        setActiveIndex(10);
-                        navigation.navigate('Notification')
-                    }}
-                >
-                    <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="notifications" size={22} color={activeIndex === 10 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 10 ? styles.activeText : styles.inactiveText}>Notifications</Text></View>
-                </TouchableOpacity>
-
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 3 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(3);
-                        navigation.navigate('Profile Page')
+                        navigation.navigate('Library')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="person" size={22} color={activeIndex === 3 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 3 ? styles.activeText : styles.inactiveText}>Profile Page</Text></View>
+                        <Icon name="bookmarks" size={22} color={activeIndex === 3 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 3 ? styles.activeText : styles.inactiveText}>Library</Text></View>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 4 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(4);
-                        navigation.navigate('My Team')
+                        navigation.navigate('Notification')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="group" size={22} color={activeIndex === 4 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 4 ? styles.activeText : styles.inactiveText}>My Team</Text></View>
+                        <Icon name="notifications" size={22} color={activeIndex === 4 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 4 ? styles.activeText : styles.inactiveText}>Notifications</Text></View>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 5 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(5);
-                        navigation.navigate('Terms Conditions')
+                        navigation.navigate('Setting')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="receipt" size={22} color={activeIndex === 5 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 5 ? styles.activeText : styles.inactiveText}>Terms and Conditions</Text></View>
+                        <Icon name="settings" size={22} color={activeIndex === 5 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 5 ? styles.activeText : styles.inactiveText}>Setting</Text></View>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 6 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(6);
-                        navigation.navigate('Privacy Policy')
+                        navigation.navigate('Terms Conditions')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="shield" size={22} color={activeIndex === 6 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 6 ? styles.activeText : styles.inactiveText}>Privacy Policy</Text></View>
+                        <Icon name="receipt" size={22} color={activeIndex === 6 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 6 ? styles.activeText : styles.inactiveText}>Terms and Conditions</Text></View>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 7 ? styles.activeItem : null]}
                     onPress={() => {
                         setActiveIndex(7);
-                        navigation.navigate('Setting')
+                        navigation.navigate('Privacy Policy')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="settings" size={22} color={activeIndex === 7 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 7 ? styles.activeText : styles.inactiveText}>Setting</Text></View>
+                        <Icon name="shield" size={22} color={activeIndex === 7 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 7 ? styles.activeText : styles.inactiveText}>Privacy Policy</Text></View>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={[styles.item, activeIndex === 8 ? styles.activeItem : null]}
@@ -161,18 +114,20 @@ const CustomDrawer = ({ navigation }) => {
                         <Icon name="phone" size={22} color={activeIndex === 8 ? '#D11A38' : 'gray'} />
                         <Text style={activeIndex === 8 ? styles.activeText : styles.inactiveText}>Contact Us/Request Coach</Text></View>
                 </TouchableOpacity>
+
+
                 <TouchableOpacity
-                    style={[styles.item, activeIndex === 13 ? styles.activeItem : null]}
+                    style={[styles.item, activeIndex === 9 ? styles.activeItem : null]}
                     onPress={() => {
-                        setActiveIndex(13);
+                        setActiveIndex(9);
                         navigation.navigate('Personal Goals')
                     }}
                 >
                     <View style={{ flexDirection: 'row', alignItems: 'center', right: 5 }}>
-                        <Icon name="phone" size={22} color={activeIndex === 13 ? '#D11A38' : 'gray'} />
-                        <Text style={activeIndex === 13 ? styles.activeText : styles.inactiveText}>Personal Goals</Text></View>
+                        <Icon name="emoji-events" size={22} color={activeIndex === 9 ? '#D11A38' : 'gray'} />
+                        <Text style={activeIndex === 9 ? styles.activeText : styles.inactiveText}>Personal Goals</Text></View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> navigation.navigate('SignIn')}>
+                <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
                     <Text style={styles.text}>Log Out</Text>
                 </TouchableOpacity>
             </ScrollView>

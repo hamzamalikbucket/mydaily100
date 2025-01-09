@@ -2,7 +2,6 @@ import { Image, ScrollView, StyleSheet, Text, View, FlatList, SafeAreaView, Touc
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import frame66 from '../assets/images/frame66.png';
-// import Icon from 'react-native-vector-icons/MaterialIcons';s
 
 const YourGoals = () => {
 
@@ -83,18 +82,21 @@ const YourGoals = () => {
     ];
     const renderItem = ({ item, section }) => {
         return (
-            <View style={styles.itemContainer}>
-                <Image source={item.image} style={styles.image} />
-                <View style={styles.textContainer}>
-                    <Text style={styles.assessmentName}>{item.name}</Text>
-                    <Text style={styles.todoCount}>{item.todoCount}</Text>
+            <TouchableOpacity>
+                <View style={styles.itemContainer}>
+                    <Image source={item.image} style={styles.image} />
+                    <View style={styles.textContainer}>
+                        <Text style={styles.assessmentName}>{item.name}</Text>
+                        <Text style={styles.todoCount}>{item.todoCount}</Text>
+                    </View>
+                    <TouchableOpacity>
+                        <Text style={styles.viewButton}>
+                            {section === 'completed' ? 'Download' : 'View'}
+                        </Text>
+                    </TouchableOpacity>
                 </View>
-                <TouchableOpacity>
-                    <Text style={styles.viewButton}>
-                        {section === 'completed' ? 'Download' : 'View'}
-                    </Text>
-                </TouchableOpacity>
-            </View>
+            </TouchableOpacity>
+
         );
     };
 
@@ -192,7 +194,7 @@ const styles = StyleSheet.create({
     line1: {
         fontSize: 18,
         fontWeight: '600',
-        color:'#878787',
+        color: '#878787',
         left: 20,
     },
     line2: {

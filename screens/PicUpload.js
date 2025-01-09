@@ -7,10 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 const PicUpload = () => {
     const navigation = useNavigation();
     const [OpenModal, setOpenModal] = useState(false);
-    // const handleNavigation = () => {
-    //     setOpenModal(false);
-    //     navigation.navigate('ContactUs');
-    // };
+    const [seectedId, setSelectedId] = useState(null);
     const data = [
         { id: 1 },
         { id: 2 },
@@ -19,11 +16,11 @@ const PicUpload = () => {
     ];
 
     const renderItem = ({ item }) => (
-        <TouchableOpacity>
-            <View style={styles.list}>
-                <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
-                    <Icon name="file-upload" size={40} color="gray" alignSelf='center' padding={90} />
-                </TouchableOpacity>
+        <TouchableOpacity onPress={() => setSelectedId(item.id)}>
+            <View style={[styles.list,
+            { backgroundColor: seectedId === item.id ? '#ffe4e1' : '#fabbdc' }
+            ]}>
+                <Icon name="file-upload" size={40} color="gray" alignSelf='center' padding={90} />
             </View>
         </TouchableOpacity>
     );
@@ -43,9 +40,11 @@ const PicUpload = () => {
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id.toString()}
                 />
+                <View style={{marginVertical: 25}}>
                 <ReusableButton text='save' onPress={() => {
                     setOpenModal(true);
                 }} />
+                </View>
                 <Modal
                     visible={OpenModal}
                     animationType="slide"
@@ -54,7 +53,7 @@ const PicUpload = () => {
                         <TouchableOpacity style={styles.clossIcon}
                             onPress={() => {
                                 setOpenModal(false);
-                                navigation.navigate("ContactUs")
+                                navigation.navigate("MyDrawer")
                             }} >
                             <Icon name="close" size={30} color="#D11A38" />
                         </TouchableOpacity>
@@ -62,8 +61,7 @@ const PicUpload = () => {
                         <View style={styles.modalContent}>
                             <Image source={require('../assets/images/frame16.png')} />
                             <Text style={styles.maintext1}>Successfully Set up</Text>
-                            <Text style={styles.maintext2}>congratulations your Profile</Text>
-                            <Text style={styles.maintex3}>account was set now</Text>
+                            <Text style={styles.maintext2}>congratulations your Profile{'\n'} account was set now</Text>
                         </View>
                     </View>
                 </Modal>
@@ -119,10 +117,7 @@ const styles = StyleSheet.create({
     maintext2: {
         fontSize: 15,
         fontWeight: '400',
-    },
-    maintex3: {
-        fontSize: 15,
-        fontWeight: '400',
+        color: 'gray',
     },
 });
 
